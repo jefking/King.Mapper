@@ -9,8 +9,8 @@
     [Flags]
     public enum ActionFlags
     {
-        Execute = 1,
-        Load = 2
+        Execute = 0,
+        Load = 1
     }
     #endregion
 }

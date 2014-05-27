@@ -12,16 +12,6 @@
     {
         #region System.Object
         /// <summary>
-        /// Is the object a valid one
-        /// </summary>
-        /// <param name="obj">the object to validate</param>
-        /// <returns>true if valid, false otherwise</returns>
-        public static bool IsValid(this object obj)
-        {
-            return obj != null && obj != DBNull.Value;
-        }
-
-        /// <summary>
         /// Get Properties
         /// </summary>
         /// <param name="value">Value</param>
@@ -43,19 +33,6 @@
             return (from property in properties
                     where property.CanWrite
                     select property.Name).ToArray();
-        }
-
-        /// <summary>
-        /// Get Attribute
-        /// </summary>
-        /// <param name="value">Value</param>
-        /// <returns>Attribute</returns>
-        public static T GetAttribute<T>(this object value)
-            where T : Attribute
-        {
-            var t = value.GetType();
-            var attributes = t.GetCustomAttributes(false);
-            return attributes.GetAttribute<T>();
         }
 
         /// <summary>
@@ -212,20 +189,6 @@
 
         #region System.Reflection.PropertyInfo
         /// <summary>
-        /// Get Attribute from Property Info
-        /// </summary>
-        /// <typeparam name="T">Attribute</typeparam>
-        /// <param name="value">Value</param>
-        /// <returns>Attribute</returns>
-        public static T GetAttribute<T>(this PropertyInfo value)
-            where T : Attribute
-        {
-            var attributes = value.GetCustomAttributes(false);
-
-            return attributes.GetAttribute<T>();
-        }
-
-        /// <summary>
         /// Get Attribute
         /// </summary>
         /// <typeparam name="T">Attribute Type</typeparam>
@@ -258,30 +221,28 @@
             {
                 throw new ArgumentNullException("owner");
             }
-            else
-            {
-                if (property.CanWrite)
-                {
-                    object ptr = null;
-                    if (DBNull.Value != value && null != value)
-                    {
-                        if (property.PropertyType.BaseType == typeof(Enum))
-                        {
-                            ptr = Enum.ToObject(property.PropertyType, value);
-                        }
-                        else if (value as IConvertible != null)
-                        {
-                            var t = Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType;
-                            ptr = Convert.ChangeType(value, t);
-                        }
-                        else
-                        {
-                            ptr = value;
-                        }
-                    }
 
-                    property.SetValue(owner, ptr, null);
+            if (property.CanWrite)
+            {
+                object ptr = null;
+                if (DBNull.Value != value && null != value)
+                {
+                    if (property.PropertyType.BaseType == typeof(Enum))
+                    {
+                        ptr = Enum.ToObject(property.PropertyType, value);
+                    }
+                    else if (value as IConvertible != null)
+                    {
+                        var t = Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType;
+                        ptr = Convert.ChangeType(value, t);
+                    }
+                    else
+                    {
+                        ptr = value;
+                    }
                 }
+
+                property.SetValue(owner, ptr, null);
             }
         }
         #endregion
