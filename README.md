@@ -1,4 +1,4 @@
-KingMapper
+King Mapper
 ==========
 
 Simple C# object mapping; map between objects with similar properties; or from Data Reader, Data Table and Data Sets.
