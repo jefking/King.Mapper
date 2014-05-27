@@ -51,6 +51,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\FillObject.cs" />
     <Compile Include="Models\MappingTester.cs" />
     <Compile Include="Models\TestActionNames.cs" />
     <Compile Include="Models\TestAttribute.cs" />
