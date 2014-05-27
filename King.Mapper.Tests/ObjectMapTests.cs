@@ -7,10 +7,27 @@
     public class ObjectMapTests
     {
         [TestMethod]
-        public void Map()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void MapFromToFromNull()
         {
-            var data = new object();
-            
+            object obj = null;
+            obj.Map<object>(new Object());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void MapFromToToNull()
+        {
+            var obj = new object();
+            obj.Map<object>(null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void MapFromFromNull()
+        {
+            object obj = null;
+            obj.Map<object>();
         }
     }
 }
