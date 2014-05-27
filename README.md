@@ -11,3 +11,15 @@ Example
 
 var a = new ObjectA();
 var b = a.Map<ObjectB>();
+
+IDataReader x = null;
+object obj = x.LoadObject<object>();
+IEnumerable<object> list = x.LoadObjects<object>();
+
+DataTable x = null;
+object obj = x.LoadObject<object>();
+IEnumerable<object> list = x.LoadObjects<object>();
+
+DataSet x = null;
+object obj = x.LoadObject<object>();
+IEnumerable<object> list = x.LoadObjects<object>();
