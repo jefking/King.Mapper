@@ -52,6 +52,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Models\MappingTester.cs" />
+    <Compile Include="Models\TestActionNames.cs" />
+    <Compile Include="Models\TestAttribute.cs" />
     <Compile Include="ObjectArrayTests.cs" />
     <Compile Include="ObjectMapTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

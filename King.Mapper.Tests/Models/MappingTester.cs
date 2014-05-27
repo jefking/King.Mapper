@@ -1,8 +1,8 @@
-﻿using System;
-
-namespace King.Mapper.Tests.Models
+﻿namespace King.Mapper.Tests.Models
 {
-    class MappingTester
+    using System;
+
+    public class MappingTester
     {
         public Guid Temp
         {
