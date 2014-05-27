@@ -1,9 +1,9 @@
 ﻿namespace King.Mapper.Tests
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using King.Mapper;
     using King.Mapper.Tests.Models;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class ActionNameAttributeTests

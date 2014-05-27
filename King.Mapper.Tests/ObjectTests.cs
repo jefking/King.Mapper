@@ -8,6 +8,29 @@
     [TestClass]
     public class ObjectTests
     {
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void FillObjectNull()
+        {
+            object obj = null;
+            obj.Fill(new string[0], new object[0]);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ValueMappingObjectNull()
+        {
+            object obj = null;
+            obj.ValueMapping(new string[0]);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetPropertiesObjectNull()
+        {
+            object obj = null;
+            obj.GetProperties();
+        }
 
         [TestMethod]
         public void ObjectParameter()

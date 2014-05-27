@@ -18,6 +18,11 @@
         /// <returns>Property Info</returns>
         public static PropertyInfo[] GetProperties(this object value)
         {
+            if (null == value)
+            {
+                throw new ArgumentNullException("value");
+            }
+
             var t = value.GetType();
             return t.GetProperties();
         }
@@ -44,6 +49,11 @@
         /// <returns>Mapped Parameters to Values</returns>
         public static IDictionary<string, object> ValueMapping(this object value, string[] parameters, ActionFlags action = ActionFlags.Execute)
         {
+            if (null == value)
+            {
+                throw new ArgumentNullException("value");
+            }
+
             if (null == parameters)
             {
                 throw new ArgumentNullException("parameters");
@@ -86,6 +96,11 @@
         /// <param name="action">Action</param>
         public static void Fill(this object value, string[] columns, object[] values, ActionFlags action = ActionFlags.Load)
         {
+            if (null == value)
+            {
+                throw new ArgumentNullException("value");
+            }
+
             if (null == columns)
             {
                 throw new ArgumentNullException("columns");
@@ -181,6 +196,11 @@
         public static T GetAttribute<T>(this object[] attributes)
             where T : Attribute
         {
+            if (null == attributes)
+            {
+                throw new ArgumentNullException("attributes");
+            }
+
             return (T)(from item in attributes
                        where item.GetType() == typeof(T)
                        select item).FirstOrDefault();
@@ -197,6 +217,11 @@
         public static IEnumerable<T> GetAttributes<T>(this PropertyInfo property)
             where T : Attribute
         {
+            if (null == property)
+            {
+                throw new ArgumentNullException("property");
+            }
+
             var enumeration = new List<T>();
 
             foreach (var obj in property.GetCustomAttributes(false))
@@ -217,6 +242,11 @@
         /// <param name="value">Value</param>
         public static void Set(this PropertyInfo property, object owner, object value = null)
         {
+            if (null == property)
+            {
+                throw new ArgumentNullException("property");
+            }
+
             if (null == owner)
             {
                 throw new ArgumentNullException("owner");
