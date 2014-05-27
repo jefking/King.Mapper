@@ -12,6 +12,6 @@
     <tags>Data Mapping ORM performance fast transformation</tags>
   </metadata>
 	<files>
-		<file src="King.Mapper\bin\Release\*.dll" target="" /> 
+		<file src="King.Mapper\bin\Release\*.dll" target="lib\net40" /> 
 	</files>
 </package>
