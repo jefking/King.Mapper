@@ -4,7 +4,7 @@ King Mapper
 Simple C# object mapping; map between objects with similar properties; or from Data Readers, Data Tables and Data Sets.
 
 ## NuGet
-[DOwnload on NuGet](https://www.nuget.org/packages/King.Mapper)
+[Add via NuGet](https://www.nuget.org/packages/King.Mapper)
 ```
 PM> Install-Package King.Mapper
 ```
