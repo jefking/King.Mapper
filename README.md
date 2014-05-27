@@ -3,6 +3,6 @@ KingMapper
 
 Simple C# object mapping
 
-Nuget Mapper
+Nuget
 
 PM> Install-Package King.Mapper
