@@ -12,6 +12,190 @@
     /// </summary>
     public static class ExtensionMethods
     {
+        #region System.Object
+        /// <summary>
+        /// Is the object a valid one
+        /// </summary>
+        /// <param name="obj">the object to validate</param>
+        /// <returns>true if valid, false otherwise</returns>
+        public static bool IsValid(this object obj)
+        {
+            return obj != null && obj != DBNull.Value;
+        }
+
+        /// <summary>
+        /// Get Properties
+        /// </summary>
+        /// <param name="value">Value</param>
+        /// <returns>Property Info</returns>
+        public static PropertyInfo[] GetProperties(this object value)
+        {
+            var t = value.GetType();
+            return t.GetProperties();
+        }
+
+        /// <summary>
+        /// Parameters
+        /// </summary>
+        /// <param name="value">Value</param>
+        /// <returns>Parameters</returns>
+        public static string[] Parameters(this object value)
+        {
+            var properties = value.GetProperties();
+            return (from property in properties
+                    where property.CanWrite
+                    select property.Name).ToArray();
+        }
+
+        /// <summary>
+        /// Get Attribute
+        /// </summary>
+        /// <param name="value">Value</param>
+        /// <returns>Attribute</returns>
+        public static T GetAttribute<T>(this object value)
+            where T : Attribute
+        {
+            var t = value.GetType();
+            var attributes = t.GetCustomAttributes(false);
+            return attributes.GetAttribute<T>();
+        }
+
+        /// <summary>
+        /// Get Value Mapping of Object and parameters
+        /// </summary>
+        /// <param name="value">Object with Values</param>
+        /// <param name="parameters">Stored Procedure Parameters</param>
+        /// <param name="action">Action</param>
+        /// <returns>Mapped Parameters to Values</returns>
+        public static IDictionary<string, object> ValueMapping(this object value, string[] parameters, ActionFlags action = ActionFlags.Execute)
+        {
+            if (null == parameters)
+            {
+                throw new ArgumentNullException("parameters");
+            }
+
+            var row = new Dictionary<string, object>(parameters.Length);
+            var columnHash = new HashSet<string>(parameters);
+            var properties = value.GetProperties();
+
+            foreach (var property in properties)
+            {
+                foreach (var actionName in property.GetAttributes<ActionNameAttribute>())
+                {
+                    if (null != actionName && actionName.Action == action)
+                    {
+                        var name = actionName.Name.Replace("@", string.Empty);
+                        if (!columnHash.Contains(name) && !row.ContainsKey(name))
+                        {
+                            row.Add(name, property.GetValue(value, null));
+                        }
+                    }
+                }
+
+                if (columnHash.Contains(property.Name))
+                {
+                    row.Add(property.Name, property.GetValue(value, null));
+                }
+            }
+
+            return row;
+        }
+
+        /// <summary>
+        /// Fill Object with values from the data store
+        /// </summary>
+        /// <typeparam name="T">T</typeparam>
+        /// <param name="value">Value</param>
+        /// <param name="columns">Columns</param>
+        /// <param name="values">Values</param>
+        /// <param name="action">Action</param>
+        public static void Fill(this object value, string[] columns, object[] values, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == columns)
+            {
+                throw new ArgumentNullException("columns");
+            }
+
+            if (null == values)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            if (columns.Length != values.Length)
+            {
+                throw new ArgumentException("Columns don't match values.");
+            }
+
+            var properties = value.GetProperties();
+
+            var propertyDictionary = new Dictionary<string, PropertyInfo>(properties.Count());
+            foreach (var property in properties)
+            {
+                propertyDictionary.Add(property.Name, property);
+
+                foreach (var actionName in property.GetAttributes<ActionNameAttribute>())
+                {
+                    if (null != actionName && actionName.Action == action && !propertyDictionary.ContainsKey(actionName.Name))
+                    {
+                        propertyDictionary.Add(actionName.Name, property);
+                    }
+                }
+            }
+
+            for (int i = 0; i < columns.Length; i++)
+            {
+                if (propertyDictionary.ContainsKey(columns[i]))
+                {
+                    var property = propertyDictionary[columns[i]];
+                    if (null != property)
+                    {
+                        property.Set(value, values[i]);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Map properties from one object to another
+        /// </summary>
+        /// <typeparam name="T">Type of Secondary Object</typeparam>
+        /// <param name="from">From</param>
+        /// <param name="to">To</param>
+        /// <returns>Object</returns>
+        public static T Map<T>(this object from, T to)
+        {
+            if (null == from)
+            {
+                throw new ArgumentNullException("from");
+            }
+
+            if (null == to)
+            {
+                throw new ArgumentNullException("to");
+            }
+
+            var properties = from.ValueMapping(from.Parameters());
+            to.Fill(properties.Keys.ToArray(), properties.Values.ToArray());
+            return to;
+        }
+
+        /// <summary>
+        /// Map properties from one object to another
+        /// </summary>
+        /// <typeparam name="T">Type of Secondary Object</typeparam>
+        /// <param name="from">From</param>
+        /// <returns>Object</returns>
+        public static T Map<T>(this object from)
+        {
+            if (null == from)
+            {
+                throw new ArgumentNullException("from");
+            }
+
+            return from.Map<T>(Activator.CreateInstance<T>());
+        }
+        #endregion
+
         #region System.Object[]
         /// <summary>
         /// Get Attribute

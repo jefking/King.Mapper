@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper", "King.Mapper.csproj", "{EAE14E94-31EA-49CC-96A8-8321748D8F59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.Tests", "..\King.Mapper.Tests\King.Mapper.Tests.csproj", "{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EAE14E94-31EA-49CC-96A8-8321748D8F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAE14E94-31EA-49CC-96A8-8321748D8F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAE14E94-31EA-49CC-96A8-8321748D8F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
