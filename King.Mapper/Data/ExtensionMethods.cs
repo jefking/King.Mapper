@@ -208,5 +208,35 @@
             return cols;
         }
         #endregion
+
+        #region System.Data.IDataReader
+        public static T LoadObject<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
+        {
+            var columns = reader.GetSchemaTable().Columns.ToArray();
+            return reader.LoadObject<T>(columns, action);
+        }
+
+        public static T LoadObject<T>(this IDataReader reader, string[] columns, ActionFlags action = ActionFlags.Load)
+        {
+            var obj = Activator.CreateInstance<T>();
+            var values = new object[columns.Length];
+            reader.GetValues(values);
+
+            obj.Fill(columns, values, action);
+
+            return obj;
+        }
+        public static IList<T> LoadObjects<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
+           where T : new()
+        {
+            var values = new List<T>();
+            while (reader.Read())
+            {
+                values.Add(reader.LoadObject<T>(action));
+            }
+
+            return values;
+        }
+        #endregion
     }
 }
