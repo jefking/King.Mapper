@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>King.Mapper</id>
+    <version>1.0</version>
+    <authors>Jef King</authors>
+    <owners>Jef King</owners>
+    <licenseUrl>https://github.com/jefkingabc/KingMapper</licenseUrl>
+    <projectUrl>https://github.com/jefkingabc/KingMapper</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET high perforamnce object mapper.</description>
+    <tags>Data Mapping ORM performance fast transformation</tags>
+  </metadata>
+	<files>
+		<file src="King.Mapper\bin\Release\*.dll" target="" /> 
+	</files>
+</package>
