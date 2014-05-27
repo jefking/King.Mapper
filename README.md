@@ -3,30 +3,30 @@ KingMapper
 
 Simple C# object mapping
 
-# Nuget
+## Nuget
 https://www.nuget.org/packages/King.Mapper
 ```
 PM> Install-Package King.Mapper
 ```
-# Examples
-## Object Mapping
+## Examples
+### Object Mapping
 ```
 var a = new ObjectA();
 var b = a.Map<ObjectB>();
 ```
-## Data Reader
+### Data Reader
 ```
 IDataReader x = null;
 object obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
-## Data Table
+### Data Table
 ```
 DataTable x = null;
 object obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
-## Data Set
+### Data Set
 ```
 DataSet x = null;
 object obj = x.LoadObject<object>();
