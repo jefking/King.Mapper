@@ -5,8 +5,8 @@
     <version>1.3</version>
     <authors>Jef King</authors>
     <owners>Jef King</owners>
-    <licenseUrl>https://github.com/jefkingabc/KingMapper</licenseUrl>
-    <projectUrl>https://github.com/jefkingabc/KingMapper</projectUrl>
+    <licenseUrl>https://github.com/jefkingabc/King.Mapper</licenseUrl>
+    <projectUrl>https://github.com/jefkingabc/King.Mapper</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.NET high perforamnce object mapper.</description>
     <tags>Data Mapping ORM performance fast transformation</tags>
