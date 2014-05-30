@@ -39,7 +39,7 @@ Jef King has worked in the software industry for fourteen years. Over this time 
 
 ## Contributing
 
-Contributions are always welcome. If you have find any issues, please report them to the [Github Issues Tracker](https://github.com/jefkingabc/KingMapper/issues?sort=created&direction=desc&state=open).
+Contributions are always welcome. If you have find any issues, please report them to the [Github Issues Tracker](https://github.com/jefkingabc/King.Mapper/issues?sort=created&direction=desc&state=open).
 
 ## Apache 2.0 Licence
 
