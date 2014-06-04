@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("King.Mapper.Tests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("King Object Mapper Tests")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("King.Mapper.Tests")]

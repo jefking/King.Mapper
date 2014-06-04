@@ -1,8 +1,8 @@
 ﻿namespace King.Mapper.Tests
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using King.Mapper.Tests.Models;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
 
     [TestClass]
     public class ObjectMapTests
@@ -56,6 +56,7 @@
             };
 
             var data = item.Map<MappingTester>();
+
             Assert.IsNotNull(data);
             Assert.AreEqual<Guid>(item.Temp, data.Temp);
         }

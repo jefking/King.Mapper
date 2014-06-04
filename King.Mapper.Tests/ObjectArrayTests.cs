@@ -13,5 +13,16 @@
             object[] attrs = null;
             attrs.GetAttribute<ActionNameAttribute>();
         }
+
+        [TestMethod]
+        public void GetAttribute()
+        {
+            var attrs = new Attribute[]{new ActionNameAttribute(ActionFlags.Execute, "test"), new ActionNameAttribute(ActionFlags.Load, "fail")};
+            var attr = attrs.GetAttribute<ActionNameAttribute>();
+
+            Assert.IsNotNull(attr);
+            Assert.AreEqual<ActionFlags>(ActionFlags.Execute, attr.Action);
+            Assert.AreEqual<string>("test", attr.Name);
+        }
     }
 }

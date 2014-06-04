@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("King.Mapper")]
-[assembly: AssemblyDescription("Object Mapper")]
+[assembly: AssemblyDescription("King Object Mapper")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("King.Mapper")]
