@@ -56,6 +56,10 @@
   <ItemGroup>
     <Compile Include="Data\ObjectTests.cs" />
     <Compile Include="Data\IDataReaderTests.cs" />
+    <Compile Include="Data\DataColumnCollectionTests.cs" />
+    <Compile Include="Data\DataTableTests.cs" />
+    <Compile Include="Data\DataSetTests.cs" />
+    <Compile Include="Data\IDataRecordTests.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\FillObject.cs" />
     <Compile Include="Models\MappingTester.cs" />

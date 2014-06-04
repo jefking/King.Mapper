@@ -72,6 +72,11 @@
         public static T LoadObject<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
+            if (null == ds)
+            {
+                throw new ArgumentNullException("ds");
+            }
+
             var value = default(T);
 
             if (ds.Tables.Count > 0)
@@ -92,6 +97,11 @@
         public static IList<T> LoadObjects<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
+            if (null == ds)
+            {
+                throw new ArgumentNullException("ds");
+            }
+
             var values = new List<T>();
             foreach (DataTable table in ds.Tables)
             {
@@ -113,6 +123,11 @@
         public static T LoadObject<T>(this DataTable table, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
+            if (null == table)
+            {
+                throw new ArgumentNullException("table");
+            }
+
             var type = typeof(T);
             T value = Activator.CreateInstance<T>();
             Type createType;
@@ -162,6 +177,11 @@
         public static IList<T> LoadObjects<T>(this DataTable table, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
+            if (null == table)
+            {
+                throw new ArgumentNullException("table");
+            }
+
             return table.LoadObject<List<T>>(action);
         }
         #endregion
@@ -174,6 +194,11 @@
         /// <returns>Column Name Array</returns>
         public static string[] ToArray(this DataColumnCollection columns)
         {
+            if (null == columns)
+            {
+                throw new ArgumentNullException("columns");
+            }
+
             var cols = new string[columns.Count];
             for (var i = 0; i < cols.Length; i++)
             {
@@ -191,10 +216,10 @@
             {
                 throw new ArgumentNullException("reader");
             }
+            
+            var obj = Activator.CreateInstance<T>();
 
             var columns = reader.GetSchemaTable().Columns.ToArray();
-
-            var obj = Activator.CreateInstance<T>();
             var values = new object[columns.Length];
             reader.GetValues(values);
 
