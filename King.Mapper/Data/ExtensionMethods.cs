@@ -20,28 +20,6 @@
         }
         #endregion
 
-        #region IDataReader
-        public static T Map<T>(this IDataReader reader)
-        {
-            var obj = default(T);
-            if (0 < reader.FieldCount)
-            {
-                return obj;
-            }
-
-            return obj;
-        }
-
-        public static IDictionary<string, object> ValueMapping(this IDataReader reader)
-        {
-            var dictionary = new Dictionary<string, object>();
-
-            var table = reader.GetSchemaTable();
-
-            return dictionary;
-        }
-        #endregion
-
         #region System.Data.IDataRecord
         /// <summary>
         /// Get Value
@@ -94,17 +72,14 @@
         public static T LoadObject<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
-            var loadObjectsMethodName = "LoadObjects";
-            var parentValue = default(T);
+            var value = default(T);
 
             if (ds.Tables.Count > 0)
             {
-                // Load parent object(s)
-                parentValue = ds.Tables[0].LoadObject<T>(action);
-
+                value = ds.Tables[0].LoadObject<T>(action);
             }
 
-            return parentValue;
+            return value;
         }
 
         /// <summary>
@@ -212,12 +187,13 @@
         #region System.Data.IDataReader
         public static T LoadObject<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
-            var columns = reader.GetSchemaTable().Columns.ToArray();
-            return reader.LoadObject<T>(columns, action);
-        }
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
 
-        public static T LoadObject<T>(this IDataReader reader, string[] columns, ActionFlags action = ActionFlags.Load)
-        {
+            var columns = reader.GetSchemaTable().Columns.ToArray();
+
             var obj = Activator.CreateInstance<T>();
             var values = new object[columns.Length];
             reader.GetValues(values);
@@ -226,9 +202,15 @@
 
             return obj;
         }
+        
         public static IList<T> LoadObjects<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
            where T : new()
         {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
             var values = new List<T>();
             while (reader.Read())
             {
