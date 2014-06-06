@@ -1,6 +1,7 @@
 ﻿namespace King.Mapper.Data
 {
     using System;
+    using System.Linq;
     using System.Collections;
     using System.Collections.Generic;
     using System.Data;
@@ -226,13 +227,34 @@
             
             var obj = Activator.CreateInstance<T>();
 
-            var columns = reader.GetSchemaTable().Columns.ToArray();
+            var columns = reader.GetFieldNames();
             var values = new object[columns.Length];
             reader.GetValues(values);
 
             obj.Fill(columns, values, action);
 
             return obj;
+        }
+
+        /// <summary>
+        /// Get Field Names
+        /// </summary>
+        /// <param name="reader">Reader</param>
+        /// <returns>Field Names</returns>
+        public static string[] GetFieldNames(this IDataReader reader)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            var fields = new string[reader.FieldCount];
+            for (int i = 0; i < fields.Count(); i++)
+            {
+                fields[i] = reader.GetName(i);
+            }
+
+            return fields;
         }
         
         /// <summary>
