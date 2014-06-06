@@ -210,6 +210,13 @@
         #endregion
 
         #region System.Data.IDataReader
+        /// <summary>
+        /// Load Object from IData Reader
+        /// </summary>
+        /// <typeparam name="T">Type to Load</typeparam>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Load Action</param>
+        /// <returns>Object of T</returns>
         public static T LoadObject<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
@@ -228,6 +235,13 @@
             return obj;
         }
         
+        /// <summary>
+        /// Load Objects from IData Reader
+        /// </summary>
+        /// <typeparam name="T">Type to Load</typeparam>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Load Action</param>
+        /// <returns>Objects of T</returns>
         public static IList<T> LoadObjects<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
            where T : new()
         {
