@@ -1,17 +1,18 @@
-<?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-  <metadata>
-    <id>King.Mapper</id>
-    <version>1.4.0</version>
-    <authors>Jef King</authors>
-    <owners>Jef King</owners>
-    <licenseUrl>https://github.com/jefkingabc/King.Mapper</licenseUrl>
-    <projectUrl>https://github.com/jefkingabc/King.Mapper</projectUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>.NET high perforamnce object mapper.</description>
-    <tags>Data Mapping ORM performance fast transformation</tags>
-  </metadata>
-	<files>
-		<file src="King.Mapper\bin\Release\*.dll" target="lib\net40" /> 
-	</files>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>King.Mapper</id>
+        <version>1.4.1</version>
+        <authors>Jef King</authors>
+        <owners>Jef King</owners>
+        <licenseUrl>https://github.com/jefkingabc/King.Mapper</licenseUrl>
+        <projectUrl>https://github.com/jefkingabc/King.Mapper</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>.NET high perforamnce object mapper.</description>
+        <releaseNotes>Major issue with loading data from IDataReader now resolved</releaseNotes>
+        <tags>Data Mapping ORM performance fast transformation</tags>
+    </metadata>
+    <files>
+        <file src="King.Mapper\bin\Release\King.Mapper.dll" target="lib\net40\King.Mapper.dll" />
+    </files>
 </package>
