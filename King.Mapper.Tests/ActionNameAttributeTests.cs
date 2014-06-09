@@ -41,6 +41,13 @@
         }
 
         [TestMethod]
+        public void ActionDefault()
+        {
+            var actionName = new ActionNameAttribute(Guid.NewGuid().ToString());
+            Assert.AreEqual<ActionFlags>(ActionFlags.Load, actionName.Action);
+        }
+
+        [TestMethod]
         public void ValueMappingTestActionNames()
         {
             var random = new Random();

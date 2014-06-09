@@ -3,6 +3,7 @@
     using King.Mapper.Tests.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
+    using System.Linq;
     using System.Text;
 
     [TestClass]
@@ -26,10 +27,36 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
+        public void ValueMappingParametersNull()
+        {
+            var obj = new object();
+            obj.ValueMapping(null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetPropertiesObjectNull()
         {
             object obj = null;
             obj.GetProperties();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ParametersObjectNull()
+        {
+            object obj = null;
+            obj.Parameters();
+        }
+
+        [TestMethod]
+        public void GetPropertiesCount()
+        {
+            var obj = new FillObject();
+            var objProperties = obj.GetProperties();
+
+            var properties = typeof(FillObject).GetProperties();
+            Assert.AreEqual<int>(properties.Count(), objProperties.Count());
         }
 
         [TestMethod]
@@ -95,15 +122,25 @@
             Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["Song"]);
             Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["GuidGuid"]);
         }
-        
+
         [TestMethod]
         public void GetProperties()
         {
-            var proc = new TestAttribute();
-            var prop = proc.GetProperties();
+            var obj = new TestAttribute();
+            var prop = obj.GetProperties();
 
             Assert.AreEqual<int>(1, prop.Length);
             Assert.AreEqual<string>("TestMethod", prop[0].Name);
+        }
+
+        [TestMethod]
+        public void Parameters()
+        {
+            var proc = new TestAttribute();
+            var prop = proc.Parameters();
+
+            Assert.AreEqual<int>(1, prop.Length);
+            Assert.AreEqual<string>("TestMethod", prop[0]);
         }
 
         [TestMethod]
@@ -162,6 +199,56 @@
             Assert.AreEqual<SadLand?>(relType, fillobject.NullableEnum);
             Assert.AreEqual<Guid?>(theGuid, fillobject.TheGuid);
             Assert.AreEqual<Encoding>(e, fillobject.Ecode);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void MapFromToFromNull()
+        {
+            object obj = null;
+            obj.Map<object>(new Object());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void MapFromToToNull()
+        {
+            var obj = new object();
+            obj.Map<object>(null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void MapFromFromNull()
+        {
+            object obj = null;
+            obj.Map<object>();
+        }
+
+        [TestMethod]
+        public void MapFromTo()
+        {
+            var item = new MappingTester()
+            {
+                Temp = Guid.NewGuid(),
+            };
+
+            var data = item.Map<MappingTester>(new MappingTester());
+            Assert.IsNotNull(data);
+            Assert.AreEqual<Guid>(item.Temp, data.Temp);
+        }
+
+        [TestMethod]
+        public void MapFrom()
+        {
+            var item = new MappingTester()
+            {
+                Temp = Guid.NewGuid(),
+            };
+
+            var data = item.Map<MappingTester>();
+            Assert.IsNotNull(data);
+            Assert.AreEqual<Guid>(item.Temp, data.Temp);
         }
     }
 }

@@ -34,8 +34,12 @@
         /// <returns>Parameters</returns>
         public static string[] Parameters(this object value)
         {
-            var properties = value.GetProperties();
-            return (from property in properties
+            if (null == value)
+            {
+                throw new ArgumentNullException("value");
+            }
+
+            return (from property in value.GetProperties()
                     where property.CanWrite
                     select property.Name).ToArray();
         }
