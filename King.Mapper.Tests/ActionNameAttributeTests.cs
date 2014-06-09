@@ -1,9 +1,9 @@
 ﻿namespace King.Mapper.Tests
 {
-    using System;
     using King.Mapper;
     using King.Mapper.Tests.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
 
     [TestClass]
     public class ActionNameAttributeTests
@@ -13,7 +13,7 @@
         [ExpectedException(typeof(ArgumentException))]
         public void ConstructorInvalidName()
         {
-            new ActionNameAttribute(ActionFlags.Load, null);
+            new ActionNameAttribute(null);
         }
         #endregion
 
@@ -21,14 +21,14 @@
         [TestMethod]
         public void Constructor()
         {
-            new ActionNameAttribute(ActionFlags.Execute, Guid.NewGuid().ToString());
+            new ActionNameAttribute(Guid.NewGuid().ToString(), ActionFlags.Execute);
         }
 
         [TestMethod]
         public void Name()
         {
             var data = Guid.NewGuid().ToString();
-            var actionName = new ActionNameAttribute(ActionFlags.Load, data);
+            var actionName = new ActionNameAttribute(data, ActionFlags.Load);
             Assert.AreEqual<string>(data, actionName.Name);
         }
 
@@ -36,7 +36,7 @@
         public void Action()
         {
             var data = ActionFlags.Execute;
-            var actionName = new ActionNameAttribute(data, Guid.NewGuid().ToString());
+            var actionName = new ActionNameAttribute(Guid.NewGuid().ToString(), data);
             Assert.AreEqual<ActionFlags>(data, actionName.Action);
         }
 
@@ -57,7 +57,7 @@
             Assert.AreEqual<string>(getValues.Band, (string)mappings["CheckBandDude"]);
             Assert.AreEqual<int>(getValues.Id, (int)mappings["Id"]);
             Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["Song"]);
-            Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["GraceGuid"]);
+            Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["GuidGuid"]);
         }
         #endregion
     }

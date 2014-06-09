@@ -4,21 +4,21 @@
 
     public class TestActionNames
     {
-        [ActionName(ActionFlags.Execute, "MyIdentifier")]
+        [ActionName("MyIdentifier", ActionFlags.Execute)]
         public int Id
         {
             get;
             set;
         }
 
-        [ActionName(ActionFlags.Load, "CheckBandDude")]
+        [ActionName("CheckBandDude")]
         public string Band
         {
             get;
             set;
         }
 
-        [ActionName(ActionFlags.Load, "GraceGuid")]
+        [ActionName("GuidGuid", ActionFlags.Load)]
         public Guid Song
         {
             get;

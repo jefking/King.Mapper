@@ -17,7 +17,7 @@
         [TestMethod]
         public void GetAttribute()
         {
-            var attrs = new Attribute[]{new ActionNameAttribute(ActionFlags.Execute, "test"), new ActionNameAttribute(ActionFlags.Load, "fail")};
+            var attrs = new Attribute[] { new ActionNameAttribute("test", ActionFlags.Execute), new ActionNameAttribute("fail") };
             var attr = attrs.GetAttribute<ActionNameAttribute>();
 
             Assert.IsNotNull(attr);

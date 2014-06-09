@@ -27,7 +27,7 @@ namespace Integration
 
     public class Yay
     {
-        [ActionName(ActionFlags.Load, "IdHaha")]
+        [ActionName("IdHaha")]
         public Guid Identifier
         {
             get;

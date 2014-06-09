@@ -24,9 +24,9 @@
         /// <summary>
         /// Action Name Attribute constructor
         /// </summary>
-        /// <param name="action">Action</param>
         /// <param name="name">Name</param>
-        public ActionNameAttribute(ActionFlags action, string name)
+        /// <param name="action">Action</param>
+        public ActionNameAttribute(string name, ActionFlags action = ActionFlags.Load)
         {
             if (string.IsNullOrWhiteSpace(name))
             {

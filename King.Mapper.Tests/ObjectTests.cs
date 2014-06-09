@@ -93,7 +93,7 @@
             Assert.AreEqual<string>(getValues.Band, (string)mappings["CheckBandDude"]);
             Assert.AreEqual<int>(getValues.Id, (int)mappings["Id"]);
             Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["Song"]);
-            Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["GraceGuid"]);
+            Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["GuidGuid"]);
         }
         
         [TestMethod]
