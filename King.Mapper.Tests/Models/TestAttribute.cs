@@ -2,7 +2,6 @@
 {
     public class TestAttribute
     {
-        //[DataMapper("Test", DbType.Xml)]
         public string TestMethod
         {
             get;

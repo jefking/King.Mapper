@@ -19,6 +19,7 @@
         }
 
         [ActionName("GuidGuid", ActionFlags.Load)]
+        [ActionName("Insert", ActionFlags.Execute)]
         public Guid Song
         {
             get;
