@@ -1,9 +1,9 @@
 ﻿namespace King.Mapper.Tests.Data
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Data;
     using King.Mapper.Data;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Data;
 
     [TestClass]
     public class IDataReaderTests
@@ -22,6 +22,14 @@
         {
             IDataReader reader = null;
             reader.LoadObjects<object>();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetFieldNamesReaderNull()
+        {
+            IDataReader reader = null;
+            reader.GetFieldNames();
         }
     }
 }
