@@ -11,8 +11,13 @@ PM> Install-Package King.Mapper
 ## Examples
 ### Object Mapping
 ```
-var a = new ObjectA();
+var a = new ObjectA()
+{
+	PropertyA = "The-Value-Of-Property-A"
+};
+
 var b = a.Map<ObjectB>();
+var isTrue = a.PropertyA == b.PropertyA;
 ```
 ### Data Reader
 ```
