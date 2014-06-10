@@ -9,6 +9,11 @@ Simple C# object mapping; map between objects with similar properties; or from D
 PM> Install-Package King.Mapper
 ```
 ## Examples
+### Namespaces
+```
+using King.Mapper;
+using King.Mapper.Data;
+```
 ### Object Mapping
 ```
 var a = new ObjectA()
@@ -18,6 +23,12 @@ var a = new ObjectA()
 
 var b = a.Map<ObjectB>();
 var isTrue = a.PropertyA == b.PropertyA;
+```
+### Data Record
+```
+IDataRecord x = null;
+var firstName = x.Get<string>("FirstName");
+var lastName = x.Get<string>("LastName");
 ```
 ### Data Reader
 ```
@@ -36,12 +47,6 @@ IEnumerable<object> list = x.LoadObjects<object>();
 DataSet x = null;
 var obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
-```
-### Data Record
-```
-IDataRecord x = null;
-var firstName = x.Get<string>("FirstName");
-var lastName = x.Get<string>("LastName");
 ```
 
 ## About the Author
