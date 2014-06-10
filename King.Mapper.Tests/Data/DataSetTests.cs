@@ -1,10 +1,11 @@
 ﻿namespace King.Mapper.Tests.Data
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Data;
     using King.Mapper.Data;
     using King.Mapper.Tests.Models;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Data;
+    using System.Linq;
 
     [TestClass]
     public class DataSetTests
@@ -29,10 +30,26 @@
         public void LoadObjectFromDataSet()
         {
             var dataset = LoadDataSet();
-            var toFill = dataset.LoadObject<FillObject>();
-            Assert.AreEqual<int>(1, toFill.Id);
-            Assert.AreEqual<string>("Breaking Benjamin", toFill.Band);
-            Assert.AreNotEqual<Guid>(Guid.Empty, toFill.Song);
+            var filled = dataset.LoadObject<FillObject>();
+            Assert.AreEqual<int>(1, filled.Id);
+            Assert.AreEqual<string>("Breaking Benjamin", filled.Band);
+            Assert.AreNotEqual<Guid>(Guid.Empty, filled.Song);
+        }
+
+        [TestMethod]
+        public void LoadObjectsFromDataSet()
+        {
+            var dataset = LoadDataSet();
+            var filled = dataset.LoadObjects<FillObject>();
+            foreach (var item in filled)
+            {
+                var exists = (from DataRow d in dataset.Tables[0].Rows
+                              where (int)d["Id"] == item.Id
+                              && (string)d["Band"] == item.Band
+                              && (Guid)d["Song"] == item.Song
+                              select d).FirstOrDefault();
+                Assert.IsNotNull(exists);
+            }
         }
         
         public DataSet LoadDataSet()

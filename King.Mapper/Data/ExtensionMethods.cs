@@ -28,9 +28,9 @@
         /// <typeparam name="T">Type Value</typeparam>
         /// <param name="record">Row</param>
         /// <param name="column">Column</param>
-        /// <param name="defaultValue">Default Value</param>
+        /// <param name="value">Default Value</param>
         /// <returns>Value</returns>
-        public static T Get<T>(this IDataRecord record, string column, T defaultValue = default(T))
+        public static T Get<T>(this IDataRecord record, string column, T value = default(T))
         {
             if (null == record)
             {
@@ -58,7 +58,7 @@
                 Trace.TraceWarning(string.Format("{0}", aex.Message));
             }
 
-            return defaultValue;
+            return value;
         }
         #endregion
 

@@ -1,8 +1,8 @@
 ﻿namespace King.Mapper.Tests.Data
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using King.Mapper.Data;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
     using System.Data;
 
     [TestClass]
