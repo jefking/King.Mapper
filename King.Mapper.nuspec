@@ -8,7 +8,8 @@
         <licenseUrl>https://github.com/jefkingabc/King.Mapper</licenseUrl>
         <projectUrl>https://github.com/jefkingabc/King.Mapper</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>.NET high perforamnce object mapper.</description>
+        <description>.NET high performance object mapper.</description>
+        <summary>Map from data to objects easily.</summary>
         <releaseNotes>Working on Test Cases, and ensuring everything is lined up for growth.</releaseNotes>
         <tags>Data Mapping ORM performance fast transformation</tags>
     </metadata>

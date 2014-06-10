@@ -32,6 +32,12 @@ DataSet x = null;
 object obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
+### Data Record
+```
+IDataRecord x = null;
+var firstName = x.Get<string>("FirstName");
+var lastName = x.Get<string>("LastName");
+```
 
 ## About the Author
 
