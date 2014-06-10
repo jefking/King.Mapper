@@ -22,19 +22,19 @@ var isTrue = a.PropertyA == b.PropertyA;
 ### Data Reader
 ```
 IDataReader x = null;
-object obj = x.LoadObject<object>();
+var obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
 ### Data Table
 ```
 DataTable x = null;
-object obj = x.LoadObject<object>();
+var obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
 ### Data Set
 ```
 DataSet x = null;
-object obj = x.LoadObject<object>();
+var obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
 ### Data Record
