@@ -39,7 +39,7 @@
             
             if (string.IsNullOrWhiteSpace(column))
             {
-                throw new ArgumentOutOfRangeException("column");
+                throw new ArgumentException("column");
             }
             
             try

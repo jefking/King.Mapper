@@ -1,8 +1,9 @@
 ﻿namespace King.Mapper.Tests.Data
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using King.Mapper.Data;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NSubstitute;
+    using System;
     using System.Data;
 
     [TestClass]
@@ -14,6 +15,14 @@
         {
             IDataRecord item = null;
             item.Get<object>("yippy");
+        }
+        
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void GetColumnIvalid()
+        {
+            var item = Substitute.For<IDataRecord>();
+            item.Get<object>(null);
         }
     }
 }
