@@ -1,14 +1,11 @@
 ﻿namespace King.Mapper.Tests.Data
 {
-    using King.Mapper.Data;
-    using King.Mapper.Tests.Models;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using NSubstitute;
     using System;
-    using System.Linq;
     using System.Collections.Generic;
     using System.Data;
-    using System.Text;
+    using King.Mapper.Data;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NSubstitute;
 
     [TestClass]
     public class IDataReaderTests
