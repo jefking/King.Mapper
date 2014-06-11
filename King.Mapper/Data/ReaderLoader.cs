@@ -5,31 +5,50 @@
     using System.Data;
 
     /// <summary>
-    /// Reader Loader
+    /// Loader
     /// </summary>
-    public class ReaderLoader<T> : IReaderLoader<T>
+    public class Loader<T> : ILoader<T>
             where T : new()
     {
-        #region Members
-        private readonly IDataReader reader = null;
-        #endregion
+        #region Methods
+        public IList<T> LoadObjects(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == cmd)
+            {
+                throw new ArgumentNullException("cmd");
+            }
 
-        #region Constructors
-        public ReaderLoader(IDataReader reader)
+            var reader = cmd.ExecuteReader();
+            return reader.LoadObjects<T>(action);
+        }
+        public T LoadObject(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == cmd)
+            {
+                throw new ArgumentNullException("cmd");
+            }
+
+            var reader = cmd.ExecuteReader();
+            return reader.LoadObject<T>(action);
+        }
+
+        public IList<T> LoadObjects(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
             {
                 throw new ArgumentNullException("reader");
             }
 
-            this.reader = reader;
+            return reader.LoadObjects<T>(action);
         }
-        #endregion
-
-        #region Methods
-        public IList<T> LoadObjects(ActionFlags action = ActionFlags.Load)
+        public T LoadObject(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
-            return this.reader.LoadObjects<T>(action);
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            return reader.LoadObject<T>(action);
         }
         #endregion
     }
