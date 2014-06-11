@@ -2,16 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>King.Mapper</id>
-        <version>1.4.2.0</version>
+        <version>1.5.0</version>
+        <title>Data Loading and Mapping made easy.</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
         <licenseUrl>https://github.com/jefkingabc/King.Mapper</licenseUrl>
         <projectUrl>https://github.com/jefkingabc/King.Mapper</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>.NET high performance object mapper.</description>
-        <summary>Map from data to objects easily.</summary>
-        <releaseNotes>Working on Test Cases, and ensuring everything is lined up for growth.</releaseNotes>
-        <tags>Data Mapping ORM performance fast transformation</tags>
+        <summary>Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.
+
+Map between objects, while integrating with data models from various sources.</summary>
+        <releaseNotes>Finished test cases, first major stable release.</releaseNotes>
+        <copyright>Jef King</copyright>
+        <tags>Data Mapping ORM performance fast transformation object model</tags>
     </metadata>
     <files>
         <file src="King.Mapper\bin\Release\King.Mapper.dll" target="lib\net40\King.Mapper.dll" />
