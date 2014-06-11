@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>King.Mapper</id>
-        <version>1.5.0</version>
+        <version>1.5.1</version>
         <title>Data Loading and Mapping made easy.</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
@@ -13,7 +13,7 @@
         <summary>Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.
 
 Map between objects, while integrating with data models from various sources.</summary>
-        <releaseNotes>Finished test cases, first major stable release.</releaseNotes>
+        <releaseNotes>Interfaces for mocking started.</releaseNotes>
         <copyright>Jef King</copyright>
         <tags>Data Mapping ORM performance fast transformation object model</tags>
     </metadata>
