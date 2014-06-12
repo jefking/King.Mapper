@@ -50,6 +50,48 @@
 
             return reader.LoadObject<T>(action);
         }
+
+        #region DataTable
+        public IList<T> LoadObjects(DataTable data, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.LoadObjects<T>(action);
+        }
+        public T LoadObject(DataTable data, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.LoadObject<T>(action);
+        }
+        #endregion
+
+        #region DataSet
+        public IList<T> LoadObjects(DataSet data, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.LoadObjects<T>(action);
+        }
+        public T LoadObject(DataSet data, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.LoadObject<T>(action);
+        }
+        #endregion
         #endregion
     }
 }

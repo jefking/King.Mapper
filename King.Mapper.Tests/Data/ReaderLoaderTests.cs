@@ -51,5 +51,37 @@
             var l = new Loader<object>();
             l.LoadObject((IDataReader)null);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void LoadObjectDataSetNull()
+        {
+            var l = new Loader<object>();
+            l.LoadObject((DataSet)null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void LoadObjectDataTableNull()
+        {
+            var l = new Loader<object>();
+            l.LoadObject((DataTable)null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void LoadObjectsDataSetNull()
+        {
+            var l = new Loader<object>();
+            l.LoadObjects((DataSet)null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void LoadObjectsDataTableNull()
+        {
+            var l = new Loader<object>();
+            l.LoadObjects((DataTable)null);
+        }
     }
 }

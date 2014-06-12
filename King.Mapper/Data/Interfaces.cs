@@ -14,5 +14,15 @@
         IList<T> LoadObjects(IDataReader reader, ActionFlags action = ActionFlags.Load);
         T LoadObject(IDataReader reader, ActionFlags action = ActionFlags.Load);
         #endregion
+
+        #region DataTable
+        IList<T> LoadObjects(DataTable data, ActionFlags action = ActionFlags.Load);
+        T LoadObject(DataTable data, ActionFlags action = ActionFlags.Load);
+        #endregion
+
+        #region DataSet
+        IList<T> LoadObjects(DataSet data, ActionFlags action = ActionFlags.Load);
+        T LoadObject(DataSet data, ActionFlags action = ActionFlags.Load);
+        #endregion
     }
 }
