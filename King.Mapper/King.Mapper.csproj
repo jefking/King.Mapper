@@ -33,17 +33,16 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionNameAttribute.cs" />
     <Compile Include="Data\ExtensionMethods.cs" />
     <Compile Include="Data\Interfaces.cs" />
-    <Compile Include="Data\ReaderLoader.cs" />
+    <Compile Include="Data\Loader.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
