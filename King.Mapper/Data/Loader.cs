@@ -10,7 +10,7 @@
     public class Loader<T> : ILoader<T>
             where T : new()
     {
-        #region Methods
+        #region IDbCommand
         public IList<T> LoadObjects(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {
             if (null == cmd)
@@ -31,7 +31,9 @@
             var reader = cmd.ExecuteReader();
             return reader.LoadObject<T>(action);
         }
+        #endregion
 
+        #region IDataReader
         public IList<T> LoadObjects(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
@@ -50,6 +52,7 @@
 
             return reader.LoadObject<T>(action);
         }
+        #endregion
 
         #region DataTable
         public IList<T> LoadObjects(DataTable data, ActionFlags action = ActionFlags.Load)
@@ -91,7 +94,6 @@
 
             return data.LoadObject<T>(action);
         }
-        #endregion
         #endregion
     }
 }

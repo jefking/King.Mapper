@@ -65,7 +65,7 @@
     <Compile Include="Data\DataTableTests.cs" />
     <Compile Include="Data\DataSetTests.cs" />
     <Compile Include="Data\IDataRecordTests.cs" />
-    <Compile Include="Data\ReaderLoaderTests.cs" />
+    <Compile Include="Data\LoaderTests.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\FillObject.cs" />
     <Compile Include="Models\MappingTester.cs" />
