@@ -3,6 +3,10 @@
     using System.Collections.Generic;
     using System.Data;
 
+    /// <summary>
+    /// Loader interface to enable mocking frameworks for unit testing
+    /// </summary>
+    /// <typeparam name="T">Type</typeparam>
     public interface ILoader<T>
     {
         #region IDbCommand
