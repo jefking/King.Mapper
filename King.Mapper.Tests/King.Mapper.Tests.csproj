@@ -59,6 +59,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Data\DataMapperAttributeTest.cs" />
     <Compile Include="Data\ObjectTests.cs" />
     <Compile Include="Data\IDataReaderTests.cs" />
     <Compile Include="Data\DataColumnCollectionTests.cs" />

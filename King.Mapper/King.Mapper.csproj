@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionNameAttribute.cs" />
+    <Compile Include="Data\DataMapperAttribute.cs" />
     <Compile Include="Data\ExtensionMethods.cs" />
     <Compile Include="Data\Interfaces.cs" />
     <Compile Include="Data\Loader.cs" />
