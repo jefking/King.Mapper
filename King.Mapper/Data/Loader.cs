@@ -19,7 +19,8 @@
             }
 
             var reader = cmd.ExecuteReader();
-            return reader.LoadObjects<T>(action);
+
+            return reader.Read() ? reader.LoadObjects<T>(action) : null;
         }
         public T LoadObject(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {
@@ -29,7 +30,7 @@
             }
 
             var reader = cmd.ExecuteReader();
-            return reader.LoadObject<T>(action);
+            return reader.Read() ? reader.LoadObject<T>(action) : default(T);
         }
         #endregion
 
