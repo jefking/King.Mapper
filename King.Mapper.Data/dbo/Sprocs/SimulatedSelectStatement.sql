@@ -14,6 +14,7 @@
 	, @TestNText ntext = NULL
 	, @TestBinary binary = NULL
 	, @TestImage image = NULL
+	, @TestGuid uniqueidentifier = NULL
 AS
 BEGIN
 
@@ -32,5 +33,6 @@ BEGIN
 		, @TestNText AS 'Text'
 		, @TestBinary AS 'Binary'
 		, @TestImage AS 'Image'
+		, @TestGuid AS 'Unique'
 
 END

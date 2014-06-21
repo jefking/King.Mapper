@@ -87,5 +87,10 @@ using System;
             get;
             set;
         }
+        public Guid TestGuid
+        {
+            get;
+            set;
+        }
     }
 }

@@ -79,5 +79,10 @@
             get;
             set;
         }
+        public Guid Unique
+        {
+            get;
+            set;
+        }
     }
 }
