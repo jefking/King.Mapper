@@ -29,22 +29,4 @@
         T LoadObject(DataSet data, ActionFlags action = ActionFlags.Load);
         #endregion
     }
-
-    #region IStoredProc
-    /// <summary>
-    /// Stored Procedure
-    /// </summary>
-    public interface IStoredProc
-    {
-        #region Properties
-        /// <summary>
-        /// Stored Procedure Name
-        /// </summary>
-        string Name
-        {
-            get;
-        }
-        #endregion
-    }
-    #endregion
 }

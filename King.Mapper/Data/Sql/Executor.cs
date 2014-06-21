@@ -6,15 +6,15 @@
     using System.Data.SqlClient;
 
     /// <summary>
-    /// Stored Procedure
+    /// Stored Procedure Executor
     /// </summary>
-    public class StoredProcedure
+    public class Executor
     {
         #region Members
         /// <summary>
         /// Stored Procedure to Execute
         /// </summary>
-        private readonly IStoredProc sproc = null;
+        private readonly IStoredProcedure sproc = null;
 
         /// <summary>
         /// SQL Connection
@@ -28,7 +28,7 @@
         /// </summary>
         /// <param name="connection">SQL Connection</param>
         /// <param name="sproc">Stored Procedure</param>
-        public StoredProcedure(SqlConnection connection, IStoredProc sproc)
+        public Executor(SqlConnection connection, IStoredProcedure sproc)
         {
             if (null == connection)
             {
@@ -69,7 +69,7 @@
         /// </summary>
         /// <param name="proc">Procedure To Execute</param>
         /// <returns>rows affected</returns>
-        public int ExecuteNonQuery()
+        public int NonQuery()
         {
             var rowsAffected = 0;
             using (var command = this.BuildCommand())

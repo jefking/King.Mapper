@@ -6,8 +6,8 @@
         <title>Data Loading and Mapping made easy.</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
-        <licenseUrl>https://github.com/jefkingabc/King.Mapper</licenseUrl>
-        <projectUrl>https://github.com/jefkingabc/King.Mapper</projectUrl>
+        <licenseUrl>https://github.com/jefking/King.Mapper</licenseUrl>
+        <projectUrl>https://github.com/jefking/King.Mapper</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>.NET high performance object mapper.</description>
         <summary>Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.

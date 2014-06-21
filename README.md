@@ -50,7 +50,7 @@ IEnumerable<object> list = x.LoadObjects<object>();
 ```
 ## Contributing
 
-Contributions are always welcome. If you have find any issues, please report them to the [Github Issues Tracker](https://github.com/jefkingabc/King.Mapper/issues?sort=created&direction=desc&state=open).
+Contributions are always welcome. If you have find any issues, please report them to the [Github Issues Tracker](https://github.com/jefking/King.Mapper/issues?sort=created&direction=desc&state=open).
 
 ## About the Author
 
