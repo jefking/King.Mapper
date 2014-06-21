@@ -250,5 +250,13 @@
             Assert.IsNotNull(data);
             Assert.AreEqual<Guid>(item.Temp, data.Temp);
         }
+
+        [TestMethod]
+        public void GetAttributeNull()
+        {
+            var test = new TestAttribute();
+            var attribute = test.GetAttribute<ActionNameAttribute>();
+            Assert.IsNull(attribute);
+        }
     }
 }

@@ -188,6 +188,19 @@
 
             return from.Map<T>(Activator.CreateInstance<T>());
         }
+
+        /// <summary>
+        /// Get Attribute
+        /// </summary>
+        /// <param name="value">Value</param>
+        /// <returns>Attribute</returns>
+        public static T GetAttribute<T>(this object value)
+            where T : Attribute
+        {
+            var t = value.GetType();
+            var attributes = t.GetCustomAttributes(false);
+            return attributes.GetAttribute<T>();
+        }
         #endregion
 
         #region System.Object[]

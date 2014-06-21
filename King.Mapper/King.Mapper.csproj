@@ -41,6 +41,7 @@
     <Compile Include="Data\ExtensionMethods.cs" />
     <Compile Include="Data\Interfaces.cs" />
     <Compile Include="Data\Loader.cs" />
+    <Compile Include="Data\Sql\StoredProcedure.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
