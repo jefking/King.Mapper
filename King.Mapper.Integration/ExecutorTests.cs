@@ -34,28 +34,8 @@
         [TestMethod]
         public async void Select()
         {
-            var random = new Random();
             var con = new SqlConnection(connectionString);
-            var sproc = new SimulatedSelectStatement()
-            {
-                TestInt = random.Next(),
-                TestBigInt = random.Next(),
-                TestBit = true,
-                TestChar = 'x',
-                TestDate = DateTime.UtcNow,
-                TestDateTime = DateTime.UtcNow,
-                TestDateTime2 = DateTime.UtcNow,
-                TestDecimal = Convert.ToDecimal(random.NextDouble()),
-                TestFloat = Convert.ToSingle(random.NextDouble()),
-                TestMoney = Convert.ToDecimal(random.NextDouble()),
-                TestNChar = 'y',
-                TestNText = Guid.NewGuid().ToString(),
-                TestText = Guid.NewGuid().ToString(),
-                TestGuid = Guid.NewGuid(),
-            };
-
-            random.NextBytes(sproc.TestBinary);
-            random.NextBytes(sproc.TestImage);
+            var sproc = SimulatedSelectStatement.Create();
 
             var executor = new Executor(con);
             var data = await executor.Execute(sproc);

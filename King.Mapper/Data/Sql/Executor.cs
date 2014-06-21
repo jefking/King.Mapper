@@ -1,6 +1,5 @@
 ﻿namespace King.Mapper.Data.Sql
 {
-    using King.Mapper;
     using System;
     using System.Data;
     using System.Data.SqlClient;
