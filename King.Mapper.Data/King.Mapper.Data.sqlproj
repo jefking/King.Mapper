@@ -60,7 +60,10 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="dbo" />
-    <Folder Include="dbo\Tables" />
     <Folder Include="dbo\Sprocs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Sprocs\SimulatedInsertStatement.sql" />
+    <Build Include="dbo\Sprocs\SimulatedSelectStatement.sql" />
   </ItemGroup>
 </Project>

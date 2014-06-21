@@ -1,7 +1,6 @@
 ﻿namespace King.Mapper.Data.Sql
 {
     using System.Data;
-    using System.Data.SqlClient;
     using System.Threading.Tasks;
 
     #region IStoredProcedure
