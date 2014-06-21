@@ -20,7 +20,7 @@
 
             var reader = cmd.ExecuteReader();
 
-            return reader.Read() ? reader.LoadObjects<T>(action) : null;
+            return reader.LoadObjects<T>(action);
         }
         public T LoadObject(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {

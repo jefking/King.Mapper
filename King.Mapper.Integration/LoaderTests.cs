@@ -54,6 +54,30 @@
         }
 
         [TestMethod]
+        public async Task ReaderLoadObjects()
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                var sproc = new SelectMultipleStatement();
+
+                var cmd = sproc.Build(con);
+                await con.OpenAsync();
+
+                var reader = await cmd.ExecuteReaderAsync();
+
+                var loader = new Loader<SelectData>();
+                var objs = loader.LoadObjects(reader);
+
+                Assert.IsNotNull(objs);
+
+                for (var i = 0; i <= 5; i++)
+                {
+                    Assert.AreEqual<int>(i, objs[i].Identifier);
+                }
+            }
+        }
+
+        [TestMethod]
         public async Task IDbCommandLoadObject()
         {
             using (var con = new SqlConnection(connectionString))
@@ -83,6 +107,29 @@
                 CollectionAssert.AreEqual(sproc.TestBinary, obj.Binary);
                 CollectionAssert.AreEqual(sproc.TestImage, obj.Image);
                 Assert.AreEqual<Guid>(sproc.TestGuid, obj.Unique);
+            }
+        }
+
+        [TestMethod]
+        public async Task IDbCommandLoadObjects()
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                var sproc = new SelectMultipleStatement();
+
+                var cmd = sproc.Build(con);
+
+                var loader = new Loader<SelectData>();
+                await con.OpenAsync();
+
+                var objs = loader.LoadObjects(cmd);
+
+                Assert.IsNotNull(objs);
+
+                for (var i = 0; i <= 5; i++)
+                {
+                    Assert.AreEqual<int>(i, objs[i].Identifier);
+                }
             }
         }
 
@@ -124,6 +171,33 @@
         }
 
         [TestMethod]
+        public async Task DataTableLoadObjects()
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                var sproc = new SelectMultipleStatement();
+
+                var cmd = sproc.Build(con);
+
+                var loader = new Loader<SelectData>();
+                await con.OpenAsync();
+                var adapter = new SqlDataAdapter(cmd);
+
+                var ds = new DataSet();
+                adapter.Fill(ds);
+                var table = ds.Tables[0];
+                var objs = loader.LoadObjects(table);
+
+                Assert.IsNotNull(objs);
+
+                for (var i = 0; i <= 5; i++)
+                {
+                    Assert.AreEqual<int>(i, objs[i].Identifier);
+                }
+            }
+        }
+
+        [TestMethod]
         public async Task DataSetLoadObject()
         {
             using (var con = new SqlConnection(connectionString))
@@ -156,6 +230,32 @@
                 CollectionAssert.AreEqual(sproc.TestBinary, obj.Binary);
                 CollectionAssert.AreEqual(sproc.TestImage, obj.Image);
                 Assert.AreEqual<Guid>(sproc.TestGuid, obj.Unique);
+            }
+        }
+
+        [TestMethod]
+        public async Task DataSetLoadObjects()
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                var sproc = new SelectMultipleStatement();
+
+                var cmd = sproc.Build(con);
+
+                var loader = new Loader<SelectData>();
+                await con.OpenAsync();
+                var adapter = new SqlDataAdapter(cmd);
+
+                var ds = new DataSet();
+                adapter.Fill(ds);
+                var objs = loader.LoadObjects(ds);
+
+                Assert.IsNotNull(objs);
+
+                for (var i = 0; i <= 5; i++)
+                {
+                    Assert.AreEqual<int>(i, objs[i].Identifier);
+                }
             }
         }
     }

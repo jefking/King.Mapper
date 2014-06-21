@@ -57,6 +57,7 @@
     <Compile Include="ExecutorTests.cs" />
     <Compile Include="LoaderTests.cs" />
     <Compile Include="Model\SelectData.cs" />
+    <Compile Include="Model\SelectMultipleStatement.cs" />
     <Compile Include="Model\SimulatedInsertStatement.cs" />
     <Compile Include="Model\SimulatedSelectStatement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
