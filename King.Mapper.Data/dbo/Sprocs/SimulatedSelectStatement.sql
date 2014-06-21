@@ -2,7 +2,7 @@
 	@TestInt int = NULL
 	, @TestBigInt bigint = NULL
 	, @TestBit bit = NULL
-	, @TestDecimal decimal = NULL
+	, @TestDecimal decimal(16,16) = NULL
 	, @TestMoney money = NULL
 	, @TestFloat float = NULL
 	, @TestDate date = NULL
@@ -12,7 +12,7 @@
 	, @TestText text = NULL
 	, @TestNChar nchar = NULL
 	, @TestNText ntext = NULL
-	, @TestBinary binary = NULL
+	, @TestBinary binary(64) = NULL
 	, @TestImage image = NULL
 	, @TestGuid uniqueidentifier = NULL
 AS
@@ -30,7 +30,7 @@ BEGIN
 		, @TestChar AS 'Char'
 		, @TestText AS 'Text'
 		, @TestNChar AS 'NChar'
-		, @TestNText AS 'Text'
+		, @TestNText AS 'NText'
 		, @TestBinary AS 'Binary'
 		, @TestImage AS 'Image'
 		, @TestGuid AS 'Unique'

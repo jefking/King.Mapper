@@ -39,16 +39,16 @@
                 Assert.AreEqual<long>(sproc.TestBigInt, obj.BigInt);
                 Assert.AreEqual<bool>(sproc.TestBit, obj.Bit);
                 Assert.AreEqual<DateTime>(sproc.TestDate.Date, obj.Date.Date);
-                Assert.AreEqual<DateTime>(sproc.TestDateTime, obj.DateTime);
-                Assert.AreEqual<DateTime>(sproc.TestDateTime2, obj.DateTime2);
+                Assert.AreEqual<DateTime>(sproc.TestDateTime.Date, obj.DateTime.Date);
+                Assert.AreEqual<DateTime>(sproc.TestDateTime2.Date, obj.DateTime2.Date);
                 Assert.AreEqual<decimal>(sproc.TestDecimal, obj.Decimal);
                 Assert.AreEqual<float>(sproc.TestFloat, obj.Float);
-                Assert.AreEqual<decimal>(sproc.TestMoney, obj.Money);
+                Assert.AreEqual<decimal>(Math.Round(sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual<char>(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual<string>(sproc.TestNText, obj.NText);
                 Assert.AreEqual<string>(sproc.TestText, obj.Text);
-                Assert.AreEqual<byte[]>(sproc.TestBinary, obj.Binary);
-                Assert.AreEqual<byte[]>(sproc.TestImage, obj.Image);
+                CollectionAssert.AreEqual(sproc.TestBinary, obj.Binary);
+                CollectionAssert.AreEqual(sproc.TestImage, obj.Image);
                 Assert.AreEqual<Guid>(sproc.TestGuid, obj.Unique);
             }
         }
@@ -72,16 +72,16 @@
                 Assert.AreEqual<long>(sproc.TestBigInt, obj.BigInt);
                 Assert.AreEqual<bool>(sproc.TestBit, obj.Bit);
                 Assert.AreEqual<DateTime>(sproc.TestDate.Date, obj.Date.Date);
-                Assert.AreEqual<DateTime>(sproc.TestDateTime, obj.DateTime);
-                Assert.AreEqual<DateTime>(sproc.TestDateTime2, obj.DateTime2);
+                Assert.AreEqual<DateTime>(sproc.TestDateTime.Date, obj.DateTime.Date);
+                Assert.AreEqual<DateTime>(sproc.TestDateTime2.Date, obj.DateTime2.Date);
                 Assert.AreEqual<decimal>(sproc.TestDecimal, obj.Decimal);
                 Assert.AreEqual<float>(sproc.TestFloat, obj.Float);
-                Assert.AreEqual<decimal>(sproc.TestMoney, obj.Money);
+                Assert.AreEqual<decimal>(Math.Round(sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual<char>(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual<string>(sproc.TestNText, obj.NText);
                 Assert.AreEqual<string>(sproc.TestText, obj.Text);
-                Assert.AreEqual<byte[]>(sproc.TestBinary, obj.Binary);
-                Assert.AreEqual<byte[]>(sproc.TestImage, obj.Image);
+                CollectionAssert.AreEqual(sproc.TestBinary, obj.Binary);
+                CollectionAssert.AreEqual(sproc.TestImage, obj.Image);
                 Assert.AreEqual<Guid>(sproc.TestGuid, obj.Unique);
             }
         }
@@ -109,16 +109,16 @@
                 Assert.AreEqual<long>(sproc.TestBigInt, obj.BigInt);
                 Assert.AreEqual<bool>(sproc.TestBit, obj.Bit);
                 Assert.AreEqual<DateTime>(sproc.TestDate.Date, obj.Date.Date);
-                Assert.AreEqual<DateTime>(sproc.TestDateTime, obj.DateTime);
-                Assert.AreEqual<DateTime>(sproc.TestDateTime2, obj.DateTime2);
+                Assert.AreEqual<DateTime>(sproc.TestDateTime.Date, obj.DateTime.Date);
+                Assert.AreEqual<DateTime>(sproc.TestDateTime2.Date, obj.DateTime2.Date);
                 Assert.AreEqual<decimal>(sproc.TestDecimal, obj.Decimal);
                 Assert.AreEqual<float>(sproc.TestFloat, obj.Float);
-                Assert.AreEqual<decimal>(sproc.TestMoney, obj.Money);
+                Assert.AreEqual<decimal>(Math.Round(sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual<char>(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual<string>(sproc.TestNText, obj.NText);
                 Assert.AreEqual<string>(sproc.TestText, obj.Text);
-                Assert.AreEqual<byte[]>(sproc.TestBinary, obj.Binary);
-                Assert.AreEqual<byte[]>(sproc.TestImage, obj.Image);
+                CollectionAssert.AreEqual(sproc.TestBinary, obj.Binary);
+                CollectionAssert.AreEqual(sproc.TestImage, obj.Image);
                 Assert.AreEqual<Guid>(sproc.TestGuid, obj.Unique);
             }
         }
@@ -145,16 +145,16 @@
                 Assert.AreEqual<long>(sproc.TestBigInt, obj.BigInt);
                 Assert.AreEqual<bool>(sproc.TestBit, obj.Bit);
                 Assert.AreEqual<DateTime>(sproc.TestDate.Date, obj.Date.Date);
-                Assert.AreEqual<DateTime>(sproc.TestDateTime, obj.DateTime);
-                Assert.AreEqual<DateTime>(sproc.TestDateTime2, obj.DateTime2);
+                Assert.AreEqual<DateTime>(sproc.TestDateTime.Date, obj.DateTime.Date);
+                Assert.AreEqual<DateTime>(sproc.TestDateTime2.Date, obj.DateTime2.Date);
                 Assert.AreEqual<decimal>(sproc.TestDecimal, obj.Decimal);
                 Assert.AreEqual<float>(sproc.TestFloat, obj.Float);
-                Assert.AreEqual<decimal>(sproc.TestMoney, obj.Money);
+                Assert.AreEqual<decimal>(Math.Round(sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual<char>(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual<string>(sproc.TestNText, obj.NText);
                 Assert.AreEqual<string>(sproc.TestText, obj.Text);
-                Assert.AreEqual<byte[]>(sproc.TestBinary, obj.Binary);
-                Assert.AreEqual<byte[]>(sproc.TestImage, obj.Image);
+                CollectionAssert.AreEqual(sproc.TestBinary, obj.Binary);
+                CollectionAssert.AreEqual(sproc.TestImage, obj.Image);
                 Assert.AreEqual<Guid>(sproc.TestGuid, obj.Unique);
             }
         }
