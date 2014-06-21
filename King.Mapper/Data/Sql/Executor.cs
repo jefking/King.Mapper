@@ -4,11 +4,12 @@
     using System;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Stored Procedure Executor
     /// </summary>
-    public class Executor
+    public class Executor : IExecutor
     {
         #region Members
         /// <summary>
@@ -50,14 +51,18 @@
         /// </summary>
         /// <param name="proc">Procedure</param>
         /// <returns>Data Set</returns>
-        public DataSet Execute()
+        public async Task<DataSet> Execute()
         {
             DataSet ds = null;
             using (var command = this.BuildCommand())
             {
                 using (var adapter = new SqlDataAdapter(command))
                 {
+                    await this.connection.OpenAsync();
+
                     adapter.Fill(ds);
+
+                    this.connection.Close();
                 }
             }
 
@@ -69,12 +74,16 @@
         /// </summary>
         /// <param name="proc">Procedure To Execute</param>
         /// <returns>rows affected</returns>
-        public int NonQuery()
+        public async Task<int> NonQuery()
         {
             var rowsAffected = 0;
             using (var command = this.BuildCommand())
             {
-                rowsAffected = command.ExecuteNonQuery();
+                await this.connection.OpenAsync();
+
+                rowsAffected = await command.ExecuteNonQueryAsync();
+
+                this.connection.Close();
             }
 
             return rowsAffected;

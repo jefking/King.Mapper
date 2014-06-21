@@ -1,6 +1,20 @@
 ﻿namespace King.Mapper.Data.Sql
 {
-    #region IStoredProc
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Threading.Tasks;
+
+    #region IStoredProcedure
+    public interface IExecutor
+    {
+        #region Methods
+        Task<DataSet> Execute();
+        Task<int> NonQuery();
+        #endregion
+    }
+    #endregion
+
+    #region IStoredProcedure
     /// <summary>
     /// Stored Procedure
     /// </summary>
