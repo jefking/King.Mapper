@@ -37,6 +37,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -51,6 +53,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ExecutorTests.cs" />
+    <Compile Include="Model\SelectData.cs" />
+    <Compile Include="Model\SimulatedInsertStatement.cs" />
+    <Compile Include="Model\SimulatedSelectStatement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +64,9 @@
       <Project>{eae14e94-31ea-49cc-96a8-8321748d8f59}</Project>
       <Name>King.Mapper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

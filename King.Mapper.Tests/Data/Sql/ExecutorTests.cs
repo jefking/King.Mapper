@@ -13,8 +13,14 @@
         public void Constructor()
         {
             var connection = new SqlConnection();
-            var sproc = Substitute.For<IStoredProcedure>();
-            new Executor(connection, sproc);
+            new Executor(connection);
+        }
+
+        [TestMethod]
+        public void IsIExecutor()
+        {
+            var connection = new SqlConnection();
+            Assert.IsNotNull(new Executor(connection) as IExecutor);
         }
 
         [TestMethod]
@@ -22,15 +28,25 @@
         public void ConstructorConnectionNull()
         {
             var sproc = Substitute.For<IStoredProcedure>();
-            new Executor(null, sproc);
+            new Executor(null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ConstructorSprocNull()
+        public async void NonQuerySprocNull()
         {
             var connection = new SqlConnection();
-            new Executor(connection, null);
+            var e = new Executor(connection);
+            await e.NonQuery(null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public async void ExecuteSprocNull()
+        {
+            var connection = new SqlConnection();
+            var e = new Executor(connection);
+            await e.Execute(null);
         }
     }
 }

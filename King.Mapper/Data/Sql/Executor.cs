@@ -13,11 +13,6 @@
     {
         #region Members
         /// <summary>
-        /// Stored Procedure to Execute
-        /// </summary>
-        private readonly IStoredProcedure sproc = null;
-
-        /// <summary>
         /// SQL Connection
         /// </summary>
         private readonly SqlConnection connection = null;
@@ -28,20 +23,14 @@
         /// Constructor
         /// </summary>
         /// <param name="connection">SQL Connection</param>
-        /// <param name="sproc">Stored Procedure</param>
-        public Executor(SqlConnection connection, IStoredProcedure sproc)
+        public Executor(SqlConnection connection)
         {
             if (null == connection)
             {
                 throw new ArgumentNullException("connection");
             }
-            if (null == sproc)
-            {
-                throw new ArgumentNullException("sproc");
-            }
 
             this.connection = connection;
-            this.sproc = sproc;
         }
         #endregion
 
@@ -51,10 +40,15 @@
         /// </summary>
         /// <param name="proc">Procedure</param>
         /// <returns>Data Set</returns>
-        public async Task<DataSet> Execute()
+        public async Task<DataSet> Execute(IStoredProcedure sproc)
         {
+            if (null == sproc)
+            {
+                throw new ArgumentNullException("sproc");
+            }
+
             DataSet ds = null;
-            using (var command = this.BuildCommand())
+            using (var command = sproc.Build(this.connection))
             {
                 using (var adapter = new SqlDataAdapter(command))
                 {
@@ -74,10 +68,15 @@
         /// </summary>
         /// <param name="proc">Procedure To Execute</param>
         /// <returns>rows affected</returns>
-        public async Task<int> NonQuery()
+        public async Task<int> NonQuery(IStoredProcedure sproc)
         {
+            if (null == sproc)
+            {
+                throw new ArgumentNullException("sproc");
+            }
+
             var rowsAffected = 0;
-            using (var command = this.BuildCommand())
+            using (var command = sproc.Build(this.connection))
             {
                 await this.connection.OpenAsync();
 
@@ -87,39 +86,6 @@
             }
 
             return rowsAffected;
-        }
-
-        /// <summary>
-        /// Build Command
-        /// </summary>
-        /// <param name="proc">Procedure</param>
-        /// <param name="database">Database</param>
-        /// <returns>Database Command</returns>
-        public SqlCommand BuildCommand()
-        {
-            var command = this.connection.CreateCommand();
-            command.CommandType = CommandType.StoredProcedure;
-            command.CommandText = this.sproc.Name;
-
-            foreach (var prop in this.sproc.GetProperties())
-            {
-                var mapper = this.sproc.GetAttribute<DataMapperAttribute>();
-
-                if (mapper != null)
-                {
-                    var value = prop.GetValue(this.sproc, null);
-                    var param = new SqlParameter()
-                    {
-                        DbType = mapper.DatabaseType,
-                        Value = value,
-                        ParameterName = mapper.ParameterName,
-                    };
-
-                    command.Parameters.Add(param);
-                }
-            }
-
-            return command;
         }
         #endregion
     }

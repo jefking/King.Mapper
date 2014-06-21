@@ -7,8 +7,8 @@
     public interface IExecutor
     {
         #region Methods
-        Task<DataSet> Execute();
-        Task<int> NonQuery();
+        Task<DataSet> Execute(IStoredProcedure sproc);
+        Task<int> NonQuery(IStoredProcedure sproc);
         #endregion
     }
     #endregion
