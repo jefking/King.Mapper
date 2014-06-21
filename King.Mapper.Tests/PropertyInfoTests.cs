@@ -23,7 +23,7 @@
             var info = (from p in typeof(TestActionNames).GetProperties()
                         where p.Name == "Song"
                         select p).FirstOrDefault();
-            
+
             Assert.IsNotNull(info);
 
             var attrs = info.GetAttributes<ActionNameAttribute>();
@@ -38,6 +38,14 @@
                       && a.Name == "GuidGuid"
                       select a).FirstOrDefault();
             Assert.IsNotNull(action);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetAttributesNull()
+        {
+            PropertyInfo info = null;
+            info.GetAttribute<ActionNameAttribute>();
         }
 
         [TestMethod]

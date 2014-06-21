@@ -7,6 +7,7 @@
     using System;
     using System.Configuration;
     using System.Data.SqlClient;
+    using System.Threading.Tasks;
 
     [TestClass]
     public class ExecutorTests
@@ -16,7 +17,7 @@
         #endregion
 
         [TestMethod]
-        public async void Insert()
+        public async Task Insert()
         {
             var random = new Random();
             using (var con = new SqlConnection(connectionString))
@@ -34,7 +35,7 @@
         }
 
         [TestMethod]
-        public async void Select()
+        public async Task Select()
         {
             using (var con = new SqlConnection(connectionString))
             {

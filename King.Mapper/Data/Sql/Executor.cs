@@ -46,7 +46,7 @@
                 throw new ArgumentNullException("sproc");
             }
 
-            DataSet ds = null;
+            var ds = new DataSet();
             using (var command = sproc.Build(this.connection))
             {
                 using (var adapter = new SqlDataAdapter(command))

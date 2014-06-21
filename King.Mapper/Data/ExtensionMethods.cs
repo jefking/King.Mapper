@@ -229,7 +229,11 @@
 
             var columns = reader.GetFieldNames();
             var values = new object[columns.Length];
-            reader.GetValues(values);
+
+            for (var i = 0; i < values.Length; i++)
+            {
+                values[i] = reader[i];
+            }
 
             obj.Fill(columns, values, action);
 

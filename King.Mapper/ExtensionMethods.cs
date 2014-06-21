@@ -197,6 +197,11 @@
         public static T GetAttribute<T>(this object value)
             where T : Attribute
         {
+            if (null == value)
+            {
+                throw new ArgumentNullException("value");
+            }
+
             var t = value.GetType();
             var attributes = t.GetCustomAttributes(false);
             return attributes.GetAttribute<T>();

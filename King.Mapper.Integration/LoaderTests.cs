@@ -8,6 +8,7 @@
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Threading.Tasks;
 
     [TestClass]
     public class LoaderTests
@@ -17,14 +18,18 @@
         #endregion
 
         [TestMethod]
-        public async void ReaderLoadObject()
+        public async Task ReaderLoadObject()
         {
             using (var con = new SqlConnection(connectionString))
             {
                 var sproc = SimulatedSelectStatement.Create();
 
                 var cmd = sproc.Build(con);
+                await con.OpenAsync();
+
                 var reader = await cmd.ExecuteReaderAsync();
+
+                Assert.IsTrue(reader.Read());
 
                 var loader = new Loader<SelectData>();
                 var obj = loader.LoadObject(reader);
@@ -49,7 +54,7 @@
         }
 
         [TestMethod]
-        public async void IDbCommandLoadObject()
+        public async Task IDbCommandLoadObject()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -82,7 +87,7 @@
         }
 
         [TestMethod]
-        public async void DataTableLoadObject()
+        public async Task DataTableLoadObject()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -94,7 +99,7 @@
                 await con.OpenAsync();
                 var adapter = new SqlDataAdapter(cmd);
 
-                DataSet ds = null;
+                var ds = new DataSet();
                 adapter.Fill(ds);
                 var table = ds.Tables[0];
                 var obj = loader.LoadObject(table);
@@ -119,7 +124,7 @@
         }
 
         [TestMethod]
-        public async void DataSetLoadObject()
+        public async Task DataSetLoadObject()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -131,7 +136,7 @@
                 await con.OpenAsync();
                 var adapter = new SqlDataAdapter(cmd);
 
-                DataSet ds = null;
+                var ds = new DataSet();
                 adapter.Fill(ds);
                 var obj = loader.LoadObject(ds);
 

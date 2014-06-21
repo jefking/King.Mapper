@@ -55,11 +55,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ExecutorTests.cs" />
+    <Compile Include="LoaderTests.cs" />
     <Compile Include="Model\SelectData.cs" />
     <Compile Include="Model\SimulatedInsertStatement.cs" />
     <Compile Include="Model\SimulatedSelectStatement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LoaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\King.Mapper\King.Mapper.csproj">
