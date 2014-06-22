@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>King.Mapper</id>
-        <version>1.5.9</version>
+        <version>1.6.0</version>
         <title>King.Mapper</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
@@ -18,7 +18,8 @@ Prefer Async calls where available.</description>
         <summary>integrating with data models from various sources.
 
 Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.</summary>
-        <releaseNotes>Tested all major functionality for loading data from SQL Server.</releaseNotes>
+        <releaseNotes>Converted LoadObject Method to Model
+Converted LoadObjects Method to Models</releaseNotes>
         <copyright>Jef King</copyright>
         <tags>Data Mapping ORM performance fast transformation object model</tags>
     </metadata>
