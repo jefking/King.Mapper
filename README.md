@@ -50,13 +50,15 @@ using (var connection = new SqlConnection(""))
 	var data = await executor.Execute(sproc);
 }
 ```
-### Testing (Mocking Data)
+### Testing (Mocking Data with NSubstitute)
 ```
 using (var connection = new SqlConnection(""))
 {
 	var sproc = new IStoredProcedure();
-	var executor = new Executor(con);
-	var data = await executor.Execute(sproc);
+	var executor = Substitute.For<IExecute>();
+	executor.Execute(sproc).Returns(DataSet);
+
+	// Pass to clas you are testing.
 }
 ```
 ## Contributing
