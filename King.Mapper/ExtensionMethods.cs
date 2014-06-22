@@ -259,6 +259,24 @@
         }
 
         /// <summary>
+        /// Get Attribute
+        /// </summary>
+        /// <typeparam name="T">Attribute Type</typeparam>
+        /// <param name="attributes">Attributes</param>
+        /// <returns>Attribute of Type</returns>
+        public static T GetAttribute<T>(this PropertyInfo property)
+            where T : Attribute
+        {
+            if (null == property)
+            {
+                throw new ArgumentNullException("property");
+            }
+
+            return (from a in property.GetAttributes<T>()
+                    select a).FirstOrDefault();
+        }
+
+        /// <summary>
         /// Set Value of Property
         /// </summary>
         /// <param name="property">Property</param>

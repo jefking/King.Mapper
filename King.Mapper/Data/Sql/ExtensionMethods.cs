@@ -30,21 +30,18 @@
 
             foreach (var prop in sproc.GetProperties())
             {
-                foreach (var mapper in prop.GetAttributes<DataMapperAttribute>())
+                var mapper = prop.GetAttribute<DataMapperAttribute>();
+                if (mapper != null)
                 {
-
-                    if (mapper != null)
+                    var value = prop.GetValue(sproc, null);
+                    var param = new SqlParameter()
                     {
-                        var value = prop.GetValue(sproc, null);
-                        var param = new SqlParameter()
-                        {
-                            DbType = mapper.DatabaseType,
-                            Value = value,
-                            ParameterName = mapper.ParameterName,
-                        };
+                        DbType = mapper.DatabaseType,
+                        Value = value,
+                        ParameterName = mapper.ParameterName,
+                    };
 
-                        command.Parameters.Add(param);
-                    }
+                    command.Parameters.Add(param);
                 }
             }
 

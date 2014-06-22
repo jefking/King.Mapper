@@ -18,6 +18,14 @@
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetAttributePropertyNull()
+        {
+            PropertyInfo info = null;
+            info.GetAttribute<ActionNameAttribute>();
+        }
+
+        [TestMethod]
         public void GetAttributes()
         {
             var info = (from p in typeof(TestActionNames).GetProperties()
@@ -38,6 +46,21 @@
                       && a.Name == "GuidGuid"
                       select a).FirstOrDefault();
             Assert.IsNotNull(action);
+        }
+
+        [TestMethod]
+        public void GetAttribute()
+        {
+            var info = (from p in typeof(TestActionNames).GetProperties()
+                        where p.Name == "Id"
+                        select p).FirstOrDefault();
+
+            Assert.IsNotNull(info);
+
+            var action = info.GetAttribute<ActionNameAttribute>();
+            Assert.IsNotNull(action);
+            Assert.AreEqual<string>("MyIdentifier", action.Name);
+            Assert.AreEqual<ActionFlags>(ActionFlags.Execute, action.Action);
         }
 
         [TestMethod]
