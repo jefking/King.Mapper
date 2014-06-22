@@ -5,6 +5,7 @@
     using NSubstitute;
     using System;
     using System.Data.SqlClient;
+    using System.Threading.Tasks;
     
     [TestClass]
     public class ExecutorTests
@@ -33,7 +34,7 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public async void NonQuerySprocNull()
+        public async Task NonQuerySprocNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
@@ -42,7 +43,7 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public async void ExecuteSprocNull()
+        public async Task ExecuteSprocNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
