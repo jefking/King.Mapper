@@ -46,20 +46,17 @@ IEnumerable<object> list = reader.LoadObjects<object>(); // Multiple Models from
 using (var connection = new SqlConnection(""))
 {
 	var sproc = new IStoredProcedure();
-	var executor = new Executor(con);
+	var executor = new Executor(connection);
 	var data = await executor.Execute(sproc);
 }
 ```
 ### Testing (Mocking Data with NSubstitute)
 ```
-using (var connection = new SqlConnection())
-{
-	var sproc = new IStoredProcedure();
-	var executor = Substitute.For<IExecute>();
-	executor.Execute(sproc).Returns(DataSet);
+var sproc = new IStoredProcedure();
+var executor = Substitute.For<IExecute>();
+executor.Execute(sproc).Returns(DataSet);
 
-	// Pass to class you are testing.
-}
+// Pass to class you are testing.
 ```
 ## Contributing
 
