@@ -4,6 +4,9 @@
     using System.Data;
     using System.Data.SqlClient;
 
+    /// <summary>
+    /// Extension Methods
+    /// </summary>
     public static class ExtensionMethods
     {
         #region Methods

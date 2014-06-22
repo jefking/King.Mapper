@@ -295,5 +295,13 @@
             var attribute = test.GetAttribute<ActionNameAttribute>();
             Assert.IsNull(attribute);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetAttributeObjectNull()
+        {
+            object test = null;
+            test.GetAttribute<ActionNameAttribute>();
+        }
     }
 }
