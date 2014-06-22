@@ -52,7 +52,7 @@ using (var connection = new SqlConnection(""))
 ```
 ### Testing (Mocking Data with NSubstitute)
 ```
-using (var connection = new SqlConnection(""))
+using (var connection = new SqlConnection())
 {
 	var sproc = new IStoredProcedure();
 	var executor = Substitute.For<IExecute>();
