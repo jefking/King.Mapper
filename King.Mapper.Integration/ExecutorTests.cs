@@ -46,7 +46,7 @@
 
                 Assert.IsNotNull(data);
 
-                var obj = data.LoadObject<SelectData>();
+                var obj = data.Model<SelectData>();
 
                 Assert.IsNotNull(obj);
                 Assert.AreEqual<int>(sproc.TestInt, obj.Identifier);

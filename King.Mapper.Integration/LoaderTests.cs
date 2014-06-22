@@ -18,7 +18,7 @@
         #endregion
 
         [TestMethod]
-        public async Task ReaderLoadObject()
+        public async Task ReaderModel()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -32,7 +32,7 @@
                 Assert.IsTrue(reader.Read());
 
                 var loader = new Loader<SelectData>();
-                var obj = loader.LoadObject(reader);
+                var obj = loader.Model(reader);
 
                 Assert.IsNotNull(obj);
                 Assert.AreEqual<int>(sproc.TestInt, obj.Identifier);
@@ -54,7 +54,7 @@
         }
 
         [TestMethod]
-        public async Task ReaderLoadObjects()
+        public async Task ReaderModels()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -66,7 +66,7 @@
                 var reader = await cmd.ExecuteReaderAsync();
 
                 var loader = new Loader<SelectData>();
-                var objs = loader.LoadObjects(reader);
+                var objs = loader.Models(reader);
 
                 Assert.IsNotNull(objs);
 
@@ -78,7 +78,7 @@
         }
 
         [TestMethod]
-        public async Task IDbCommandLoadObject()
+        public async Task IDbCommandModel()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -89,7 +89,7 @@
                 var loader = new Loader<SelectData>();
                 await con.OpenAsync();
 
-                var obj = loader.LoadObject(cmd);
+                var obj = loader.Model(cmd);
 
                 Assert.IsNotNull(obj);
                 Assert.AreEqual<int>(sproc.TestInt, obj.Identifier);
@@ -126,14 +126,14 @@
                 var loader = new Loader<SelectData>();
                 await con.OpenAsync();
 
-                var obj = loader.LoadObject(cmd);
+                var obj = loader.Model(cmd);
 
                 Assert.IsNull(obj);
             }
         }
 
         [TestMethod]
-        public async Task IDbCommandLoadObjects()
+        public async Task IDbCommandModels()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -144,7 +144,7 @@
                 var loader = new Loader<SelectData>();
                 await con.OpenAsync();
 
-                var objs = loader.LoadObjects(cmd);
+                var objs = loader.Models(cmd);
 
                 Assert.IsNotNull(objs);
 
@@ -156,7 +156,7 @@
         }
 
         [TestMethod]
-        public async Task DataTableLoadObject()
+        public async Task DataTableModel()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -171,7 +171,7 @@
                 var ds = new DataSet();
                 adapter.Fill(ds);
                 var table = ds.Tables[0];
-                var obj = loader.LoadObject(table);
+                var obj = loader.Model(table);
 
                 Assert.IsNotNull(obj);
                 Assert.AreEqual<int>(sproc.TestInt, obj.Identifier);
@@ -193,7 +193,7 @@
         }
 
         [TestMethod]
-        public async Task DataTableLoadObjects()
+        public async Task DataTableModels()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -208,7 +208,7 @@
                 var ds = new DataSet();
                 adapter.Fill(ds);
                 var table = ds.Tables[0];
-                var objs = loader.LoadObjects(table);
+                var objs = loader.Models(table);
 
                 Assert.IsNotNull(objs);
 
@@ -220,7 +220,7 @@
         }
 
         [TestMethod]
-        public async Task DataSetLoadObject()
+        public async Task DataSetModel()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -234,7 +234,7 @@
 
                 var ds = new DataSet();
                 adapter.Fill(ds);
-                var obj = loader.LoadObject(ds);
+                var obj = loader.Model(ds);
 
                 Assert.IsNotNull(obj);
                 Assert.AreEqual<int>(sproc.TestInt, obj.Identifier);
@@ -256,7 +256,7 @@
         }
 
         [TestMethod]
-        public async Task DataSetLoadObjects()
+        public async Task DataSetModels()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -270,7 +270,7 @@
 
                 var ds = new DataSet();
                 adapter.Fill(ds);
-                var objs = loader.LoadObjects(ds);
+                var objs = loader.Models(ds);
 
                 Assert.IsNotNull(objs);
 

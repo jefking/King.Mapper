@@ -10,18 +10,18 @@
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectsTableNull()
+        public void ModelsTableNull()
         {
             DataTable table = null;
-            table.LoadObjects<object>();
+            table.Models<object>();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectTableNull()
+        public void ModelTableNull()
         {
             DataTable table = null;
-            table.LoadObject<object>();
+            table.Model<object>();
         }
     }
 }

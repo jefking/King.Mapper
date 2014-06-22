@@ -39,8 +39,8 @@ var id = record.Get<int>("Identifier");
 ### [Data Reader/Data Set](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
 ```
 var reader = new IDataReader();
-var model = reader.LoadObject<object>(); //Single Model from one Row
-IEnumerable<object> list = reader.LoadObjects<object>(); // Multiple Models from many Rows
+var model = reader.Model<object>(); //Single Model from one Row
+IEnumerable<object> list = reader.Models<object>(); // Multiple Models from many Rows
 ```
 ### [Stored Procedure](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/ExecutorTests.cs)
 ```

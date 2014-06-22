@@ -12,35 +12,35 @@
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectsNull()
+        public void ModelsNull()
         {
             DataSet table = null;
-            table.LoadObjects<object>();
+            table.Models<object>();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectNull()
+        public void ModelNull()
         {
             DataSet table = null;
-            table.LoadObject<object>();
+            table.Model<object>();
         }
 
         [TestMethod]
-        public void LoadObjectFromDataSet()
+        public void ModelFromDataSet()
         {
             var dataset = LoadDataSet();
-            var filled = dataset.LoadObject<FillObject>();
+            var filled = dataset.Model<FillObject>();
             Assert.AreEqual<int>(1, filled.Id);
             Assert.AreEqual<string>("Breaking Benjamin", filled.Band);
             Assert.AreNotEqual<Guid>(Guid.Empty, filled.Song);
         }
 
         [TestMethod]
-        public void LoadObjectsFromDataSet()
+        public void ModelsFromDataSet()
         {
             var dataset = LoadDataSet();
-            var filled = dataset.LoadObjects<FillObject>();
+            var filled = dataset.Models<FillObject>();
             foreach (var item in filled)
             {
                 var exists = (from DataRow d in dataset.Tables[0].Rows

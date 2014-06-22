@@ -22,66 +22,66 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectsIDbCommandNull()
+        public void ModelsIDbCommandNull()
         {
             var l = new Loader<object>();
-            l.LoadObjects((IDbCommand)null);
+            l.Models((IDbCommand)null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectsIDataReaderNull()
+        public void ModelsIDataReaderNull()
         {
             var l = new Loader<object>();
-            l.LoadObjects((IDataReader)null);
+            l.Models((IDataReader)null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectIDbCommandNull()
+        public void ModelIDbCommandNull()
         {
             var l = new Loader<object>();
-            l.LoadObject((IDbCommand)null);
+            l.Model((IDbCommand)null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectIDataReaderNull()
+        public void ModelIDataReaderNull()
         {
             var l = new Loader<object>();
-            l.LoadObject((IDataReader)null);
+            l.Model((IDataReader)null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectDataSetNull()
+        public void ModelDataSetNull()
         {
             var l = new Loader<object>();
-            l.LoadObject((DataSet)null);
+            l.Model((DataSet)null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectDataTableNull()
+        public void ModelDataTableNull()
         {
             var l = new Loader<object>();
-            l.LoadObject((DataTable)null);
+            l.Model((DataTable)null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectsDataSetNull()
+        public void ModelsDataSetNull()
         {
             var l = new Loader<object>();
-            l.LoadObjects((DataSet)null);
+            l.Models((DataSet)null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectsDataTableNull()
+        public void ModelsDataTableNull()
         {
             var l = new Loader<object>();
-            l.LoadObjects((DataTable)null);
+            l.Models((DataTable)null);
         }
     }
 }

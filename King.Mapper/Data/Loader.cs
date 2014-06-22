@@ -11,7 +11,7 @@
             where T : new()
     {
         #region IDbCommand
-        public IList<T> LoadObjects(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
+        public IList<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {
             if (null == cmd)
             {
@@ -20,9 +20,9 @@
 
             var reader = cmd.ExecuteReader();
 
-            return reader.LoadObjects<T>(action);
+            return reader.Models<T>(action);
         }
-        public T LoadObject(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
+        public T Model(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {
             if (null == cmd)
             {
@@ -30,70 +30,70 @@
             }
 
             var reader = cmd.ExecuteReader();
-            return reader.Read() ? reader.LoadObject<T>(action) : default(T);
+            return reader.Read() ? reader.Model<T>(action) : default(T);
         }
         #endregion
 
         #region IDataReader
-        public IList<T> LoadObjects(IDataReader reader, ActionFlags action = ActionFlags.Load)
+        public IList<T> Models(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
             {
                 throw new ArgumentNullException("reader");
             }
 
-            return reader.LoadObjects<T>(action);
+            return reader.Models<T>(action);
         }
-        public T LoadObject(IDataReader reader, ActionFlags action = ActionFlags.Load)
+        public T Model(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
             {
                 throw new ArgumentNullException("reader");
             }
 
-            return reader.LoadObject<T>(action);
+            return reader.Model<T>(action);
         }
         #endregion
 
         #region DataTable
-        public IList<T> LoadObjects(DataTable data, ActionFlags action = ActionFlags.Load)
+        public IList<T> Models(DataTable data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {
                 throw new ArgumentNullException("data");
             }
 
-            return data.LoadObjects<T>(action);
+            return data.Models<T>(action);
         }
-        public T LoadObject(DataTable data, ActionFlags action = ActionFlags.Load)
+        public T Model(DataTable data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {
                 throw new ArgumentNullException("data");
             }
 
-            return data.LoadObject<T>(action);
+            return data.Model<T>(action);
         }
         #endregion
 
         #region DataSet
-        public IList<T> LoadObjects(DataSet data, ActionFlags action = ActionFlags.Load)
+        public IList<T> Models(DataSet data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {
                 throw new ArgumentNullException("data");
             }
 
-            return data.LoadObjects<T>(action);
+            return data.Models<T>(action);
         }
-        public T LoadObject(DataSet data, ActionFlags action = ActionFlags.Load)
+        public T Model(DataSet data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {
                 throw new ArgumentNullException("data");
             }
 
-            return data.LoadObject<T>(action);
+            return data.Model<T>(action);
         }
         #endregion
     }

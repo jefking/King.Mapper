@@ -58,7 +58,7 @@
         /// <param name="ds">Data Set</param>
         /// <param name="action">Action</param>
         /// <returns>Object</returns>
-        public static T LoadObject<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
+        public static T Model<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
             if (null == ds)
@@ -70,7 +70,7 @@
 
             if (ds.Tables.Count > 0)
             {
-                value = ds.Tables[0].LoadObject<T>(action);
+                value = ds.Tables[0].Model<T>(action);
             }
 
             return value;
@@ -83,7 +83,7 @@
         /// <param name="ds">Data Set</param>
         /// <param name="action">Action</param>
         /// <returns>Object</returns>
-        public static IList<T> LoadObjects<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
+        public static IList<T> Models<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
             if (null == ds)
@@ -94,7 +94,7 @@
             var values = new List<T>();
             foreach (DataTable table in ds.Tables)
             {
-                values.AddRange(table.LoadObjects<T>(action));
+                values.AddRange(table.Models<T>(action));
             }
 
             return values;
@@ -109,7 +109,7 @@
         /// <param name="table">Data Table</param>
         /// <param name="action">Action</param>
         /// <returns>Object</returns>
-        public static T LoadObject<T>(this DataTable table, ActionFlags action = ActionFlags.Load)
+        public static T Model<T>(this DataTable table, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
             if (null == table)
@@ -163,7 +163,7 @@
         /// <param name="table">Data Table</param>
         /// <param name="action">Action</param>
         /// <returns>Object</returns>
-        public static IList<T> LoadObjects<T>(this DataTable table, ActionFlags action = ActionFlags.Load)
+        public static IList<T> Models<T>(this DataTable table, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
             if (null == table)
@@ -171,7 +171,7 @@
                 throw new ArgumentNullException("table");
             }
 
-            return table.LoadObject<List<T>>(action);
+            return table.Model<List<T>>(action);
         }
         #endregion
 
@@ -206,7 +206,7 @@
         /// <param name="reader">Data Reader</param>
         /// <param name="action">Load Action</param>
         /// <returns>Object of T</returns>
-        public static T LoadObject<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
+        public static T Model<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
             {
@@ -256,7 +256,7 @@
         /// <param name="reader">Data Reader</param>
         /// <param name="action">Load Action</param>
         /// <returns>Objects of T</returns>
-        public static IList<T> LoadObjects<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
+        public static IList<T> Models<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
            where T : new()
         {
             if (null == reader)
@@ -267,7 +267,7 @@
             var values = new List<T>();
             while (reader.Read())
             {
-                values.Add(reader.LoadObject<T>(action));
+                values.Add(reader.Model<T>(action));
             }
 
             return values;

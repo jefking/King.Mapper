@@ -12,18 +12,18 @@
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectReaderNull()
+        public void ModelReaderNull()
         {
             IDataReader reader = null;
-            reader.LoadObject<object>();
+            reader.Model<object>();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void LoadObjectsReaderNull()
+        public void ModelsReaderNull()
         {
             IDataReader reader = null;
-            reader.LoadObjects<object>();
+            reader.Models<object>();
         }
 
         [TestMethod]
