@@ -32,23 +32,11 @@ var isTrue = a.PropertyA == b.PropertyA;
 ```
 IDataRecord x = null;
 var firstName = x.Get<string>("FirstName");
-var lastName = x.Get<string>("LastName");
+var id = x.Get<int>("Identifier");
 ```
-### [Data Reader](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
+### [Data Reader/Data Set](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
 ```
 IDataReader x = null;
-var obj = x.LoadObject<object>();
-IEnumerable<object> list = x.LoadObjects<object>();
-```
-### [Data Table](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
-```
-DataTable x = null;
-var obj = x.LoadObject<object>();
-IEnumerable<object> list = x.LoadObjects<object>();
-```
-### [Data Set](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
-```
-DataSet x = null;
 var obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
