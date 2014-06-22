@@ -1,7 +1,10 @@
 King Mapper
 ==========
 
-Simple C# object mapping; map between objects with similar properties; or from Data Readers, Data Tables and Data Sets.
+Simple C# object mapping!
+Map between objects with similar properties.
+Map from Data Readers, Data Tables and Data Sets to Models.
+Execute Stored Procedures with objects.
 
 ## NuGet
 [Add via NuGet](https://www.nuget.org/packages/King.Mapper)
@@ -13,6 +16,7 @@ PM> Install-Package King.Mapper
 ```
 using King.Mapper;
 using King.Mapper.Data;
+using King.Mapper.Data.Sql;
 ```
 ### Object Mapping
 ```
@@ -47,6 +51,15 @@ IEnumerable<object> list = x.LoadObjects<object>();
 DataSet x = null;
 var obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
+```
+### Stored Procedure
+```
+using (var connection = new SqlConnection(""))
+{
+	IStoredProcedure sproc = null;
+	var executor = new Executor(con);
+	var data = await executor.Execute(sproc);
+}
 ```
 ## Contributing
 
