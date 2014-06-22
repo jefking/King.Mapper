@@ -5,6 +5,7 @@ Simple C# object mapping!
 + Map between objects with similar properties.
 + Map from Data Readers, Data Tables and Data Sets to Models.
 + Execute Stored Procedures with objects.
++ Everything mockable for proper unit testing.
 
 ## NuGet
 [Add via NuGet](https://www.nuget.org/packages/King.Mapper)
