@@ -18,7 +18,7 @@ using King.Mapper;
 using King.Mapper.Data;
 using King.Mapper.Data.Sql;
 ```
-### Object Mapping [Test Case](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Tests/ObjectMapTests.cs)
+### [Object Mapping](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Tests/ObjectMapTests.cs)
 ```
 var a = new ObjectA()
 {
@@ -28,31 +28,31 @@ var a = new ObjectA()
 var b = a.Map<ObjectB>();
 var isTrue = a.PropertyA == b.PropertyA;
 ```
-### Data Record [Test Case](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/IDataRecordTests.cs)
+### [Data Record](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/IDataRecordTests.cs)
 ```
 IDataRecord x = null;
 var firstName = x.Get<string>("FirstName");
 var lastName = x.Get<string>("LastName");
 ```
-### Data Reader [Test Case](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
+### [Data Reader](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
 ```
 IDataReader x = null;
 var obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
-### Data Table [Test Case](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
+### [Data Table](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
 ```
 DataTable x = null;
 var obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
-### Data Set [Test Case](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
+### [Data Set](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
 ```
 DataSet x = null;
 var obj = x.LoadObject<object>();
 IEnumerable<object> list = x.LoadObjects<object>();
 ```
-### Stored Procedure [Test Case](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/ExecutorTests.cs)
+### [Stored Procedure](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/ExecutorTests.cs)
 ```
 using (var connection = new SqlConnection(""))
 {
