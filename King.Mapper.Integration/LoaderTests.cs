@@ -111,6 +111,28 @@
         }
 
         [TestMethod]
+        public async Task IDbCommandLoadNothing()
+        {
+            var random = new Random();
+            using (var con = new SqlConnection(connectionString))
+            {
+                var sproc = new SimulatedInsertStatement()
+                {
+                    TestInt = random.Next(),
+                };
+
+                var cmd = sproc.Build(con);
+
+                var loader = new Loader<SelectData>();
+                await con.OpenAsync();
+
+                var obj = loader.LoadObject(cmd);
+
+                Assert.IsNull(obj);
+            }
+        }
+
+        [TestMethod]
         public async Task IDbCommandLoadObjects()
         {
             using (var con = new SqlConnection(connectionString))

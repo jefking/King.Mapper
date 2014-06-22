@@ -41,21 +41,10 @@
             {
                 throw new ArgumentException("column");
             }
-            
-            try
+
+            if (record[column].IsNotNull())
             {
-                if (record[column].IsNotNull())
-                {
-                    return (T)Convert.ChangeType(record[column], typeof(T));
-                }
-            }
-            catch (IndexOutOfRangeException iorex)
-            {
-                Trace.TraceInformation(string.Format("{0}", iorex.Message));
-            }
-            catch (ArgumentException aex)
-            {
-                Trace.TraceWarning(string.Format("{0}", aex.Message));
+                return (T)Convert.ChangeType(record[column], typeof(T));
             }
 
             return value;

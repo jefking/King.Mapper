@@ -22,7 +22,7 @@
         [ExpectedException(typeof(ArgumentNullException))]
         public void LoadObjectNull()
         {
-            DataTable table = null;
+            DataSet table = null;
             table.LoadObject<object>();
         }
 
