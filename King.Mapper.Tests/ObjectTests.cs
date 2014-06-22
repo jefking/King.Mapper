@@ -19,6 +19,43 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
+        public void FillColumnsNull()
+        {
+            var obj = new object();
+            obj.Fill(null, new object[0]);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void FillValuesNull()
+        {
+            var obj = new object();
+            obj.Fill(new string[0], null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void FillDifferentSizes()
+        {
+            var obj = new object();
+            obj.Fill(new string[0], new object[10]);
+        }
+
+        [TestMethod]
+        public void Fill()
+        {
+            var random = new Random();
+            var obj = new TestActionNames();
+            var columns = new string[] { "MyIdentifier", "Insert" };
+            var values = new object[] { random.Next(), Guid.NewGuid() };
+            obj.Fill(columns, values, ActionFlags.Execute);
+
+            Assert.AreEqual<int>((int)values[0], obj.Id);
+            Assert.AreEqual<Guid>((Guid)values[1], obj.Song);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void ValueMappingObjectNull()
         {
             object obj = null;

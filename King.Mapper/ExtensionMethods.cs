@@ -127,16 +127,17 @@
             {
                 propertyDictionary.Add(property.Name, property);
 
-                foreach (var actionName in property.GetAttributes<ActionNameAttribute>())
+                var names = from a in property.GetAttributes<ActionNameAttribute>()
+                            where null != a && a.Action == action && !propertyDictionary.ContainsKey(a.Name)
+                            select a;
+
+                foreach (var actionName in names)
                 {
-                    if (null != actionName && actionName.Action == action && !propertyDictionary.ContainsKey(actionName.Name))
-                    {
-                        propertyDictionary.Add(actionName.Name, property);
-                    }
+                    propertyDictionary.Add(actionName.Name, property);
                 }
             }
 
-            for (int i = 0; i < columns.Length; i++)
+            for (var i = 0; i < columns.Length; i++)
             {
                 if (propertyDictionary.ContainsKey(columns[i]))
                 {
