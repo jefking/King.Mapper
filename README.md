@@ -1,11 +1,12 @@
 King Mapper
 ==========
 
-Simple C# object mapping!
+High performanc C# model mapping!
 + Map between Models with similar properties.
 + Map from Data Readers, Data Tables and Data Sets to Models.
 + Execute Stored Procedures as objects.
 + Everything mockable for proper unit testing.
++ Prefer Async calls where available.
 
 ## NuGet
 [Add via NuGet](https://www.nuget.org/packages/King.Mapper)
