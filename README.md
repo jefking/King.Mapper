@@ -2,9 +2,9 @@ King Mapper
 ==========
 
 Simple C# object mapping!
-+ Map between objects with similar properties.
++ Map between Models with similar properties.
 + Map from Data Readers, Data Tables and Data Sets to Models.
-+ Execute Stored Procedures with objects.
++ Execute Stored Procedures as objects.
 + Everything mockable for proper unit testing.
 
 ## NuGet
@@ -19,33 +19,42 @@ using King.Mapper;
 using King.Mapper.Data;
 using King.Mapper.Data.Sql;
 ```
-### [Object Mapping](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Tests/ObjectMapTests.cs)
+### [Model Mapping](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Tests/ObjectMapTests.cs)
 ```
-var a = new ObjectA()
+var a = new ModelA()
 {
 	PropertyA = "The-Value-Of-Property-A"
 };
 
-var b = a.Map<ObjectB>();
+var b = a.Map<ModelB>();
 var isTrue = a.PropertyA == b.PropertyA;
 ```
 ### [Data Record](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/IDataRecordTests.cs)
 ```
-IDataRecord x = null;
-var firstName = x.Get<string>("FirstName");
-var id = x.Get<int>("Identifier");
+var record = new IDataRecord();
+var firstName = record.Get<string>("FirstName");
+var id = record.Get<int>("Identifier");
 ```
 ### [Data Reader/Data Set](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/LoaderTests.cs)
 ```
-IDataReader x = null;
-var obj = x.LoadObject<object>();
-IEnumerable<object> list = x.LoadObjects<object>();
+var reader = new IDataReader();
+var model = reader.LoadObject<object>(); //Single Model from one Row
+IEnumerable<object> list = reader.LoadObjects<object>(); // Multiple Models from many Rows
 ```
 ### [Stored Procedure](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/ExecutorTests.cs)
 ```
 using (var connection = new SqlConnection(""))
 {
-	IStoredProcedure sproc = null;
+	var sproc = new IStoredProcedure();
+	var executor = new Executor(con);
+	var data = await executor.Execute(sproc);
+}
+```
+### Testing (Mocking Data)
+```
+using (var connection = new SqlConnection(""))
+{
+	var sproc = new IStoredProcedure();
 	var executor = new Executor(con);
 	var data = await executor.Execute(sproc);
 }
