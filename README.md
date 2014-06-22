@@ -58,7 +58,7 @@ using (var connection = new SqlConnection(""))
 	var executor = Substitute.For<IExecute>();
 	executor.Execute(sproc).Returns(DataSet);
 
-	// Pass to clas you are testing.
+	// Pass to class you are testing.
 }
 ```
 ## Contributing
