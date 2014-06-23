@@ -3,7 +3,7 @@
     using System.Data;
     using System.Threading.Tasks;
 
-    #region IStoredProcedure
+    #region IExecutor
     /// <summary>
     /// Execution Interface
     /// </summary>
