@@ -44,6 +44,7 @@
 
             return reader.Models<T>(action);
         }
+
         public T Model(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
