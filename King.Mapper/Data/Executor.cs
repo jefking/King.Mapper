@@ -1,4 +1,4 @@
-﻿namespace King.Mapper.Data.Sql
+﻿namespace King.Mapper.Data
 {
     using System;
     using System.Data;

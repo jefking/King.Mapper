@@ -4,6 +4,7 @@
     using System.Collections;
     using System.Collections.Generic;
     using System.Data;
+    using System.Data.SqlClient;
     using System.Linq;
 
     public static class ExtensionMethods
@@ -271,6 +272,49 @@
             }
 
             return values;
+        }
+        #endregion
+
+        #region IStoredProcedure
+        /// <summary>
+        /// Build Command
+        /// </summary>
+        /// <param name="proc">Procedure</param>
+        /// <param name="database">Database</param>
+        /// <returns>Database Command</returns>
+        public static SqlCommand Build(this IStoredProcedure sproc, SqlConnection connection)
+        {
+            if (null == sproc)
+            {
+                throw new ArgumentNullException("sproc");
+            }
+            if (null == connection)
+            {
+                throw new ArgumentNullException("connection");
+            }
+
+            var command = connection.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = sproc.FullyQualifiedName();
+
+            foreach (var prop in sproc.GetProperties())
+            {
+                var mapper = prop.GetAttribute<DataMapperAttribute>();
+                if (mapper != null)
+                {
+                    var value = prop.GetValue(sproc, null);
+                    var param = new SqlParameter()
+                    {
+                        DbType = mapper.DatabaseType,
+                        Value = value,
+                        ParameterName = mapper.ParameterName,
+                    };
+
+                    command.Parameters.Add(param);
+                }
+            }
+
+            return command;
         }
         #endregion
     }

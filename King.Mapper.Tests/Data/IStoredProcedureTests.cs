@@ -1,6 +1,6 @@
-﻿namespace King.Mapper.Tests.Data.Sql
+﻿namespace King.Mapper.Tests.Data
 {
-    using King.Mapper.Data.Sql;
+    using King.Mapper.Data;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NSubstitute;
     using System;

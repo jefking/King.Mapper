@@ -1,6 +1,6 @@
 ﻿namespace King.Mapper.Integration.Model
 {
-    using King.Mapper.Data.Sql;
+    using King.Mapper.Data;
 
     public class SelectMultipleStatement : IStoredProcedure
     {

@@ -67,8 +67,8 @@
     <Compile Include="Data\DataSetTests.cs" />
     <Compile Include="Data\IDataRecordTests.cs" />
     <Compile Include="Data\LoaderTests.cs" />
-    <Compile Include="Data\Sql\ExecutorTests.cs" />
-    <Compile Include="Data\Sql\IStoredProcedureTests.cs" />
+    <Compile Include="Data\ExecutorTests.cs" />
+    <Compile Include="Data\IStoredProcedureTests.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\FillObject.cs" />
     <Compile Include="Models\MappingTester.cs" />

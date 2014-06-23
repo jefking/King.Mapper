@@ -1,7 +1,6 @@
 ﻿namespace King.Mapper.Integration
 {
     using King.Mapper.Data;
-    using King.Mapper.Data.Sql;
     using King.Mapper.Integration.Model;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
