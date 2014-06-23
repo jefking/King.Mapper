@@ -6,7 +6,7 @@
         <title>King.Mapper</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
-        <licenseUrl>https://github.com/jefking/King.Mapper</licenseUrl>
+        <licenseUrl>https://github.com/jefking/King.Mapper/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/jefking/King.Mapper</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>High performanc C# model mapping!
