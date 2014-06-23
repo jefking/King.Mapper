@@ -15,7 +15,7 @@
         /// </summary>
         /// <param name="sproc"></param>
         /// <returns></returns>
-        Task<DataSet> Execute(IStoredProcedure sproc);
+        Task<DataSet> Query(IStoredProcedure sproc);
 
         /// <summary>
         /// Non Query sproc for mocking

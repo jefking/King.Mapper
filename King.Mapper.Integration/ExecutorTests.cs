@@ -42,7 +42,7 @@
                 var sproc = SimulatedSelectStatement.Create();
 
                 var executor = new Executor(con);
-                var data = await executor.Execute(sproc);
+                var data = await executor.Query(sproc);
 
                 Assert.IsNotNull(data);
 

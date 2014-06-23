@@ -38,7 +38,16 @@
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            await e.NonQuery(null);
+            await e.NonQuery((IStoredProcedure)null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public async Task NonQueryCommandNull()
+        {
+            var connection = new SqlConnection();
+            var e = new Executor(connection);
+            await e.NonQuery((SqlCommand)null);
         }
 
         [TestMethod]
@@ -47,7 +56,16 @@
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            await e.Execute(null);
+            await e.Query((IStoredProcedure)null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public async Task ExecuteCommandNull()
+        {
+            var connection = new SqlConnection();
+            var e = new Executor(connection);
+            await e.Query((SqlCommand)null);
         }
     }
 }
