@@ -33,14 +33,11 @@
     /// </summary>
     public interface IStoredProcedure
     {
-        #region Properties
+        #region Methods
         /// <summary>
-        /// Stored Procedure Name
+        /// Fully Qualified Stored Procedure Name
         /// </summary>
-        string Name
-        {
-            get;
-        }
+        string FullyQualifiedName();
         #endregion
     }
     #endregion

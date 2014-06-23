@@ -29,7 +29,7 @@
 
             var command = connection.CreateCommand();
             command.CommandType = CommandType.StoredProcedure;
-            command.CommandText = sproc.Name;
+            command.CommandText = sproc.FullyQualifiedName();
 
             foreach (var prop in sproc.GetProperties())
             {

@@ -7,12 +7,9 @@
 
     public class SimulatedSelectStatement : IStoredProcedure
     {
-        public string Name
+        public string FullyQualifiedName()
         {
-            get
-            {
-                return "[dbo].[SimulatedSelectStatement]";
-            }
+            return "[dbo].[SimulatedSelectStatement]";
         }
 
         [DataMapper("@TestInt", DbType.Int32)]

@@ -2,14 +2,11 @@
 {
     using King.Mapper.Data.Sql;
 
-    class SelectMultipleStatement : IStoredProcedure
+    public class SelectMultipleStatement : IStoredProcedure
     {
-        public string Name
+        public string FullyQualifiedName()
         {
-            get
-            {
-                return "[dbo].[SelectMultipleStatement]";
-            }
+            return "[dbo].[SelectMultipleStatement]";
         }
     }
 }
