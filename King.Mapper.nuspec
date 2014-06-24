@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>King.Mapper</id>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <title>King.Mapper</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
         <licenseUrl>https://github.com/jefking/King.Mapper/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/jefking/King.Mapper</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>High performanc C# model mapping!
+        <description>High performance C# model mapping!
 Map between Models with similar properties.
 Map from Data Readers, Data Tables and Data Sets to Models.
 Execute Stored Procedures as objects.
@@ -18,8 +18,8 @@ Prefer Async calls where available.</description>
         <summary>integrating with data models from various sources.
 
 Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.</summary>
-        <releaseNotes>Converted LoadObject Method to Model
-Converted LoadObjects Method to Models</releaseNotes>
+        <releaseNotes>Changed namespaces to simplify implementation
+Converted IStoredProcedure.Name to method so that it isn't seen in the reflection.</releaseNotes>
         <copyright>Jef King</copyright>
         <tags>Data Mapping ORM performance fast transformation object model</tags>
     </metadata>
