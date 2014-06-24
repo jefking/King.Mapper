@@ -18,7 +18,6 @@ PM> Install-Package King.Mapper
 ```
 using King.Mapper;
 using King.Mapper.Data;
-using King.Mapper.Data.Sql;
 ```
 ### [Model Mapping](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Tests/ObjectMapTests.cs)
 ```
