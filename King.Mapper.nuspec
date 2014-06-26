@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>King.Mapper</id>
-        <version>1.7.0</version>
+        <version>1.7.1</version>
         <title>King.Mapper</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
@@ -18,12 +18,16 @@ Prefer Async calls where available.</description>
         <summary>integrating with data models from various sources.
 
 Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.</summary>
-        <releaseNotes>Changed namespaces to simplify implementation
-Converted IStoredProcedure.Name to method so that it isn't seen in the reflection.</releaseNotes>
+        <releaseNotes>Nuget package changes</releaseNotes>
         <copyright>Jef King</copyright>
         <tags>Data Mapping ORM performance fast transformation object model</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Data" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+        </frameworkAssemblies>
     </metadata>
     <files>
-        <file src="King.Mapper\bin\Release\King.Mapper.dll" target="lib\net40\King.Mapper.dll" />
+        <file src="King.Mapper\bin\Release\King.Mapper.dll" target="lib\net451\King.Mapper.dll" />
     </files>
 </package>
