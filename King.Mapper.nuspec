@@ -1,33 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-    <metadata>
-        <id>King.Mapper</id>
-        <version>1.7.1</version>
-        <title>King.Mapper</title>
-        <authors>Jef King</authors>
-        <owners>Jef King</owners>
-        <licenseUrl>https://github.com/jefking/King.Mapper/blob/master/LICENSE</licenseUrl>
-        <projectUrl>https://github.com/jefking/King.Mapper</projectUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>High performance C# model mapping!
-Map between Models with similar properties.
-Map from Data Readers, Data Tables and Data Sets to Models.
-Execute Stored Procedures as objects.
-Everything mockable for proper unit testing.
-Prefer Async calls where available.</description>
-        <summary>integrating with data models from various sources.
+  <metadata>
+    <id>King.Mapper</id>
+    <version>1.7.1</version>
+    <title>King.Mapper</title>
+    <authors>Jef King</authors>
+    <owners>Jef King</owners>
+    <licenseUrl>https://github.com/jefking/King.Mapper/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jefking/King.Mapper</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      High performance C# model mapping!
+      Map between Models with similar properties.
+      Map from Data Readers, Data Tables and Data Sets to Models.
+      Execute Stored Procedures as objects.
+      Everything mockable for proper unit testing.
+      Prefer Async calls where available.
+    </description>
+    <summary>
+      integrating with data models from various sources.
 
-Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.</summary>
-        <releaseNotes>Nuget package changes</releaseNotes>
-        <copyright>Jef King</copyright>
-        <tags>Data Mapping ORM performance fast transformation object model</tags>
-        <frameworkAssemblies>
-            <frameworkAssembly assemblyName="System" targetFramework="" />
-            <frameworkAssembly assemblyName="System.Data" targetFramework="" />
-            <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
-        </frameworkAssemblies>
-    </metadata>
-    <files>
-        <file src="King.Mapper\bin\Release\King.Mapper.dll" target="lib\net451\King.Mapper.dll" />
-    </files>
+      Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.
+    </summary>
+    <releaseNotes>Nuget package changes</releaseNotes>
+    <copyright>Jef King</copyright>
+    <tags>Data Mapping ORM performance fast transformation object model</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="King.Mapper\bin\Release\King.Mapper.dll" target="lib\net451\King.Mapper.dll" />
+  </files>
 </package>
