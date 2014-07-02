@@ -317,5 +317,19 @@
             }
         }
         #endregion
+
+        #region System.Collections.Generic
+        public static T Map<T>(this IDictionary<string, object> dictionary, ActionFlags flag = ActionFlags.Load)
+        {
+            if (null == dictionary)
+            {
+                throw new ArgumentNullException("dictionary");
+            }
+
+            var obj = Activator.CreateInstance<T>();
+            obj.Fill(dictionary.Keys.ToArray(), dictionary.Values.ToArray(), flag);
+            return obj;
+        }
+        #endregion
     }
 }
