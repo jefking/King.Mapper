@@ -1,34 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <id>King.Mapper</id>
-        <version>1.7.1</version>
-        <title>King.Mapper</title>
+        <id>King.Mapper.Generator</id>
+        <version>1.1.6</version>
+        <title>King.Mapper.Generator</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
-        <licenseUrl>https://github.com/jefking/King.Mapper/blob/master/LICENSE</licenseUrl>
-        <projectUrl>https://github.com/jefking/King.Mapper</projectUrl>
-        <iconUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png</iconUrl>
+        <licenseUrl>https://github.com/jefking/King.Mapper.Generator/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/jefking/King.Mapper.Generator</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/jefking/King.Mapper.Generator/master/icon.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>High performance C# model mapping!
-      Map between Models with similar properties.
-      Map from Data Readers, Data Tables and Data Sets to Models.
-      Execute Stored Procedures as objects.
-      Everything mockable for proper unit testing.
-      Prefer Async calls where available.</description>
-        <summary>integrating with data models from various sources.
-
-      Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.</summary>
-        <releaseNotes>Nuget package changes</releaseNotes>
+        <description>Generate a data access layer for your SQL Server database for use with the King.Mapper framework.</description>
+        <summary>Why write your own DAL when you can get it for free? SQL Server C# generation from Stored Procedure definitions.</summary>
+        <releaseNotes>Nuget fixes</releaseNotes>
         <copyright>Jef King</copyright>
-        <tags>Data Mapping ORM performance fast transformation object model</tags>
-        <frameworkAssemblies>
-            <frameworkAssembly assemblyName="System" targetFramework="" />
-            <frameworkAssembly assemblyName="System.Data" targetFramework="" />
-            <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
-        </frameworkAssemblies>
+        <language>en-US</language>
+        <tags>Code Generation King.Mapper DAL Data Access Layer Stored Procedure SQL Server Azure Database DBO SPROC ORM Relational</tags>
     </metadata>
     <files>
-        <file src="King.Mapper\bin\Release\King.Mapper.dll" target="lib\net451\King.Mapper.dll" />
+        <file src="..\King.Mapper.Generator\King.Mapper.Generator\bin\Release\King.Mapper.dll" target="content\King.Mapper.Generator\King.Mapper.dll" />
+        <file src="..\King.Mapper.Generator\King.Mapper.Generator\bin\Release\King.Mapper.Generator.Core.dll" target="content\King.Mapper.Generator\King.Mapper.Generator.Core.dll" />
+        <file src="..\King.Mapper.Generator\King.Mapper.Generator\bin\Release\King.Mapper.Generator.exe" target="content\King.Mapper.Generator\King.Mapper.Generator.exe" />
+        <file src="..\King.Mapper.Generator\King.Mapper.Generator\bin\Release\King.Mapper.Generator.exe.config" target="content\King.Mapper.Generator.exe.config" />
     </files>
 </package>
