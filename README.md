@@ -49,7 +49,7 @@ var id = record.Get<int>("Identifier");
 ```
 var reader = new IDataReader();
 var model = reader.Model<object>(); //Single Model from one Row
-IEnumerable<object> list = reader.Models<object>(); // Multiple Models from many Rows
+var list = reader.Models<object>(); // Multiple Models from many Rows
 ```
 ### [Stored Procedure](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/ExecutorTests.cs)
 Autogenerate your data access layer: [King.Mapper.Generator](https://github.com/jefking/King.Mapper.Generator)
@@ -66,8 +66,8 @@ using (var connection = new SqlConnection(""))
 var sproc = new IStoredProcedure();
 var executor = Substitute.For<IExecute>();
 executor.Execute(sproc).Returns(DataSet);
-
 // Pass to class you are testing.
+var dal = new DataClass(executor);
 ```
 ## Contributing
 
