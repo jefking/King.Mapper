@@ -37,7 +37,7 @@ var a = new ModelA()
 };
 
 var dic = a.ToDictionary();
-var isTrue = a.PropertyA == dic.["PropertyA"];
+var isTrue = a.PropertyA == dic["PropertyA"];
 ```
 ### [Data Record](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/IDataRecordTests.cs)
 ```
