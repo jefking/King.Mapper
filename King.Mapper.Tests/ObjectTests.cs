@@ -56,6 +56,40 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
+        public void ToDictionaryObjectNull()
+        {
+            object obj = null;
+            obj.ToDictionary();
+        }
+
+        [TestMethod]
+        public void ToDictionaryObject()
+        {
+            var random = new Random();
+
+            var obj = new FillObject()
+            {
+                Band = Guid.NewGuid().ToString(),
+                Id = random.Next(),
+                Song = Guid.NewGuid(),
+                TheGuid = Guid.NewGuid(),
+                NullableByte = null,
+                Ecode = Encoding.Unicode,
+                SuperEnum = HappyLand.MarioLand,
+            };
+
+            var dic = obj.ToDictionary();
+            Assert.AreEqual(obj.Band, dic["Band"]);
+            Assert.AreEqual(obj.Id, dic["Id"]);
+            Assert.AreEqual(obj.Song, dic["Song"]);
+            Assert.AreEqual(obj.TheGuid, dic["TheGuid"]);
+            Assert.AreEqual(obj.NullableByte, dic["NullableByte"]);
+            Assert.AreEqual(obj.Ecode, dic["Ecode"]);
+            Assert.AreEqual(obj.SuperEnum, dic["SuperEnum"]);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void ValueMappingObjectNull()
         {
             object obj = null;

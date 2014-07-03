@@ -28,6 +28,22 @@
         }
 
         /// <summary>
+        /// Convert Object to Dictionary
+        /// </summary>
+        /// <param name="value">Object to convert</param>
+        /// <returns>Dictionary</returns>
+        public static IDictionary<string, object> ToDictionary(this object value, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == value)
+            {
+                throw new ArgumentNullException("value");
+            }
+
+            var parameters = value.Parameters();
+            return value.ValueMapping(parameters, action);
+        }
+
+        /// <summary>
         /// Parameters
         /// </summary>
         /// <param name="value">Value</param>
@@ -57,7 +73,6 @@
             {
                 throw new ArgumentNullException("value");
             }
-
             if (null == parameters)
             {
                 throw new ArgumentNullException("parameters");
