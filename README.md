@@ -29,6 +29,16 @@ var a = new ModelA()
 var b = a.Map<ModelB>();
 var isTrue = a.PropertyA == b.PropertyA;
 ```
+### [Dictionary Mapping](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Tests/ObjectMapTests.cs)
+```
+var a = new ModelA()
+{
+	PropertyA = "The-Value-Of-Property-A"
+};
+
+var dic = a.ToDictionary();
+var isTrue = a.PropertyA == dic.["PropertyA"];
+```
 ### [Data Record](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/IDataRecordTests.cs)
 ```
 var record = new IDataRecord();
