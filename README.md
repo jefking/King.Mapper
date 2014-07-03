@@ -49,7 +49,7 @@ var id = record.Get<int>("Identifier");
 ```
 var reader = new IDataReader();
 var model = reader.Model<object>(); //Single Model from one Row
-var list = reader.Models<object>(); // Multiple Models from many Rows
+var list = reader.Models<object>(); //Multiple Models from many Rows
 ```
 ### [Stored Procedure](https://github.com/jefking/King.Mapper/blob/master/King.Mapper.Integration/ExecutorTests.cs)
 Autogenerate your data access layer: [King.Mapper.Generator](https://github.com/jefking/King.Mapper.Generator)
