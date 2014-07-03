@@ -11,7 +11,7 @@
             where T : new()
     {
         #region IDbCommand
-        public IList<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
+        public IEnumerable<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {
             if (null == cmd)
             {
@@ -35,7 +35,7 @@
         #endregion
 
         #region IDataReader
-        public IList<T> Models(IDataReader reader, ActionFlags action = ActionFlags.Load)
+        public IEnumerable<T> Models(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
             {
@@ -57,7 +57,7 @@
         #endregion
 
         #region DataTable
-        public IList<T> Models(DataTable data, ActionFlags action = ActionFlags.Load)
+        public IEnumerable<T> Models(DataTable data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {
@@ -78,7 +78,7 @@
         #endregion
 
         #region DataSet
-        public IList<T> Models(DataSet data, ActionFlags action = ActionFlags.Load)
+        public IEnumerable<T> Models(DataSet data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {

@@ -84,7 +84,7 @@
         /// <param name="ds">Data Set</param>
         /// <param name="action">Action</param>
         /// <returns>Object</returns>
-        public static IList<T> Models<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
+        public static IEnumerable<T> Models<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
             if (null == ds)
@@ -164,7 +164,7 @@
         /// <param name="table">Data Table</param>
         /// <param name="action">Action</param>
         /// <returns>Object</returns>
-        public static IList<T> Models<T>(this DataTable table, ActionFlags action = ActionFlags.Load)
+        public static IEnumerable<T> Models<T>(this DataTable table, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
             if (null == table)
@@ -257,7 +257,7 @@
         /// <param name="reader">Data Reader</param>
         /// <param name="action">Load Action</param>
         /// <returns>Objects of T</returns>
-        public static IList<T> Models<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
+        public static IEnumerable<T> Models<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
            where T : new()
         {
             if (null == reader)

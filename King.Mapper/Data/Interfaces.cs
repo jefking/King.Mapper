@@ -12,22 +12,22 @@
     public interface ILoader<T>
     {
         #region IDbCommand
-        IList<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load);
+        IEnumerable<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load);
         T Model(IDbCommand cmd, ActionFlags action = ActionFlags.Load);
         #endregion
 
         #region IDataReader
-        IList<T> Models(IDataReader reader, ActionFlags action = ActionFlags.Load);
+        IEnumerable<T> Models(IDataReader reader, ActionFlags action = ActionFlags.Load);
         T Model(IDataReader reader, ActionFlags action = ActionFlags.Load);
         #endregion
 
         #region DataTable
-        IList<T> Models(DataTable data, ActionFlags action = ActionFlags.Load);
+        IEnumerable<T> Models(DataTable data, ActionFlags action = ActionFlags.Load);
         T Model(DataTable data, ActionFlags action = ActionFlags.Load);
         #endregion
 
         #region DataSet
-        IList<T> Models(DataSet data, ActionFlags action = ActionFlags.Load);
+        IEnumerable<T> Models(DataSet data, ActionFlags action = ActionFlags.Load);
         T Model(DataSet data, ActionFlags action = ActionFlags.Load);
         #endregion
     }

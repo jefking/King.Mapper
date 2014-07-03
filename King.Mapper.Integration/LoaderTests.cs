@@ -69,9 +69,11 @@
 
                 Assert.IsNotNull(objs);
 
-                for (var i = 0; i <= 5; i++)
+                var i = 0;
+                foreach (var obj in objs)
                 {
-                    Assert.AreEqual<int>(i, objs[i].Identifier);
+                    Assert.AreEqual<int>(i, obj.Identifier);
+                    i++;
                 }
             }
         }
@@ -147,9 +149,11 @@
 
                 Assert.IsNotNull(objs);
 
-                for (var i = 0; i <= 5; i++)
+                var i = 0;
+                foreach (var obj in objs)
                 {
-                    Assert.AreEqual<int>(i, objs[i].Identifier);
+                    Assert.AreEqual<int>(i, obj.Identifier);
+                    i++;
                 }
             }
         }
@@ -211,9 +215,11 @@
 
                 Assert.IsNotNull(objs);
 
-                for (var i = 0; i <= 5; i++)
+                var i = 0;
+                foreach (var obj in objs)
                 {
-                    Assert.AreEqual<int>(i, objs[i].Identifier);
+                    Assert.AreEqual<int>(i, obj.Identifier);
+                    i++;
                 }
             }
         }
@@ -273,9 +279,11 @@
 
                 Assert.IsNotNull(objs);
 
-                for (var i = 0; i <= 5; i++)
+                var i = 0;
+                foreach (var obj in objs)
                 {
-                    Assert.AreEqual<int>(i, objs[i].Identifier);
+                    Assert.AreEqual<int>(i, obj.Identifier);
+                    i++;
                 }
             }
         }
