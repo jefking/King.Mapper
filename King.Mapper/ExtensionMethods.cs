@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.Linq;
     using System.Reflection;
 
@@ -343,6 +344,30 @@
 
             var obj = Activator.CreateInstance<T>();
             obj.Fill(dictionary.Keys.ToArray(), dictionary.Values.ToArray(), flag);
+            return obj;
+        }
+        #endregion
+
+        #region System.Collections.Generic
+        public static T Map<T>(this NameValueCollection dictionary, ActionFlags flag = ActionFlags.Load)
+        {
+            if (null == dictionary)
+            {
+                throw new ArgumentNullException("dictionary");
+            }
+
+            var obj = Activator.CreateInstance<T>();
+            if (dictionary.HasKeys())
+            {
+                var keys = dictionary.AllKeys;
+                var objs = new object[keys.Count()];
+                for (var i = 0; i < objs.Count(); i++)
+                {
+                    objs[i] = dictionary[keys[i]];
+                }
+
+                obj.Fill(keys, objs, flag);
+            }
             return obj;
         }
         #endregion
