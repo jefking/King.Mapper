@@ -1,27 +1,27 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
 
-    [TestClass]
+    [TestFixture]
     public class ObjectTests
     {
-        [TestMethod]
+        [Test]
         public void IsNotNullObjectNull()
         {
             object obj = null;
             Assert.IsFalse(obj.IsNotNull());
         }
         
-        [TestMethod]
+        [Test]
         public void IsNotNullObjectNotNull()
         {
             var obj = new object();
             Assert.IsTrue(obj.IsNotNull());
         }
 
-        [TestMethod]
+        [Test]
         public void IsNotNullObjectDBNull()
         {
             var obj = DBNull.Value;

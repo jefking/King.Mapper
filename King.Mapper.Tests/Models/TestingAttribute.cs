@@ -1,6 +1,6 @@
 ﻿namespace King.Mapper.Tests.Models
 {
-    public class TestAttribute
+    public class TestingAttribute
     {
         public string TestMethod
         {

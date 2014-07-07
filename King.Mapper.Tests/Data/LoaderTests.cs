@@ -3,24 +3,24 @@
     using System;
     using System.Data;
     using King.Mapper.Data;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
 
-    [TestClass]
+    [TestFixture]
     public class LoaderTests
     {
-        [TestMethod]
+        [Test]
         public void Constructor()
         {
             new Loader<object>();
         }
 
-        [TestMethod]
+        [Test]
         public void IsILoader()
         {
             Assert.IsNotNull(new Loader<object>() as ILoader<object>);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsIDbCommandNull()
         {
@@ -28,7 +28,7 @@
             l.Models((IDbCommand)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsIDataReaderNull()
         {
@@ -36,7 +36,7 @@
             l.Models((IDataReader)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelIDbCommandNull()
         {
@@ -44,7 +44,7 @@
             l.Model((IDbCommand)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelIDataReaderNull()
         {
@@ -52,7 +52,7 @@
             l.Model((IDataReader)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelDataSetNull()
         {
@@ -60,7 +60,7 @@
             l.Model((DataSet)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelDataTableNull()
         {
@@ -68,7 +68,7 @@
             l.Model((DataTable)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsDataSetNull()
         {
@@ -76,7 +76,7 @@
             l.Models((DataSet)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsDataTableNull()
         {

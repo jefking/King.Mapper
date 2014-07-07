@@ -1,15 +1,15 @@
 ﻿namespace King.Mapper.Tests
 {
     using King.Mapper.Tests.Models;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
     using System.Linq;
     using System.Reflection;
 
-    [TestClass]
+    [TestFixture]
     public class PropertyInfoTests
     {
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void GetAttributesPropertyNull()
         {
@@ -17,7 +17,7 @@
             info.GetAttributes<ActionNameAttribute>();
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void GetAttributePropertyNull()
         {
@@ -25,7 +25,7 @@
             info.GetAttribute<ActionNameAttribute>();
         }
 
-        [TestMethod]
+        [Test]
         public void GetAttributes()
         {
             var info = (from p in typeof(TestActionNames).GetProperties()
@@ -35,7 +35,7 @@
             Assert.IsNotNull(info);
 
             var attrs = info.GetAttributes<ActionNameAttribute>();
-            Assert.AreEqual<int>(2, attrs.Count());
+            Assert.AreEqual(2, attrs.Count());
             var action = (from a in attrs
                           where a.Action == ActionFlags.Execute
                           && a.Name == "Insert"
@@ -48,7 +48,7 @@
             Assert.IsNotNull(action);
         }
 
-        [TestMethod]
+        [Test]
         public void GetAttribute()
         {
             var info = (from p in typeof(TestActionNames).GetProperties()
@@ -59,11 +59,11 @@
 
             var action = info.GetAttribute<ActionNameAttribute>();
             Assert.IsNotNull(action);
-            Assert.AreEqual<string>("MyIdentifier", action.Name);
-            Assert.AreEqual<ActionFlags>(ActionFlags.Execute, action.Action);
+            Assert.AreEqual("MyIdentifier", action.Name);
+            Assert.AreEqual(ActionFlags.Execute, action.Action);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void GetAttributesNull()
         {
@@ -71,7 +71,7 @@
             info.GetAttribute<ActionNameAttribute>();
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void SetPropertyNull()
         {
@@ -79,7 +79,7 @@
             info.Set(new object());
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void SetOwnerNull()
         {
@@ -87,7 +87,7 @@
             info.Set(null);
         }
 
-        [TestMethod]
+        [Test]
         public void SetPropertyNullableGuid()
         {
             var data = new FillObject();
@@ -98,7 +98,7 @@
             Assert.IsNull(data.TheGuid);
         }
 
-        [TestMethod]
+        [Test]
         public void SetPropertyGuid()
         {
             var expected = Guid.NewGuid();
@@ -108,10 +108,10 @@
                         select p).FirstOrDefault();
             info.Set(data, expected);
 
-            Assert.AreEqual<Guid>(expected, data.Song);
+            Assert.AreEqual(expected, data.Song);
         }
 
-        [TestMethod]
+        [Test]
         public void SetPropertyNullableEnum()
         {
             var data = new FillObject();
@@ -122,7 +122,7 @@
             Assert.IsNull(data.NullableEnum);
         }
 
-        [TestMethod]
+        [Test]
         public void SetPropertyEnum()
         {
             var expected = HappyLand.MarioLand;
@@ -132,7 +132,7 @@
                         select p).FirstOrDefault();
             info.Set(data, expected);
 
-            Assert.AreEqual<HappyLand>(expected, data.SuperEnum);
+            Assert.AreEqual(expected, data.SuperEnum);
         }
     }
 }

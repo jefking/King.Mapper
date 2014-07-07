@@ -1,15 +1,15 @@
 ﻿namespace King.Mapper.Tests
 {
     using King.Mapper.Tests.Models;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
     using System.Collections.Generic;
     using System.Text;
 
-    [TestClass]
+    [TestFixture]
     public class IDictionaryTests
     {
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void MapDictionaryNull()
         {
@@ -17,7 +17,7 @@
             dic.Map<object>();
         }
 
-        [TestMethod]
+        [Test]
         public void MapDictionary()
         {
             var random = new Random();
@@ -46,14 +46,14 @@
             var returned = dic.Map<FillObject>();
 
             Assert.IsNotNull(returned);
-            Assert.AreEqual<int>(expected.Id, returned.Id);
-            Assert.AreEqual<string>(expected.Band, returned.Band);
-            Assert.AreEqual<Guid>(expected.Song, returned.Song);
-            Assert.AreEqual<Encoding>(expected.Ecode, returned.Ecode);
-            Assert.AreEqual<byte?>(expected.NullableByte, returned.NullableByte);
-            Assert.AreEqual<HappyLand>(expected.SuperEnum, returned.SuperEnum);
-            Assert.AreEqual<SadLand?>(expected.NullableEnum, returned.NullableEnum);
-            Assert.AreEqual<Guid?>(expected.TheGuid, returned.TheGuid);
+            Assert.AreEqual(expected.Id, returned.Id);
+            Assert.AreEqual(expected.Band, returned.Band);
+            Assert.AreEqual(expected.Song, returned.Song);
+            Assert.AreEqual(expected.Ecode, returned.Ecode);
+            Assert.AreEqual(expected.NullableByte, returned.NullableByte);
+            Assert.AreEqual(expected.SuperEnum, returned.SuperEnum);
+            Assert.AreEqual(expected.NullableEnum, returned.NullableEnum);
+            Assert.AreEqual(expected.TheGuid, returned.TheGuid);
         }
     }
 }

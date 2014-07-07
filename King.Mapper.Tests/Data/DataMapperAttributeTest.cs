@@ -1,15 +1,15 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
     using System.Data;
 
-    [TestClass]
+    [TestFixture]
     public class DataMapperAttributeTest
     {
         #region Valid Cases
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentException))]
         public void ConstructorInvalidParameterName()
         {
@@ -18,26 +18,26 @@
         #endregion
 
         #region Valid Cases
-        [TestMethod]
+        [Test]
         public void Constructor()
         {
             new DataMapperAttribute(Guid.NewGuid().ToString(), DbType.Currency);
         }
 
-        [TestMethod]
+        [Test]
         public void ParameterName()
         {
             var data = Guid.NewGuid().ToString();
             var mapper = new DataMapperAttribute(data, DbType.DateTimeOffset);
-            Assert.AreEqual<string>(data, mapper.ParameterName);
+            Assert.AreEqual(data, mapper.ParameterName);
         }
 
-        [TestMethod]
+        [Test]
         public void Type()
         {
             var data = DbType.Single;
             var mapper = new DataMapperAttribute(Guid.NewGuid().ToString(), data);
-            Assert.AreEqual<DbType>(data, mapper.DatabaseType);
+            Assert.AreEqual(data, mapper.DatabaseType);
         }
         #endregion
     }

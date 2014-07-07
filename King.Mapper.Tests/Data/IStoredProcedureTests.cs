@@ -1,15 +1,15 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using NSubstitute;
     using System;
     using System.Data.SqlClient;
 
-    [TestClass]
+    [TestFixture]
     public class IStoredProcedureTests
     {
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void BuildSprocNull()
         {
@@ -18,7 +18,7 @@
             sproc.Build(connection);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void BuildConnectionNull()
         {

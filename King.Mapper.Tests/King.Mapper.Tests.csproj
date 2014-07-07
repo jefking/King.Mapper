@@ -41,6 +41,9 @@
     <Reference Include="NSubstitute">
       <HintPath>..\packages\NSubstitute.1.7.2.0\lib\NET45\NSubstitute.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -53,11 +56,7 @@
         <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
       </ItemGroup>
     </When>
-    <Otherwise>
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
-      </ItemGroup>
-    </Otherwise>
+    <Otherwise />
   </Choose>
   <ItemGroup>
     <Compile Include="NameValueCollectionTests.cs" />
@@ -77,7 +76,7 @@
     <Compile Include="Models\FillObject.cs" />
     <Compile Include="Models\MappingTester.cs" />
     <Compile Include="Models\TestActionNames.cs" />
-    <Compile Include="Models\TestAttribute.cs" />
+    <Compile Include="Models\TestingAttribute.cs" />
     <Compile Include="ObjectArrayTests.cs" />
     <Compile Include="ObjectMapTests.cs" />
     <Compile Include="ObjectTests.cs" />

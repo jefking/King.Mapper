@@ -1,14 +1,14 @@
 ﻿namespace King.Mapper.Tests
 {
     using King.Mapper.Tests.Models;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
 
-    [TestClass]
+    [TestFixture]
     public class ObjectMapTests
     {
         #region Error Cases
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromToFromNull()
         {
@@ -16,7 +16,7 @@
             obj.Map<object>(new Object());
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromToToNull()
         {
@@ -24,7 +24,7 @@
             obj.Map<object>(null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromFromNull()
         {
@@ -34,7 +34,7 @@
         #endregion
 
         #region Valid Cases
-        [TestMethod]
+        [Test]
         public void MapFromTo()
         {
             var item = new MappingTester()
@@ -44,10 +44,10 @@
 
             var data = item.Map<MappingTester>(new MappingTester());
             Assert.IsNotNull(data);
-            Assert.AreEqual<Guid>(item.Temp, data.Temp);
+            Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [TestMethod]
+        [Test]
         public void MapFrom()
         {
             var item = new MappingTester()
@@ -58,7 +58,7 @@
             var data = item.Map<MappingTester>();
 
             Assert.IsNotNull(data);
-            Assert.AreEqual<Guid>(item.Temp, data.Temp);
+            Assert.AreEqual(item.Temp, data.Temp);
         }
         #endregion
     }

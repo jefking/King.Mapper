@@ -2,15 +2,15 @@
 {
     using King.Mapper.Data;
     using King.Mapper.Tests.Models;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
     using System.Data;
     using System.Linq;
 
-    [TestClass]
+    [TestFixture]
     public class DataSetTests
     {
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsNull()
         {
@@ -18,7 +18,7 @@
             table.Models<object>();
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelNull()
         {
@@ -26,17 +26,17 @@
             table.Model<object>();
         }
 
-        [TestMethod]
+        [Test]
         public void ModelFromDataSet()
         {
             var dataset = LoadDataSet();
             var filled = dataset.Model<FillObject>();
-            Assert.AreEqual<int>(1, filled.Id);
-            Assert.AreEqual<string>("Breaking Benjamin", filled.Band);
-            Assert.AreNotEqual<Guid>(Guid.Empty, filled.Song);
+            Assert.AreEqual(1, filled.Id);
+            Assert.AreEqual("Breaking Benjamin", filled.Band);
+            Assert.AreNotEqual(Guid.Empty, filled.Song);
         }
 
-        [TestMethod]
+        [Test]
         public void ModelsFromDataSet()
         {
             var dataset = LoadDataSet();

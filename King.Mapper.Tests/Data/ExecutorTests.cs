@@ -1,30 +1,30 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using NSubstitute;
     using System;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
     
-    [TestClass]
+    [TestFixture]
     public class ExecutorTests
     {
-        [TestMethod]
+        [Test]
         public void Constructor()
         {
             var connection = new SqlConnection();
             new Executor(connection);
         }
 
-        [TestMethod]
+        [Test]
         public void IsIExecutor()
         {
             var connection = new SqlConnection();
             Assert.IsNotNull(new Executor(connection) as IExecutor);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ConstructorConnectionNull()
         {
@@ -32,7 +32,7 @@
             new Executor(null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task NonQuerySprocNull()
         {
@@ -41,7 +41,7 @@
             await e.NonQuery((IStoredProcedure)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task NonQueryCommandNull()
         {
@@ -50,7 +50,7 @@
             await e.NonQuery((SqlCommand)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task ExecuteSprocNull()
         {
@@ -59,7 +59,7 @@
             await e.Query((IStoredProcedure)null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task ExecuteCommandNull()
         {

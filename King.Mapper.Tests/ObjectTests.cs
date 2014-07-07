@@ -1,15 +1,15 @@
 ﻿namespace King.Mapper.Tests
 {
     using King.Mapper.Tests.Models;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
     using System.Linq;
     using System.Text;
 
-    [TestClass]
+    [TestFixture]
     public class ObjectTests
     {
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void FillObjectNull()
         {
@@ -17,7 +17,7 @@
             obj.Fill(new string[0], new object[0]);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void FillColumnsNull()
         {
@@ -25,7 +25,7 @@
             obj.Fill(null, new object[0]);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void FillValuesNull()
         {
@@ -33,7 +33,7 @@
             obj.Fill(new string[0], null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentException))]
         public void FillDifferentSizes()
         {
@@ -41,7 +41,7 @@
             obj.Fill(new string[0], new object[10]);
         }
 
-        [TestMethod]
+        [Test]
         public void Fill()
         {
             var random = new Random();
@@ -50,11 +50,11 @@
             var values = new object[] { random.Next(), Guid.NewGuid() };
             obj.Fill(columns, values, ActionFlags.Execute);
 
-            Assert.AreEqual<int>((int)values[0], obj.Id);
-            Assert.AreEqual<Guid>((Guid)values[1], obj.Song);
+            Assert.AreEqual((int)values[0], obj.Id);
+            Assert.AreEqual((Guid)values[1], obj.Song);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ToDictionaryObjectNull()
         {
@@ -62,7 +62,7 @@
             obj.ToDictionary();
         }
 
-        [TestMethod]
+        [Test]
         public void ToDictionaryObject()
         {
             var random = new Random();
@@ -88,7 +88,7 @@
             Assert.AreEqual(obj.SuperEnum, dic["SuperEnum"]);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ValueMappingObjectNull()
         {
@@ -96,7 +96,7 @@
             obj.ValueMapping(new string[0]);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ValueMappingParametersNull()
         {
@@ -104,7 +104,7 @@
             obj.ValueMapping(null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void GetPropertiesObjectNull()
         {
@@ -112,7 +112,7 @@
             obj.GetProperties();
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ParametersObjectNull()
         {
@@ -120,28 +120,28 @@
             obj.Parameters();
         }
 
-        [TestMethod]
+        [Test]
         public void GetPropertiesCount()
         {
             var obj = new FillObject();
             var objProperties = obj.GetProperties();
 
             var properties = typeof(FillObject).GetProperties();
-            Assert.AreEqual<int>(properties.Count(), objProperties.Count());
+            Assert.AreEqual(properties.Count(), objProperties.Count());
         }
 
-        [TestMethod]
+        [Test]
         public void ObjectParameter()
         {
             var obj = new object();
-            Assert.AreEqual<int>(0, obj.Parameters().Length);
+            Assert.AreEqual(0, obj.Parameters().Length);
         }
 
-        [TestMethod]
+        [Test]
         public void ObjectParameters()
         {
             var obj = new TestActionNames();
-            Assert.AreEqual<int>(3, obj.Parameters().Length);
+            Assert.AreEqual(3, obj.Parameters().Length);
             foreach (var property in obj.Parameters())
             {
                 switch (property)
@@ -157,7 +157,7 @@
             }
         }
 
-        [TestMethod]
+        [Test]
         public void ValueMapping()
         {
             var random = new Random();
@@ -169,12 +169,12 @@
             };
 
             var mappings = getValues.ValueMapping(new string[] { "Id", "Band", "Song" });
-            Assert.AreEqual<string>(getValues.Band, (string)mappings["Band"]);
-            Assert.AreEqual<int>(getValues.Id, (int)mappings["Id"]);
-            Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["Song"]);
+            Assert.AreEqual(getValues.Band, (string)mappings["Band"]);
+            Assert.AreEqual(getValues.Id, (int)mappings["Id"]);
+            Assert.AreEqual(getValues.Song, (Guid)mappings["Song"]);
         }
 
-        [TestMethod]
+        [Test]
         public void ValueMappingTestActionNames()
         {
             var random = new Random();
@@ -186,35 +186,35 @@
             };
 
             var mappings = getValues.ValueMapping(new string[] { "Id", "Band", "Song" }, ActionFlags.Load);
-            Assert.AreEqual<int>(5, mappings.Count);
-            Assert.AreEqual<string>(getValues.Band, (string)mappings["Band"]);
-            Assert.AreEqual<string>(getValues.Band, (string)mappings["CheckBandDude"]);
-            Assert.AreEqual<int>(getValues.Id, (int)mappings["Id"]);
-            Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["Song"]);
-            Assert.AreEqual<Guid>(getValues.Song, (Guid)mappings["GuidGuid"]);
+            Assert.AreEqual(5, mappings.Count);
+            Assert.AreEqual(getValues.Band, (string)mappings["Band"]);
+            Assert.AreEqual(getValues.Band, (string)mappings["CheckBandDude"]);
+            Assert.AreEqual(getValues.Id, (int)mappings["Id"]);
+            Assert.AreEqual(getValues.Song, (Guid)mappings["Song"]);
+            Assert.AreEqual(getValues.Song, (Guid)mappings["GuidGuid"]);
         }
 
-        [TestMethod]
+        [Test]
         public void GetProperties()
         {
-            var obj = new TestAttribute();
+            var obj = new TestingAttribute();
             var prop = obj.GetProperties();
 
-            Assert.AreEqual<int>(1, prop.Length);
-            Assert.AreEqual<string>("TestMethod", prop[0].Name);
+            Assert.AreEqual(1, prop.Length);
+            Assert.AreEqual("TestMethod", prop[0].Name);
         }
 
-        [TestMethod]
+        [Test]
         public void Parameters()
         {
-            var proc = new TestAttribute();
+            var proc = new TestingAttribute();
             var prop = proc.Parameters();
 
-            Assert.AreEqual<int>(1, prop.Length);
-            Assert.AreEqual<string>("TestMethod", prop[0]);
+            Assert.AreEqual(1, prop.Length);
+            Assert.AreEqual("TestMethod", prop[0]);
         }
 
-        [TestMethod]
+        [Test]
         public void SetPropertyInfo()
         {
             var random = new Random();
@@ -262,17 +262,17 @@
                 }
             }
 
-            Assert.AreEqual<string>(band, fillobject.Band);
-            Assert.AreEqual<int>(id, fillobject.Id);
-            Assert.AreEqual<Guid>(song, fillobject.Song);
-            Assert.AreEqual<byte?>(nullableByte, fillobject.NullableByte);
-            Assert.AreEqual<HappyLand>(superEnum, fillobject.SuperEnum);
-            Assert.AreEqual<SadLand?>(relType, fillobject.NullableEnum);
-            Assert.AreEqual<Guid?>(theGuid, fillobject.TheGuid);
-            Assert.AreEqual<Encoding>(e, fillobject.Ecode);
+            Assert.AreEqual(band, fillobject.Band);
+            Assert.AreEqual(id, fillobject.Id);
+            Assert.AreEqual(song, fillobject.Song);
+            Assert.AreEqual(nullableByte, fillobject.NullableByte);
+            Assert.AreEqual(superEnum, fillobject.SuperEnum);
+            Assert.AreEqual(relType, fillobject.NullableEnum);
+            Assert.AreEqual(theGuid, fillobject.TheGuid);
+            Assert.AreEqual(e, fillobject.Ecode);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromToFromNull()
         {
@@ -280,7 +280,7 @@
             obj.Map<object>(new Object());
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromToToNull()
         {
@@ -288,7 +288,7 @@
             obj.Map<object>(null);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromFromNull()
         {
@@ -296,7 +296,7 @@
             obj.Map<object>();
         }
 
-        [TestMethod]
+        [Test]
         public void MapFromTo()
         {
             var item = new MappingTester()
@@ -306,10 +306,10 @@
 
             var data = item.Map<MappingTester>(new MappingTester());
             Assert.IsNotNull(data);
-            Assert.AreEqual<Guid>(item.Temp, data.Temp);
+            Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [TestMethod]
+        [Test]
         public void MapFrom()
         {
             var item = new MappingTester()
@@ -319,10 +319,10 @@
 
             var data = item.Map<MappingTester>();
             Assert.IsNotNull(data);
-            Assert.AreEqual<Guid>(item.Temp, data.Temp);
+            Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [TestMethod]
+        [Test]
         public void GetAttributeNull()
         {
             var test = new TestAttribute();
@@ -330,7 +330,7 @@
             Assert.IsNull(attribute);
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void GetAttributeObjectNull()
         {

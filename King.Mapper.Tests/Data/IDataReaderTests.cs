@@ -4,13 +4,13 @@
     using System.Collections.Generic;
     using System.Data;
     using King.Mapper.Data;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using NSubstitute;
 
-    [TestClass]
+    [TestFixture]
     public class IDataReaderTests
     {
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelReaderNull()
         {
@@ -18,7 +18,7 @@
             reader.Model<object>();
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsReaderNull()
         {
@@ -26,7 +26,7 @@
             reader.Models<object>();
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldNamesReaderNull()
         {
@@ -34,7 +34,7 @@
             reader.GetFieldNames();
         }
 
-        [TestMethod]
+        [Test]
         public void GetFieldNames()
         {
             var random = new Random();
