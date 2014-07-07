@@ -1,6 +1,3 @@
-King Mapper
-==========
-
 High performance C# model mapping!
 + Map between Models with similar properties.
 + Map from Data Readers, Data Tables and Data Sets to Models.
@@ -13,6 +10,7 @@ High performance C# model mapping!
 ```
 PM> Install-Package King.Mapper
 ```
+
 ## Examples
 ### Namespaces
 ```
