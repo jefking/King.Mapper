@@ -41,8 +41,7 @@
                 throw new ArgumentNullException("value");
             }
 
-            var parameters = value.Parameters();
-            return value.ValueMapping(parameters, action);
+            return value.ValueMapping(value.Parameters(), action);
         }
 
         /// <summary>
@@ -86,10 +85,10 @@
 
             Parallel.ForEach(properties, property =>
             {
-                var actions = (from p in property.GetAttributes<ActionNameAttribute>()
+                var actions = from p in property.GetAttributes<ActionNameAttribute>()
                                where p.Action == action
                                  && p != null
-                               select p);
+                               select p;
                 
                 foreach (var actionName in actions)
                 {
@@ -150,10 +149,10 @@
                                 && !propertyDictionary.ContainsKey(a.Name)
                             select a;
 
-                foreach (var actionName in names)
+                Parallel.ForEach(names, actionName =>
                 {
                     propertyDictionary.Add(actionName.Name, property);
-                }
+                });
             }
 
             Parallel.For(0, columns.Count(), i =>
