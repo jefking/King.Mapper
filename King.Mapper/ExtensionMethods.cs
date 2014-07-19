@@ -18,7 +18,7 @@
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns>Property Info</returns>
-        public static PropertyInfo[] GetProperties(this object value)
+        public static IEnumerable<PropertyInfo> GetProperties(this object value)
         {
             if (null == value)
             {
@@ -50,16 +50,16 @@
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns>Parameters</returns>
-        public static string[] Parameters(this object value)
+        public static IEnumerable<string> Parameters(this object value)
         {
             if (null == value)
             {
                 throw new ArgumentNullException("value");
             }
 
-            return (from property in value.GetProperties()
+            return from property in value.GetProperties()
                     where property.CanWrite
-                    select property.Name).ToArray();
+                    select property.Name;
         }
 
         /// <summary>
@@ -69,7 +69,7 @@
         /// <param name="parameters">Stored Procedure Parameters</param>
         /// <param name="action">Action</param>
         /// <returns>Mapped Parameters to Values</returns>
-        public static IDictionary<string, object> ValueMapping(this object value, string[] parameters, ActionFlags action = ActionFlags.Execute)
+        public static IDictionary<string, object> ValueMapping(this object value, IEnumerable<string> parameters, ActionFlags action = ActionFlags.Execute)
         {
             if (null == value)
             {
@@ -80,7 +80,7 @@
                 throw new ArgumentNullException("parameters");
             }
 
-            var row = new Dictionary<string, object>(parameters.Length);
+            var row = new Dictionary<string, object>(parameters.Count());
             var columnHash = new HashSet<string>(parameters);
             var properties = value.GetProperties();
 
@@ -117,7 +117,7 @@
         /// <param name="columns">Columns</param>
         /// <param name="values">Values</param>
         /// <param name="action">Action</param>
-        public static void Fill(this object value, string[] columns, object[] values, ActionFlags action = ActionFlags.Load)
+        public static void Fill(this object value, IEnumerable<string> columns, IEnumerable<object> values, ActionFlags action = ActionFlags.Load)
         {
             if (null == value)
             {
@@ -131,7 +131,7 @@
             {
                 throw new ArgumentNullException("values");
             }
-            if (columns.Length != values.Length)
+            if (columns.Count() != values.Count())
             {
                 throw new ArgumentException("Columns don't match values.");
             }
@@ -145,7 +145,9 @@
                 propertyDictionary.Add(property.Name, property);
 
                 var names = from a in property.GetAttributes<ActionNameAttribute>()
-                            where null != a && a.Action == action && !propertyDictionary.ContainsKey(a.Name)
+                            where null != a
+                                && a.Action == action
+                                && !propertyDictionary.ContainsKey(a.Name)
                             select a;
 
                 foreach (var actionName in names)
@@ -154,14 +156,14 @@
                 }
             }
 
-            for (var i = 0; i < columns.Length; i++)
+            for (var i = 0; i < columns.Count(); i++)
             {
-                if (propertyDictionary.ContainsKey(columns[i]))
+                if (propertyDictionary.ContainsKey(columns.ElementAt(i)))
                 {
-                    var property = propertyDictionary[columns[i]];
+                    var property = propertyDictionary[columns.ElementAt(i)];
                     if (null != property)
                     {
-                        property.Set(value, values[i]);
+                        property.Set(value, values.ElementAt(i));
                     }
                 }
             }

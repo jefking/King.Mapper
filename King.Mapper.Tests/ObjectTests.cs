@@ -134,14 +134,14 @@
         public void ObjectParameter()
         {
             var obj = new object();
-            Assert.AreEqual(0, obj.Parameters().Length);
+            Assert.AreEqual(0, obj.Parameters().Count());
         }
 
         [Test]
         public void ObjectParameters()
         {
             var obj = new TestActionNames();
-            Assert.AreEqual(3, obj.Parameters().Length);
+            Assert.AreEqual(3, obj.Parameters().Count());
             foreach (var property in obj.Parameters())
             {
                 switch (property)
@@ -200,8 +200,8 @@
             var obj = new TestingAttribute();
             var prop = obj.GetProperties();
 
-            Assert.AreEqual(1, prop.Length);
-            Assert.AreEqual("TestMethod", prop[0].Name);
+            Assert.AreEqual(1, prop.Count());
+            Assert.AreEqual("TestMethod", prop.ElementAt(0).Name);
         }
 
         [Test]
@@ -210,8 +210,8 @@
             var proc = new TestingAttribute();
             var prop = proc.Parameters();
 
-            Assert.AreEqual(1, prop.Length);
-            Assert.AreEqual("TestMethod", prop[0]);
+            Assert.AreEqual(1, prop.Count());
+            Assert.AreEqual("TestMethod", prop.ElementAt(0));
         }
 
         [Test]
