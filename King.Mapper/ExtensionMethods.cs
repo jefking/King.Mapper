@@ -156,7 +156,7 @@
                 }
             }
 
-            for (var i = 0; i < columns.Count(); i++)
+            Parallel.For(0, columns.Count(), i =>
             {
                 if (propertyDictionary.ContainsKey(columns.ElementAt(i)))
                 {
@@ -166,7 +166,7 @@
                         property.Set(value, values.ElementAt(i));
                     }
                 }
-            }
+            });
         }
 
         /// <summary>
@@ -242,9 +242,9 @@
                 throw new ArgumentNullException("attributes");
             }
 
-            return (T)(from item in attributes
-                       where item.GetType() == typeof(T)
-                       select item).FirstOrDefault();
+            return (from item in attributes
+                    where item.GetType() == typeof(T)
+                    select item as T).FirstOrDefault();
         }
         #endregion
 
@@ -265,7 +265,7 @@
 
             return from p in property.GetCustomAttributes(false)
                    where p.GetType() == typeof(T)
-                   select (T)p;;
+                   select (T)p;
         }
 
         /// <summary>
@@ -282,8 +282,7 @@
                 throw new ArgumentNullException("property");
             }
 
-            return (from a in property.GetAttributes<T>()
-                    select a).FirstOrDefault();
+            return property.GetAttributes<T>().FirstOrDefault();
         }
 
         /// <summary>
@@ -352,15 +351,12 @@
             var obj = Activator.CreateInstance<T>();
             if (dictionary.HasKeys())
             {
-                var keys = dictionary.AllKeys;
-                var objs = new object[keys.Count()];
-                for (var i = 0; i < objs.Count(); i++)
-                {
-                    objs[i] = dictionary[keys[i]];
-                }
+                var values = from d in dictionary.AllKeys
+                           select dictionary[d];
 
-                obj.Fill(keys, objs, flag);
+                obj.Fill(dictionary.AllKeys, values, flag);
             }
+
             return obj;
         }
         #endregion
