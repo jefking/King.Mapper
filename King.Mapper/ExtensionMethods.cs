@@ -57,8 +57,8 @@
             }
 
             return from property in value.GetProperties()
-                    where property.CanWrite
-                    select property.Name;
+                   where property.CanWrite
+                   select property.Name;
         }
 
         /// <summary>
@@ -81,14 +81,13 @@
 
             var row = new Dictionary<string, object>(parameters.Count());
             var columnHash = new HashSet<string>(parameters);
-            var properties = value.GetProperties();
 
-            Parallel.ForEach(properties, property =>
+            Parallel.ForEach(value.GetProperties(), property =>
             {
                 var actions = from p in property.GetAttributes<ActionNameAttribute>()
-                               where p.Action == action
-                                 && p != null
-                               select p;
+                              where p.Action == action
+                                && p != null
+                              select p;
                 
                 foreach (var actionName in actions)
                 {
