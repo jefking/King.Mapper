@@ -5,6 +5,7 @@
     using System.Collections.Specialized;
     using System.Linq;
     using System.Reflection;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Extension Methods
@@ -83,17 +84,19 @@
             var columnHash = new HashSet<string>(parameters);
             var properties = value.GetProperties();
 
-            foreach (var property in properties)
+            Parallel.ForEach(properties, property =>
             {
-                foreach (var actionName in property.GetAttributes<ActionNameAttribute>())
+                var actions = (from p in property.GetAttributes<ActionNameAttribute>()
+                               where p.Action == action
+                                 && p != null
+                               select p);
+                
+                foreach (var actionName in actions)
                 {
-                    if (null != actionName && actionName.Action == action)
+                    var name = actionName.Name.Replace("@", string.Empty);
+                    if (!columnHash.Contains(name) && !row.ContainsKey(name))
                     {
-                        var name = actionName.Name.Replace("@", string.Empty);
-                        if (!columnHash.Contains(name) && !row.ContainsKey(name))
-                        {
-                            row.Add(name, property.GetValue(value, null));
-                        }
+                        row.Add(name, property.GetValue(value, null));
                     }
                 }
 
@@ -101,7 +104,7 @@
                 {
                     row.Add(property.Name, property.GetValue(value, null));
                 }
-            }
+            });
 
             return row;
         }
@@ -120,17 +123,14 @@
             {
                 throw new ArgumentNullException("value");
             }
-
             if (null == columns)
             {
                 throw new ArgumentNullException("columns");
             }
-
             if (null == values)
             {
                 throw new ArgumentNullException("values");
             }
-
             if (columns.Length != values.Length)
             {
                 throw new ArgumentException("Columns don't match values.");
@@ -139,6 +139,7 @@
             var properties = value.GetProperties();
 
             var propertyDictionary = new Dictionary<string, PropertyInfo>(properties.Count());
+
             foreach (var property in properties)
             {
                 propertyDictionary.Add(property.Name, property);
@@ -179,7 +180,6 @@
             {
                 throw new ArgumentNullException("from");
             }
-
             if (null == to)
             {
                 throw new ArgumentNullException("to");
@@ -261,17 +261,9 @@
                 throw new ArgumentNullException("property");
             }
 
-            var enumeration = new List<T>();
-
-            foreach (var obj in property.GetCustomAttributes(false))
-            {
-                if (obj.GetType() == typeof(T))
-                {
-                    enumeration.Add((T)obj);
-                }
-            }
-
-            return enumeration;
+            return from p in property.GetCustomAttributes(false)
+                   where p.GetType() == typeof(T)
+                   select (T)p;;
         }
 
         /// <summary>
@@ -303,7 +295,6 @@
             {
                 throw new ArgumentNullException("property");
             }
-
             if (null == owner)
             {
                 throw new ArgumentNullException("owner");
