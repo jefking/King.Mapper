@@ -6,6 +6,7 @@
     using System.Data;
     using System.Data.SqlClient;
     using System.Linq;
+    using System.Threading.Tasks;
 
     public static class ExtensionMethods
     {
@@ -36,18 +37,12 @@
             {
                 throw new ArgumentNullException("record");
             }
-            
             if (string.IsNullOrWhiteSpace(column))
             {
                 throw new ArgumentException("column");
             }
 
-            if (record[column].IsNotNull())
-            {
-                return (T)Convert.ChangeType(record[column], typeof(T));
-            }
-
-            return value;
+            return record[column].IsNotNull() ? (T)Convert.ChangeType(record[column], typeof(T)) : value;
         }
         #endregion
 
@@ -182,13 +177,13 @@
         /// </summary>
         /// <param name="columns">Columns</param>
         /// <returns>Column Name Array</returns>
-        public static string[] ToArray(this DataColumnCollection columns)
+        public static IEnumerable<string> ToArray(this DataColumnCollection columns)
         {
             if (null == columns)
             {
                 throw new ArgumentNullException("columns");
             }
-
+            
             var cols = new string[columns.Count];
             for (var i = 0; i < cols.Length; i++)
             {
@@ -217,12 +212,8 @@
             var obj = Activator.CreateInstance<T>();
 
             var columns = reader.GetFieldNames();
-            var values = new object[columns.Length];
-
-            for (var i = 0; i < values.Length; i++)
-            {
-                values[i] = reader[i];
-            }
+            var values = new object[columns.Count()];
+            reader.GetValues(values);
 
             obj.Fill(columns, values, action);
 
@@ -234,7 +225,7 @@
         /// </summary>
         /// <param name="reader">Reader</param>
         /// <returns>Field Names</returns>
-        public static string[] GetFieldNames(this IDataReader reader)
+        public static IEnumerable<string> GetFieldNames(this IDataReader reader)
         {
             if (null == reader)
             {

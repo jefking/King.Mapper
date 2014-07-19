@@ -1,6 +1,7 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using System.Data;
     using King.Mapper.Data;
@@ -54,7 +55,7 @@
             for (var i = 0; i < total; i++)
             {
                 reader.Received().GetName(i);
-                Assert.AreEqual(columns[i], fields[i]);
+                Assert.AreEqual(columns[i], fields.ElementAt(i));
             }
         }
     }

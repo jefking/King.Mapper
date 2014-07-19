@@ -67,6 +67,7 @@
     <Build Include="dbo\Sprocs\SimulatedInsertStatement.sql" />
     <Build Include="dbo\Sprocs\SimulatedSelectStatement.sql" />
     <Build Include="dbo\Sprocs\SelectMultipleStatement.sql" />
+    <Build Include="dbo\Sprocs\MultipleDataSetStatement.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="King.Mapper.Data.publish.xml" />
