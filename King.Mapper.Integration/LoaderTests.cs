@@ -1,6 +1,7 @@
 ﻿namespace King.Mapper.Integration
 {
     using King.Mapper.Data;
+    using King.Mapper.Generated.Sql;
     using King.Mapper.Integration.Model;
     using NUnit.Framework;
     using System;
@@ -37,12 +38,12 @@
                 Assert.AreEqual(sproc.TestInt, obj.Identifier);
                 Assert.AreEqual(sproc.TestBigInt, obj.BigInt);
                 Assert.AreEqual(sproc.TestBit, obj.Bit);
-                Assert.AreEqual(sproc.TestDate.Date, obj.Date.Date);
-                Assert.AreEqual(sproc.TestDateTime.Date, obj.DateTime.Date);
-                Assert.AreEqual(sproc.TestDateTime2.Date, obj.DateTime2.Date);
+                Assert.AreEqual(sproc.TestDate.Value.Date, obj.Date.Date);
+                Assert.AreEqual(sproc.TestDateTime.Value.Date, obj.DateTime.Date);
+                Assert.AreEqual(sproc.TestDateTime2.Value.Date, obj.DateTime2.Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
                 Assert.AreEqual(sproc.TestFloat, obj.Float);
-                Assert.AreEqual(Math.Round(sproc.TestMoney, 4), obj.Money);
+                Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
                 Assert.AreEqual(sproc.TestText, obj.Text);
@@ -57,7 +58,7 @@
         {
             using (var con = new SqlConnection(connectionString))
             {
-                var sproc = new SelectMultipleStatement();
+                var sproc = new dboSelectMultipleStatement();
 
                 var cmd = sproc.Build(con);
                 await con.OpenAsync();
@@ -96,12 +97,12 @@
                 Assert.AreEqual(sproc.TestInt, obj.Identifier);
                 Assert.AreEqual(sproc.TestBigInt, obj.BigInt);
                 Assert.AreEqual(sproc.TestBit, obj.Bit);
-                Assert.AreEqual(sproc.TestDate.Date, obj.Date.Date);
-                Assert.AreEqual(sproc.TestDateTime.Date, obj.DateTime.Date);
-                Assert.AreEqual(sproc.TestDateTime2.Date, obj.DateTime2.Date);
+                Assert.AreEqual(sproc.TestDate.Value.Date, obj.Date.Date);
+                Assert.AreEqual(sproc.TestDateTime.Value.Date, obj.DateTime.Date);
+                Assert.AreEqual(sproc.TestDateTime2.Value.Date, obj.DateTime2.Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
                 Assert.AreEqual(sproc.TestFloat, obj.Float);
-                Assert.AreEqual(Math.Round(sproc.TestMoney, 4), obj.Money);
+                Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
                 Assert.AreEqual(sproc.TestText, obj.Text);
@@ -117,7 +118,7 @@
             var random = new Random();
             using (var con = new SqlConnection(connectionString))
             {
-                var sproc = new SimulatedInsertStatement()
+                var sproc = new dboSimulatedInsertStatement()
                 {
                     TestInt = random.Next(),
                 };
@@ -138,7 +139,7 @@
         {
             using (var con = new SqlConnection(connectionString))
             {
-                var sproc = new SelectMultipleStatement();
+                var sproc = new dboSelectMultipleStatement();
 
                 var cmd = sproc.Build(con);
 
@@ -180,12 +181,12 @@
                 Assert.AreEqual(sproc.TestInt, obj.Identifier);
                 Assert.AreEqual(sproc.TestBigInt, obj.BigInt);
                 Assert.AreEqual(sproc.TestBit, obj.Bit);
-                Assert.AreEqual(sproc.TestDate.Date, obj.Date.Date);
-                Assert.AreEqual(sproc.TestDateTime.Date, obj.DateTime.Date);
-                Assert.AreEqual(sproc.TestDateTime2.Date, obj.DateTime2.Date);
+                Assert.AreEqual(sproc.TestDate.Value.Date, obj.Date.Date);
+                Assert.AreEqual(sproc.TestDateTime.Value.Date, obj.DateTime.Date);
+                Assert.AreEqual(sproc.TestDateTime2.Value.Date, obj.DateTime2.Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
                 Assert.AreEqual(sproc.TestFloat, obj.Float);
-                Assert.AreEqual(Math.Round(sproc.TestMoney, 4), obj.Money);
+                Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
                 Assert.AreEqual(sproc.TestText, obj.Text);
@@ -200,7 +201,7 @@
         {
             using (var con = new SqlConnection(connectionString))
             {
-                var sproc = new SelectMultipleStatement();
+                var sproc = new dboSelectMultipleStatement();
 
                 var cmd = sproc.Build(con);
 
@@ -245,12 +246,12 @@
                 Assert.AreEqual(sproc.TestInt, obj.Identifier);
                 Assert.AreEqual(sproc.TestBigInt, obj.BigInt);
                 Assert.AreEqual(sproc.TestBit, obj.Bit);
-                Assert.AreEqual(sproc.TestDate.Date, obj.Date.Date);
-                Assert.AreEqual(sproc.TestDateTime.Date, obj.DateTime.Date);
-                Assert.AreEqual(sproc.TestDateTime2.Date, obj.DateTime2.Date);
+                Assert.AreEqual(sproc.TestDate.Value.Date, obj.Date.Date);
+                Assert.AreEqual(sproc.TestDateTime.Value.Date, obj.DateTime.Date);
+                Assert.AreEqual(sproc.TestDateTime2.Value.Date, obj.DateTime2.Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
                 Assert.AreEqual(sproc.TestFloat, obj.Float);
-                Assert.AreEqual(Math.Round(sproc.TestMoney, 4), obj.Money);
+                Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
                 Assert.AreEqual(sproc.TestText, obj.Text);
@@ -265,7 +266,7 @@
         {
             using (var con = new SqlConnection(connectionString))
             {
-                var sproc = new SelectMultipleStatement();
+                var sproc = new dboSelectMultipleStatement();
 
                 var cmd = sproc.Build(con);
 

@@ -56,9 +56,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ExecutorTests.cs" />
+    <Compile Include="Generated\StoredProcedures.Generated.cs" />
+    <Compile Include="Generated\StoredProcedures.Unit.Test.Generated.cs" />
     <Compile Include="IDataRecordTests.cs" />
     <Compile Include="LoaderTests.cs" />
     <Compile Include="Model\SelectData.cs" />
+    <Compile Include="Model\SimulatedSelectStatement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,8 +72,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="King.Mapper.Generator\King.Mapper.Generator.exe.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="King.Mapper.Generator\King.Mapper.dll" />
+    <Content Include="King.Mapper.Generator\King.Mapper.Generator.Core.dll" />
+    <Content Include="King.Mapper.Generator\King.Mapper.Generator.exe" />
+  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
@@ -98,6 +108,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>$(ProjectDir)King.Mapper.Generator\King.Mapper.Generator.exe "Server=localhost;Database=MapperTest;Trusted_Connection=True;" $(ProjectDir)\Generated\ code nunit</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
