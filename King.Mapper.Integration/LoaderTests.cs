@@ -5,6 +5,7 @@
     using King.Mapper.Integration.Model;
     using NUnit.Framework;
     using System;
+    using System.Linq;
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
@@ -286,6 +287,26 @@
                     Assert.AreEqual(i, obj.Identifier);
                     i++;
                 }
+            }
+        }
+
+        [Test]
+        public async Task DataSetModelsMultipleDataTables()
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                var sproc = new dboMultipleDataSetStatement();
+
+                var cmd = sproc.Build(con);
+
+                await con.OpenAsync();
+                var adapter = new SqlDataAdapter(cmd);
+
+                var ds = new DataSet();
+                adapter.Fill(ds);
+                var objs = ds.Models<SelectData>();
+                Assert.AreEqual(1, objs.Count());
+                Assert.AreEqual(0, objs.ElementAt(0).Identifier);
             }
         }
     }

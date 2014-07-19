@@ -88,9 +88,9 @@
             }
 
             var values = new List<T>();
-            foreach (DataTable table in ds.Tables)
+            if (null != ds.Tables[0])
             {
-                values.AddRange(table.Models<T>(action));
+                return ds.Tables[0].Models<T>(action);
             }
 
             return values;
