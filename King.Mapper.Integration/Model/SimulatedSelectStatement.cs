@@ -1,13 +1,9 @@
-﻿using King.Mapper.Generated.Sql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace King.Mapper.Integration.Model
+﻿namespace King.Mapper.Integration.Model
 {
-    class SimulatedSelectStatement : dboSimulatedSelectStatement
+    using King.Mapper.Generated.Sql;
+    using System;
+
+    public class SimulatedSelectStatement : dboSimulatedSelectStatement
     {
         public static SimulatedSelectStatement Create()
         {
