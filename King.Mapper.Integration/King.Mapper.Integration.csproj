@@ -80,7 +80,6 @@
     <Content Include="King.Mapper.Generator\King.Mapper.Generator.Core.dll" />
     <Content Include="King.Mapper.Generator\King.Mapper.Generator.exe" />
   </ItemGroup>
-  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

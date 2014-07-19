@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>King.Mapper</id>
-        <version>1.7.5</version>
+        <version>1.7.6</version>
         <title>King.Mapper</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
@@ -19,7 +19,7 @@
         <summary>integrating with data models from various sources.
 
       Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.</summary>
-        <releaseNotes>Map from AppSettings in web.config or app.config!</releaseNotes>
+        <releaseNotes>Performance pack, more test cases.</releaseNotes>
         <copyright>Jef King</copyright>
         <tags>Data Mapping ORM performance fast transformation object model</tags>
         <frameworkAssemblies>
