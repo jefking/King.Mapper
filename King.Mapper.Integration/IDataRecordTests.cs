@@ -1,7 +1,6 @@
 ﻿namespace King.Mapper.Integration
 {
     using King.Mapper.Data;
-    using King.Mapper.Generated.Sql;
     using King.Mapper.Integration.Model;
     using NUnit.Framework;
     using System;

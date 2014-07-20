@@ -19,10 +19,10 @@ namespace King.Mapper.Tests.Models
             get;
             set;
         }
-
-        public static ConfigurationModel Load()
+        public string DoesntExist
         {
-            return ConfigurationManager.AppSettings.Map<ConfigurationModel>();
+            get;
+            set;
         }
     }
 }

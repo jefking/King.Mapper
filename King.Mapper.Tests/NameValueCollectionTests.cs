@@ -4,7 +4,7 @@
     using NUnit.Framework;
     using System;
     using System.Collections.Specialized;
-    using System.Text;
+    using System.Configuration;
 
     [TestFixture]
     public class NameValueCollectionTests
@@ -20,10 +20,11 @@
         [Test]
         public void LoadConfig()
         {
-            var config = ConfigurationModel.Load();
+            var config = ConfigurationManager.AppSettings.Map<ConfigurationModel>();
             Assert.AreEqual("Connection String", config.Database);
             Assert.AreEqual(123, config.SiteId);
             Assert.AreEqual("www.myapi.com", config.ApiUrl);
+            Assert.IsNull(config.DoesntExist);
         }
 
         [Test]
@@ -41,6 +42,7 @@
             dic.Add("Id", expected.Id.ToString());
             dic.Add("Band", expected.Band);
             dic.Add("NullableByte", expected.NullableByte.ToString());
+            dic.Add(Guid.NewGuid().ToString(), null);
 
             var returned = dic.Map<FillObject>();
 
