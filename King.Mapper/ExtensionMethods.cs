@@ -338,7 +338,7 @@
         }
         #endregion
 
-        #region System.Collections.Generic
+        #region System.Collections.Specialized.NameValueCollection
         public static T Map<T>(this NameValueCollection dictionary, ActionFlags flag = ActionFlags.Load)
         {
             if (null == dictionary)
