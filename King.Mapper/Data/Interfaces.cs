@@ -53,6 +53,13 @@
         /// <param name="sproc"></param>
         /// <returns></returns>
         Task<int> NonQuery(IStoredProcedure sproc);
+
+        /// <summary>
+        /// Query for Reader with IStoredProcecure
+        /// </summary>
+        /// <param name="sproc">Stored Procedure</param>
+        /// <returns>Data Reader</returns>
+        Task<IDataReader> DataReader(IStoredProcedure sproc);
         #endregion
     }
     #endregion

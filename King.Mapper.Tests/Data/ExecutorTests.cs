@@ -1,8 +1,8 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using NUnit.Framework;
     using NSubstitute;
+    using NUnit.Framework;
     using System;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
@@ -66,6 +66,15 @@
             var connection = new SqlConnection();
             var e = new Executor(connection);
             await e.Query((SqlCommand)null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public async Task DataReader()
+        {
+            var connection = new SqlConnection();
+            var e = new Executor(connection);
+            await e.DataReader(null);
         }
     }
 }

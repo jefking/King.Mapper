@@ -56,6 +56,29 @@
         }
 
         /// <summary>
+        /// Query for Reader with IStoredProcecure
+        /// </summary>
+        /// <param name="sproc">Stored Procedure</param>
+        /// <returns>Data Reader</returns>
+        public async Task<IDataReader> DataReader(IStoredProcedure sproc)
+        {
+            if (null == sproc)
+            {
+                throw new ArgumentNullException("sproc");
+            }
+
+            IDataReader reader;
+            using (var command = sproc.Build(this.connection))
+            {
+                await this.connection.OpenAsync();
+
+                reader = await command.ExecuteReaderAsync();
+            }
+
+            return reader;
+        }
+
+        /// <summary>
         /// Query Database with command object
         /// </summary>
         /// <param name="command">Sql Command</param>
