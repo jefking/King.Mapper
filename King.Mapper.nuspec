@@ -21,7 +21,7 @@
       Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.</summary>
         <releaseNotes>Executor returns Data Reader for backwards compatibility.</releaseNotes>
         <copyright>Jef King</copyright>
-        <tags>Data Mapping ORM performance fast transformation object model</tags>
+        <tags>King.Mapper Data Mapping ORM performance fast transformation object model</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework="" />
             <frameworkAssembly assemblyName="System.Data" targetFramework="" />
