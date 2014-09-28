@@ -3,6 +3,9 @@
     using System;
     using System.Data;
 
+    /// <summary>
+    /// Data Mapper Attribute
+    /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public class DataMapperAttribute : Attribute
     {
@@ -10,12 +13,12 @@
         /// <summary>
         /// Parameter Name
         /// </summary>
-        private readonly string parameterName;
+        protected readonly string parameterName;
 
         /// <summary>
         /// Database Type
         /// </summary>
-        private readonly DbType type;
+        protected readonly DbType type;
         #endregion
 
         #region Constructors
@@ -40,7 +43,7 @@
         /// <summary>
         /// Gets the Parameter Name
         /// </summary>
-        public string ParameterName
+        public virtual string ParameterName
         {
             get
             {
@@ -51,7 +54,7 @@
         /// <summary>
         /// Gets the Database Type
         /// </summary>
-        public DbType DatabaseType
+        public virtual DbType DatabaseType
         {
             get
             {

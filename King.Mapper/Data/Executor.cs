@@ -14,7 +14,7 @@
         /// <summary>
         /// SQL Connection
         /// </summary>
-        private readonly SqlConnection connection = null;
+        protected readonly SqlConnection connection = null;
         #endregion
 
         #region Constructors
@@ -39,7 +39,7 @@
         /// </summary>
         /// <param name="proc">Procedure</param>
         /// <returns>Data Set</returns>
-        public async Task<DataSet> Query(IStoredProcedure sproc)
+        public virtual async Task<DataSet> Query(IStoredProcedure sproc)
         {
             if (null == sproc)
             {
@@ -60,7 +60,7 @@
         /// </summary>
         /// <param name="sproc">Stored Procedure</param>
         /// <returns>Data Reader</returns>
-        public async Task<IDataReader> DataReader(IStoredProcedure sproc)
+        public virtual async Task<IDataReader> DataReader(IStoredProcedure sproc)
         {
             if (null == sproc)
             {
@@ -83,7 +83,7 @@
         /// </summary>
         /// <param name="command">Sql Command</param>
         /// <returns>Data Set</returns>
-        public async Task<DataSet> Query(SqlCommand command)
+        public virtual async Task<DataSet> Query(SqlCommand command)
         {
             if (null == command)
             {
@@ -108,7 +108,7 @@
         /// </summary>
         /// <param name="sproc">Procedure To Execute</param>
         /// <returns>rows affected</returns>
-        public async Task<int> NonQuery(IStoredProcedure sproc)
+        public virtual async Task<int> NonQuery(IStoredProcedure sproc)
         {
             if (null == sproc)
             {
@@ -129,7 +129,7 @@
         /// </summary>
         /// <param name="command">Command To Execute</param>
         /// <returns>rows affected</returns>
-        public async Task<int> NonQuery(SqlCommand command)
+        public virtual async Task<int> NonQuery(SqlCommand command)
         {
             if (null == command)
             {

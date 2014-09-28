@@ -12,12 +12,12 @@
         /// <summary>
         /// Action
         /// </summary>
-        private ActionFlags action;
+        protected ActionFlags action;
 
         /// <summary>
         /// Name
         /// </summary>
-        private string name;
+        protected string name;
         #endregion
 
         #region Constructors
@@ -42,7 +42,7 @@
         /// <summary>
         /// Name
         /// </summary>
-        public string Name
+        public virtual string Name
         {
             get
             {
@@ -53,7 +53,7 @@
         /// <summary>
         /// Action
         /// </summary>
-        public ActionFlags Action
+        public virtual ActionFlags Action
         {
             get
             {

@@ -11,7 +11,7 @@
             where T : new()
     {
         #region IDbCommand
-        public IEnumerable<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
+        public virtual IEnumerable<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {
             if (null == cmd)
             {
@@ -22,7 +22,7 @@
 
             return reader.Models<T>(action);
         }
-        public T Model(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
+        public virtual T Model(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {
             if (null == cmd)
             {
@@ -35,7 +35,7 @@
         #endregion
 
         #region IDataReader
-        public IEnumerable<T> Models(IDataReader reader, ActionFlags action = ActionFlags.Load)
+        public virtual IEnumerable<T> Models(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
             {
@@ -45,7 +45,7 @@
             return reader.Models<T>(action);
         }
 
-        public T Model(IDataReader reader, ActionFlags action = ActionFlags.Load)
+        public virtual T Model(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
             {
@@ -57,7 +57,7 @@
         #endregion
 
         #region DataTable
-        public IEnumerable<T> Models(DataTable data, ActionFlags action = ActionFlags.Load)
+        public virtual IEnumerable<T> Models(DataTable data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {
@@ -66,7 +66,7 @@
 
             return data.Models<T>(action);
         }
-        public T Model(DataTable data, ActionFlags action = ActionFlags.Load)
+        public virtual T Model(DataTable data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {
@@ -78,7 +78,7 @@
         #endregion
 
         #region DataSet
-        public IEnumerable<T> Models(DataSet data, ActionFlags action = ActionFlags.Load)
+        public virtual IEnumerable<T> Models(DataSet data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {
@@ -87,7 +87,7 @@
 
             return data.Models<T>(action);
         }
-        public T Model(DataSet data, ActionFlags action = ActionFlags.Load)
+        public virtual T Model(DataSet data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
             {
