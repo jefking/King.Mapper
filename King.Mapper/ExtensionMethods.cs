@@ -85,8 +85,7 @@
             Parallel.ForEach(value.GetProperties(), property =>
             {
                 var actions = from p in property.GetAttributes<ActionNameAttribute>()
-                              where p.Action == action
-                                && p != null
+                              where p.Action == action && p != null
                               select p;
                 
                 foreach (var actionName in actions)

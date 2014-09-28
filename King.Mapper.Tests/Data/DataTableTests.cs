@@ -23,5 +23,13 @@
             DataTable table = null;
             table.Model<object>();
         }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ModelDictionaryTableNull()
+        {
+            DataTable table = null;
+            table.Model();
+        }
     }
 }

@@ -156,6 +156,30 @@
 
             return table.Model<List<T>>(action);
         }
+
+        public static IEnumerable<IDictionary<string, object>> Models(this DataTable table)
+        {
+            return null;
+        }
+
+        public static IDictionary<string, object> Model(this DataTable table, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == table)
+            {
+                throw new ArgumentNullException("table");
+            }
+
+            var dic = new Dictionary<string, object>();
+            var columns = table.Columns.ToArray();
+
+            var row = table.Rows[0];
+            foreach (var col in columns)
+            {
+                dic.Add(col, row[col]);
+            }
+            
+            return dic;
+        }
         #endregion
 
         #region System.Data.DataColumnCollection

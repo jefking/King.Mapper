@@ -75,6 +75,15 @@
 
             return data.Model<T>(action);
         }
+        public virtual IDictionary<string, object> ToDictionary(DataTable data, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.Model(action);
+        }
         #endregion
 
         #region DataSet
