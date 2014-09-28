@@ -62,14 +62,7 @@
                 throw new ArgumentNullException("ds");
             }
 
-            var value = default(T);
-
-            if (ds.Tables.Count > 0)
-            {
-                value = ds.Tables[0].Model<T>(action);
-            }
-
-            return value;
+            return ds.Tables.Count > 0 ? ds.Tables[0].Model<T>(action) : default(T);
         }
 
         /// <summary>
@@ -87,13 +80,7 @@
                 throw new ArgumentNullException("ds");
             }
 
-            var values = new List<T>();
-            if (null != ds.Tables[0])
-            {
-                return ds.Tables[0].Models<T>(action);
-            }
-
-            return values;
+            return null != ds.Tables[0] ? ds.Tables[0].Models<T>(action) : new List<T>();
         }
         #endregion
 
@@ -233,7 +220,7 @@
             }
 
             var fields = new string[reader.FieldCount];
-            for (int i = 0; i < fields.Count(); i++)
+            for (var i = 0; i < fields.Count(); i++)
             {
                 fields[i] = reader.GetName(i);
             }
