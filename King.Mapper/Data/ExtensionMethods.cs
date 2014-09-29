@@ -157,20 +157,39 @@
             return table.Model<List<T>>(action);
         }
 
-        public static IEnumerable<IDictionary<string, object>> Models(this DataTable table)
-        {
-            return null;
-        }
-
-        public static IDictionary<string, object> Model(this DataTable table, ActionFlags action = ActionFlags.Load)
+        public static IEnumerable<IDictionary<string, object>> Dictionaries(this DataTable table)
         {
             if (null == table)
             {
                 throw new ArgumentNullException("table");
             }
 
-            var dic = new Dictionary<string, object>();
             var columns = table.Columns.ToArray();
+            var list = new List<Dictionary<string, object>>(table.Rows.Count);
+            foreach (DataRow row in table.Rows)
+            {
+                var dic = new Dictionary<string, object>(columns.Count());
+
+                foreach (var col in columns)
+                {
+                    dic.Add(col, row[col]);
+                }
+
+                list.Add(dic);
+            }
+
+            return list;
+        }
+
+        public static IDictionary<string, object> Dictionary(this DataTable table)
+        {
+            if (null == table)
+            {
+                throw new ArgumentNullException("table");
+            }
+
+            var columns = table.Columns.ToArray();
+            var dic = new Dictionary<string, object>(columns.Count());
 
             var row = table.Rows[0];
             foreach (var col in columns)

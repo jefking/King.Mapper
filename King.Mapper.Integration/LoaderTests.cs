@@ -198,7 +198,7 @@
         }
 
         [Test]
-        public async Task DataTableToDictionary()
+        public async Task DataTableDictionary()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -213,7 +213,7 @@
                 var ds = new DataSet();
                 adapter.Fill(ds);
                 var table = ds.Tables[0];
-                var obj = loader.ToDictionary(table);
+                var obj = loader.Dictionary(table);
 
                 Assert.IsNotNull(obj);
                 Assert.AreEqual(sproc.TestInt, obj["Identifier"]);
@@ -258,6 +258,34 @@
                 foreach (var obj in objs)
                 {
                     Assert.AreEqual(i, obj.Identifier);
+                    i++;
+                }
+            }
+        }
+
+        [Test]
+        public async Task DataTableDictionaries()
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                var sproc = new dboSelectMultipleStatement();
+
+                var cmd = sproc.Build(con);
+
+                var loader = new Loader<SelectData>();
+                await con.OpenAsync();
+                var adapter = new SqlDataAdapter(cmd);
+
+                var ds = new DataSet();
+                adapter.Fill(ds);
+                var objs = loader.Dictionaries(ds.Tables[0]);
+
+                Assert.IsNotNull(objs);
+
+                var i = 0;
+                foreach (var obj in objs)
+                {
+                    Assert.AreEqual(i, obj["Identifier"]);
                     i++;
                 }
             }

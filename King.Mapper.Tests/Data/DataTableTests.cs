@@ -26,10 +26,18 @@
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ModelDictionaryTableNull()
+        public void DictionaryTableNull()
         {
             DataTable table = null;
-            table.Model();
+            table.Dictionary();
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionariesTableNull()
+        {
+            DataTable table = null;
+            table.Dictionaries();
         }
     }
 }

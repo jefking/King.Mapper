@@ -70,10 +70,18 @@
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ToDictionaryDataTableNull()
+        public void DictionaryDataTableNull()
         {
             var l = new Loader<object>();
-            l.ToDictionary((DataTable)null);
+            l.Dictionary((DataTable)null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionariesDataTableNull()
+        {
+            var l = new Loader<object>();
+            l.Dictionaries((DataTable)null);
         }
 
         [Test]
