@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.Tests", "King.Mapper.Tests\King.Mapper.Tests.csproj", "{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.Unit.Test", "King.Mapper.Tests\King.Mapper.Unit.Test.csproj", "{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper", "King.Mapper\King.Mapper.csproj", "{EAE14E94-31EA-49CC-96A8-8321748D8F59}"
 EndProject
@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{A6AE
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "King.Mapper.Data", "King.Mapper.Data\King.Mapper.Data.sqlproj", "{AAFBD3BC-0D7E-4733-9048-AC6F6F7202AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.Integration", "King.Mapper.Integration\King.Mapper.Integration.csproj", "{D8ED545B-882D-4059-B5C3-35A7571D1533}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.Integration.Test", "King.Mapper.Integration\King.Mapper.Integration.Test.csproj", "{D8ED545B-882D-4059-B5C3-35A7571D1533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

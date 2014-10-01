@@ -59,6 +59,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Data\DynamicLoaderTests.cs" />
     <Compile Include="NameValueCollectionTests.cs" />
     <Compile Include="Data\DataMapperAttributeTest.cs" />
     <Compile Include="Data\ObjectTests.cs" />

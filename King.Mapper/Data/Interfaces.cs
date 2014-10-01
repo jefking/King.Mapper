@@ -24,8 +24,6 @@
         #region DataTable
         IEnumerable<T> Models(DataTable data, ActionFlags action = ActionFlags.Load);
         T Model(DataTable data, ActionFlags action = ActionFlags.Load);
-        IDictionary<string, object> Dictionary(DataTable data);
-        IEnumerable<IDictionary<string, object>> Dictionaries(DataTable data);
         #endregion
 
         #region DataSet
