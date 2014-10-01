@@ -45,5 +45,21 @@
             var l = new DynamicLoader();
             l.Dictionaries((DataSet)null);
         }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionaryIDataReaderNull()
+        {
+            var l = new DynamicLoader();
+            l.Dictionary((IDataReader)null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionariesIDataReaderNull()
+        {
+            var l = new DynamicLoader();
+            l.Dictionaries((IDataReader)null);
+        }
     }
 }

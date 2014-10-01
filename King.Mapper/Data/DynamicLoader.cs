@@ -9,6 +9,40 @@
     /// </summary>
     public class DynamicLoader : IDynamicLoader
     {
+        #region IDataReader
+        /// <summary>
+        /// Generate Dictionaries from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dictionaries</returns>
+        public virtual IEnumerable<IDictionary<string, object>> Dictionaries(IDataReader reader)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            return reader.Dictionaries();
+        }
+
+        /// <summary>
+        /// Generate Dictionary from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dictionary</returns>
+        public virtual IDictionary<string, object> Dictionary(IDataReader reader)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            return reader.Dictionary();
+        }
+        #endregion
+
         #region DataTable
         /// <summary>
         /// Generate Dictionary from Data Table
