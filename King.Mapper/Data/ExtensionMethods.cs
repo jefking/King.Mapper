@@ -288,12 +288,12 @@
             return fields;
         }
         /// <summary>
-        /// Load Object from IData Reader
+        /// Load Model from IData Reader
         /// </summary>
         /// <typeparam name="T">Type to Load</typeparam>
         /// <param name="reader">Data Reader</param>
         /// <param name="action">Load Action</param>
-        /// <returns>Object of T</returns>
+        /// <returns>Model of T</returns>
         public static T Model<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
@@ -314,12 +314,12 @@
 
         
         /// <summary>
-        /// Load Objects from IData Reader
+        /// Load Models from IData Reader
         /// </summary>
         /// <typeparam name="T">Type to Load</typeparam>
         /// <param name="reader">Data Reader</param>
         /// <param name="action">Load Action</param>
-        /// <returns>Objects of T</returns>
+        /// <returns>Models of T</returns>
         public static IEnumerable<T> Models<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
            where T : new()
         {
