@@ -287,6 +287,7 @@
 
             return fields;
         }
+
         /// <summary>
         /// Load Model from IData Reader
         /// </summary>
@@ -312,7 +313,6 @@
             return obj;
         }
 
-        
         /// <summary>
         /// Load Models from IData Reader
         /// </summary>
@@ -335,6 +335,28 @@
             }
 
             return values;
+        }
+
+        /// <summary>
+        /// Load Dictionary from IData Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <returns>Dictionary</returns>
+        public static IDictionary<string, object> Dictionary(this IDataReader reader)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            var columns = reader.GetFieldNames();
+            var dic = new Dictionary<string, object>(columns.Count());
+            foreach (var col in columns)
+            {
+                dic.Add(col, reader[col]);
+            }
+
+            return dic;
         }
         #endregion
 
