@@ -99,7 +99,18 @@
         #endregion
 
         #region DataTable
+        /// <summary>
+        /// Generate Dictionary from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <returns>Dictionary</returns>
         IDictionary<string, object> Dictionary(DataTable data);
+
+        /// <summary>
+        /// Generate Dictionaries from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <returns>Dictionaries</returns>
         IEnumerable<IDictionary<string, object>> Dictionaries(DataTable data);
         #endregion
 
