@@ -1,12 +1,12 @@
 ﻿namespace King.Mapper.Tests.Data
 {
+    using King.Mapper.Data;
+    using NSubstitute;
+    using NUnit.Framework;
     using System;
-    using System.Linq;
     using System.Collections.Generic;
     using System.Data;
-    using King.Mapper.Data;
-    using NUnit.Framework;
-    using NSubstitute;
+    using System.Linq;
 
     [TestFixture]
     public class IDataReaderTests
@@ -25,6 +25,14 @@
         {
             IDataReader reader = null;
             reader.Models<object>();
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionaryReaderNull()
+        {
+            IDataReader reader = null;
+            reader.Dictionary();
         }
 
         [Test]
