@@ -115,6 +115,21 @@
         #endregion
 
         #region DataSet
+        /// <summary>
+        /// Generate Models from Data Set
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
+        IEnumerable<T> Models(DataSet data, ActionFlags action = ActionFlags.Load);
+
+        /// <summary>
+        /// Generate Model from Data Set
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <param name="action">Action</param>
+        /// <returns>Model</returns>
+        T Model(DataSet data, ActionFlags action = ActionFlags.Load);
         #endregion
     }
     #endregion
