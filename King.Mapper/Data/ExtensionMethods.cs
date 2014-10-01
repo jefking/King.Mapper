@@ -157,6 +157,11 @@
             return table.Model<List<T>>(action);
         }
 
+        /// <summary>
+        /// Load Dictionaries from Data Table
+        /// </summary>
+        /// <param name="table">Data Table</param>
+        /// <returns>Dictionaries</returns>
         public static IEnumerable<IDictionary<string, object>> Dictionaries(this DataTable table)
         {
             if (null == table)
@@ -181,6 +186,11 @@
             return list;
         }
 
+        /// <summary>
+        /// Load Dictionary from Data Table
+        /// </summary>
+        /// <param name="table">Data Table</param>
+        /// <returns>Dictionary</returns>
         public static IDictionary<string, object> Dictionary(this DataTable table)
         {
             if (null == table)
@@ -190,7 +200,7 @@
 
             var columns = table.Columns.ToArray();
             var dic = new Dictionary<string, object>(columns.Count());
-
+            
             var row = table.Rows[0];
             foreach (var col in columns)
             {
