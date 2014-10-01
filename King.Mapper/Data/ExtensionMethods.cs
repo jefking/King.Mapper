@@ -268,31 +268,6 @@
 
         #region System.Data.IDataReader
         /// <summary>
-        /// Load Object from IData Reader
-        /// </summary>
-        /// <typeparam name="T">Type to Load</typeparam>
-        /// <param name="reader">Data Reader</param>
-        /// <param name="action">Load Action</param>
-        /// <returns>Object of T</returns>
-        public static T Model<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
-        {
-            if (null == reader)
-            {
-                throw new ArgumentNullException("reader");
-            }
-            
-            var obj = Activator.CreateInstance<T>();
-
-            var columns = reader.GetFieldNames();
-            var values = new object[columns.Count()];
-            reader.GetValues(values);
-
-            obj.Fill(columns, values, action);
-
-            return obj;
-        }
-
-        /// <summary>
         /// Get Field Names
         /// </summary>
         /// <param name="reader">Reader</param>
@@ -312,6 +287,31 @@
 
             return fields;
         }
+        /// <summary>
+        /// Load Object from IData Reader
+        /// </summary>
+        /// <typeparam name="T">Type to Load</typeparam>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Load Action</param>
+        /// <returns>Object of T</returns>
+        public static T Model<T>(this IDataReader reader, ActionFlags action = ActionFlags.Load)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            var obj = Activator.CreateInstance<T>();
+
+            var columns = reader.GetFieldNames();
+            var values = new object[columns.Count()];
+            reader.GetValues(values);
+
+            obj.Fill(columns, values, action);
+
+            return obj;
+        }
+
         
         /// <summary>
         /// Load Objects from IData Reader
