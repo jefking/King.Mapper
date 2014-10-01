@@ -48,6 +48,12 @@
         #endregion
 
         #region IDataReader
+        /// <summary>
+        /// Generate Models from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
         public virtual IEnumerable<T> Models(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
@@ -58,6 +64,12 @@
             return reader.Models<T>(action);
         }
 
+        /// <summary>
+        /// Generate Model from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Model</returns>
         public virtual T Model(IDataReader reader, ActionFlags action = ActionFlags.Load)
         {
             if (null == reader)
@@ -70,6 +82,12 @@
         #endregion
 
         #region DataTable
+        /// <summary>
+        /// Generate Models from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
         public virtual IEnumerable<T> Models(DataTable data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
@@ -79,6 +97,13 @@
 
             return data.Models<T>(action);
         }
+
+        /// <summary>
+        /// Generate Model from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <param name="action">Action</param>
+        /// <returns>Model</returns>
         public virtual T Model(DataTable data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)

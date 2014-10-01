@@ -31,12 +31,38 @@
         #endregion
 
         #region IDataReader
+        /// <summary>
+        /// Generate Models from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
         IEnumerable<T> Models(IDataReader reader, ActionFlags action = ActionFlags.Load);
+
+        /// <summary>
+        /// Generate Model from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Model</returns>
         T Model(IDataReader reader, ActionFlags action = ActionFlags.Load);
         #endregion
 
         #region DataTable
+        /// <summary>
+        /// Generate Models from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
         IEnumerable<T> Models(DataTable data, ActionFlags action = ActionFlags.Load);
+
+        /// <summary>
+        /// Generate Model from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <param name="action">Action</param>
+        /// <returns>Model</returns>
         T Model(DataTable data, ActionFlags action = ActionFlags.Load);
         #endregion
 
