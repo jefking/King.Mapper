@@ -29,5 +29,21 @@
             var l = new DynamicLoader();
             l.Dictionaries((DataTable)null);
         }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionaryDataSetNull()
+        {
+            var l = new DynamicLoader();
+            l.Dictionary((DataSet)null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionariesDataSetNull()
+        {
+            var l = new DynamicLoader();
+            l.Dictionaries((DataSet)null);
+        }
     }
 }

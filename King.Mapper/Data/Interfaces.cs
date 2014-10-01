@@ -118,18 +118,18 @@
         /// <summary>
         /// Generate Models from Data Set
         /// </summary>
-        /// <param name="data">Data Table</param>
+        /// <param name="data">Data Set</param>
         /// <param name="action">Action</param>
         /// <returns>Models</returns>
-        IEnumerable<T> Models(DataSet data, ActionFlags action = ActionFlags.Load);
+        IEnumerable<IDictionary<string, object>> Dictionaries(DataSet data);
 
         /// <summary>
         /// Generate Model from Data Set
         /// </summary>
-        /// <param name="data">Data Table</param>
+        /// <param name="data">Data Set</param>
         /// <param name="action">Action</param>
-        /// <returns>Model</returns>
-        T Model(DataSet data, ActionFlags action = ActionFlags.Load);
+        /// <returns>Dictionary</returns>
+        IDictionary<string, object> Dictionary(DataSet data);
         #endregion
     }
     #endregion

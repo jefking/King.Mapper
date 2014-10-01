@@ -40,5 +40,39 @@
             return data.Dictionaries();
         }
         #endregion
+
+        #region DataSet
+        /// <summary>
+        /// Generate Models from Data Set
+        /// </summary>
+        /// <param name="data">Data Set</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
+        public virtual IEnumerable<IDictionary<string, object>> Dictionaries(DataSet data)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.Dictionaries();
+        }
+
+        /// <summary>
+        /// Generate Model from Data Set
+        /// </summary>
+        /// <param name="data">Data Set</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dictionary</returns>
+        public virtual IDictionary<string, object> Dictionary(DataSet data)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.Dictionary();
+        }
+        #endregion
     }
 }
