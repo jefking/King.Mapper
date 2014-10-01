@@ -35,6 +35,28 @@
     }
     #endregion
 
+    #region ILoader
+    /// <summary>
+    /// Loader interface to enable mocking frameworks for unit testing
+    /// </summary>
+    public interface IDynamicLoader
+    {
+        #region IDbCommand
+        #endregion
+
+        #region IDataReader
+        #endregion
+
+        #region DataTable
+        IDictionary<string, object> Dictionary(DataTable data);
+        IEnumerable<IDictionary<string, object>> Dictionaries(DataTable data);
+        #endregion
+
+        #region DataSet
+        #endregion
+    }
+    #endregion
+
     #region IExecutor
     /// <summary>
     /// Execution Interface
