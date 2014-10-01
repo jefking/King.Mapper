@@ -358,6 +358,27 @@
 
             return dic;
         }
+
+        /// <summary>
+        /// Load Dictionaries from IData Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Load Action</param>
+        public static IEnumerable<IDictionary<string, object>> Dictionaries(this IDataReader reader)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            var values = new List<IDictionary<string, object>>();
+            while (reader.Read())
+            {
+                values.Add(reader.Dictionary());
+            }
+
+            return values;
+        }
         #endregion
 
         #region IStoredProcedure

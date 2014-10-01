@@ -37,6 +37,14 @@
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionariesReaderNull()
+        {
+            IDataReader reader = null;
+            reader.Dictionaries();
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldNamesReaderNull()
         {
             IDataReader reader = null;
