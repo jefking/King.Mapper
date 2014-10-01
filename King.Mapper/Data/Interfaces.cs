@@ -12,7 +12,21 @@
     public interface ILoader<T>
     {
         #region IDbCommand
+        /// <summary>
+        /// Generate Models from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
         IEnumerable<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load);
+
+
+        /// <summary>
+        /// Generate Model from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <param name="action">Action</param>
+        /// <returns>Model</returns>
         T Model(IDbCommand cmd, ActionFlags action = ActionFlags.Load);
         #endregion
 

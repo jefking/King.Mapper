@@ -55,6 +55,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="DynamicLoaderTests.cs" />
     <Compile Include="ExecutorTests.cs" />
     <Compile Include="Generated\StoredProcedures.Generated.cs" />
     <Compile Include="Generated\StoredProcedures.Unit.Test.Generated.cs" />

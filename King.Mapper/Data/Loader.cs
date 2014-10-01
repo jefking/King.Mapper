@@ -11,6 +11,12 @@
             where T : new()
     {
         #region IDbCommand
+        /// <summary>
+        /// Generate Models from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
         public virtual IEnumerable<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {
             if (null == cmd)
@@ -22,6 +28,13 @@
 
             return reader.Models<T>(action);
         }
+
+        /// <summary>
+        /// Generate Model from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <param name="action">Action</param>
+        /// <returns>Model</returns>
         public virtual T Model(IDbCommand cmd, ActionFlags action = ActionFlags.Load)
         {
             if (null == cmd)
