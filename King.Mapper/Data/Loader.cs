@@ -116,6 +116,12 @@
         #endregion
 
         #region DataSet
+        /// <summary>
+        /// Generate Models from Data Set
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
         public virtual IEnumerable<T> Models(DataSet data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
@@ -125,6 +131,13 @@
 
             return data.Models<T>(action);
         }
+
+        /// <summary>
+        /// Generate Model from Data Set
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <param name="action">Action</param>
+        /// <returns>Model</returns>
         public virtual T Model(DataSet data, ActionFlags action = ActionFlags.Load)
         {
             if (null == data)
