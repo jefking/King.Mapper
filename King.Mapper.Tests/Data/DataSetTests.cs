@@ -51,7 +51,49 @@
                 Assert.IsNotNull(exists);
             }
         }
-        
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionaryNull()
+        {
+            DataSet table = null;
+            table.Dictionary();
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DictionariesNull()
+        {
+            DataSet table = null;
+            table.Dictionaries();
+        }
+
+        [Test]
+        public void DictionaryFromDataSet()
+        {
+            var dataset = LoadDataSet();
+            var filled = dataset.Dictionary();
+            Assert.AreEqual(1, filled["Id"]);
+            Assert.AreEqual("Breaking Benjamin", filled["Band"]);
+            Assert.AreNotEqual(Guid.Empty, filled["Song"]);
+        }
+
+        [Test]
+        public void DictionariesFromDataSet()
+        {
+            var dataset = LoadDataSet();
+            var filled = dataset.Dictionaries();
+            foreach (var item in filled)
+            {
+                var exists = (from DataRow d in dataset.Tables[0].Rows
+                              where (int)d["Id"] == (int)item["Id"]
+                              && (string)d["Band"] == (string)item["Band"]
+                              && (Guid)d["Song"] == (Guid)item["Song"]
+                              select d).FirstOrDefault();
+                Assert.IsNotNull(exists);
+            }
+        }
+
         public DataSet LoadDataSet()
         {
             var SongDS = new DataSet();

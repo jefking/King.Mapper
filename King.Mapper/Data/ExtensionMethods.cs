@@ -48,12 +48,12 @@
 
         #region System.Data.DataSet
         /// <summary>
-        /// Load Object from Data Set
+        /// Load Model from Data Set
         /// </summary>
         /// <typeparam name="T">T</typeparam>
         /// <param name="ds">Data Set</param>
         /// <param name="action">Action</param>
-        /// <returns>Object</returns>
+        /// <returns>Model</returns>
         public static T Model<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
@@ -66,12 +66,12 @@
         }
 
         /// <summary>
-        /// Load Object from Data Set
+        /// Load Models from Data Set
         /// </summary>
         /// <typeparam name="T">T</typeparam>
         /// <param name="ds">Data Set</param>
         /// <param name="action">Action</param>
-        /// <returns>Object</returns>
+        /// <returns>Models</returns>
         public static IEnumerable<T> Models<T>(this DataSet ds, ActionFlags action = ActionFlags.Load)
             where T : new()
         {
@@ -81,6 +81,38 @@
             }
 
             return null != ds.Tables[0] ? ds.Tables[0].Models<T>(action) : new List<T>();
+        }
+
+        /// <summary>
+        /// Load Object from Data Set
+        /// </summary>
+        /// <typeparam name="T">T</typeparam>
+        /// <param name="ds">Data Set</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dictionary</returns>
+        public static IDictionary<string, object> Dictionary(this DataSet ds)
+        {
+            if (null == ds)
+            {
+                throw new ArgumentNullException("ds");
+            }
+
+            return ds.Tables.Count > 0 ? ds.Tables[0].Dictionary() : new Dictionary<string, object>(0);
+        }
+
+        /// <summary>
+        /// Load Ditionaries from Data Set
+        /// </summary>
+        /// <param name="ds">Data Set</param>
+        /// <returns>Dictionaries</returns>
+        public static IEnumerable<IDictionary<string, object>> Dictionaries(this DataSet ds)
+        {
+            if (null == ds)
+            {
+                throw new ArgumentNullException("ds");
+            }
+
+            return null != ds.Tables[0] ? ds.Tables[0].Dictionaries() : new List<IDictionary<string, object>>(0);
         }
         #endregion
 
