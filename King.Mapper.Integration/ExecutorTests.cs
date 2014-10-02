@@ -37,10 +37,10 @@
         [Test]
         public async Task Select()
         {
+            var sproc = SimulatedSelectStatement.Create();
+
             using (var con = new SqlConnection(connectionString))
             {
-                var sproc = SimulatedSelectStatement.Create();
-
                 var executor = new Executor(con);
                 var data = await executor.Query(sproc);
 
@@ -55,7 +55,7 @@
                 Assert.AreEqual(sproc.TestDate.Value.Date, obj.Date.Date);
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, obj.DateTime.Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, obj.DateTime2.Date);
-                Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
+                Assert.AreEqual(Math.Round(sproc.TestDecimal.Value, 4), Math.Round(obj.Decimal, 4));
                 Assert.AreEqual(sproc.TestFloat, obj.Float);
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
