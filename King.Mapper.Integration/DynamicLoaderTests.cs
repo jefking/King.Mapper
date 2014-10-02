@@ -147,8 +147,7 @@
         }
 
         [Test]
-        [Ignore("Data Reader")]
-        public async Task DataSetDictionary()
+        public async Task DataReaderDictionary()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -158,11 +157,9 @@
 
                 var loader = new DynamicLoader();
                 await con.OpenAsync();
-                var adapter = new SqlDataAdapter(cmd);
-
-                var ds = new DataSet();
-                adapter.Fill(ds);
-                var obj = loader.Dictionary(ds);
+                var reader = await cmd.ExecuteReaderAsync();
+                await reader.ReadAsync();
+                var obj = loader.Dictionary(reader);
 
                 Assert.IsNotNull(obj);
                 Assert.AreEqual(sproc.TestInt, obj["Identifier"]);
@@ -184,8 +181,7 @@
         }
 
         [Test]
-        [Ignore("Data Reader")]
-        public async Task DataSetDictionaries()
+        public async Task DataReaderDictionaries()
         {
             using (var con = new SqlConnection(connectionString))
             {
@@ -195,11 +191,9 @@
 
                 var loader = new DynamicLoader();
                 await con.OpenAsync();
-                var adapter = new SqlDataAdapter(cmd);
 
-                var ds = new DataSet();
-                adapter.Fill(ds);
-                var objs = loader.Dictionaries(ds);
+                var reader = await cmd.ExecuteReaderAsync();
+                var objs = loader.Dictionaries(reader);
 
                 Assert.IsNotNull(objs);
 
