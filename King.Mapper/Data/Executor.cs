@@ -35,7 +35,7 @@
 
         #region Methods
         /// <summary>
-        /// Query Database with IStored Procedure
+        /// Query Database with IStoredProcedure
         /// </summary>
         /// <param name="proc">Procedure</param>
         /// <returns>Data Set</returns>
