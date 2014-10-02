@@ -319,7 +319,7 @@
             }
             
             var cols = new string[columns.Count];
-            for (var i = 0; i < cols.Length; i++)
+            for (ushort i = 0; i < cols.LongLength; i++)
             {
                 cols[i] = columns[i].ColumnName;
             }
@@ -342,7 +342,7 @@
             }
 
             var fields = new string[reader.FieldCount];
-            for (var i = 0; i < fields.Count(); i++)
+            for (ushort i = 0; i < fields.Count(); i++)
             {
                 fields[i] = reader.GetName(i);
             }

@@ -20,13 +20,13 @@
         public async Task Insert()
         {
             var random = new Random();
+            var sproc = new dboSimulatedInsertStatement()
+            {
+                TestInt = random.Next(),
+            };
+
             using (var con = new SqlConnection(connectionString))
             {
-                var sproc = new dboSimulatedInsertStatement()
-                {
-                    TestInt = random.Next(),
-                };
-
                 var executor = new Executor(con);
                 var results = await executor.NonQuery(sproc);
 
@@ -70,10 +70,10 @@
         [Test]
         public async Task DataReader()
         {
+            var sproc = SimulatedSelectStatement.Create();
+
             using (var con = new SqlConnection(connectionString))
             {
-                var sproc = SimulatedSelectStatement.Create();
-
                 var executor = new Executor(con);
                 var reader = await executor.DataReader(sproc);
 
