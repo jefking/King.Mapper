@@ -30,18 +30,18 @@
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ModelsIDataReaderNull()
-        {
-            var l = new Loader<object>();
-            l.Models((IDataReader)null);
-        }
-
-        [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelIDbCommandNull()
         {
             var l = new Loader<object>();
             l.Model((IDbCommand)null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ModelsIDataReaderNull()
+        {
+            var l = new Loader<object>();
+            l.Models((IDataReader)null);
         }
 
         [Test]

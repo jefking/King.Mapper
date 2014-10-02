@@ -9,6 +9,44 @@
     /// </summary>
     public class DynamicLoader : IDynamicLoader
     {
+        #region IDbCommand
+        /// <summary>
+        /// Generate Dictionaries from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <param name="action">Action</param>
+        /// <returns>Models</returns>
+        public virtual IEnumerable<IDictionary<string, object>> Dictionaries(IDbCommand cmd)
+        {
+            if (null == cmd)
+            {
+                throw new ArgumentNullException("cmd");
+            }
+
+            var reader = cmd.ExecuteReader();
+
+            return reader.Dictionaries();
+        }
+
+        /// <summary>
+        /// Generate Dictionary from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <param name="action">Action</param>
+        /// <returns>Model</returns>
+        public virtual IDictionary<string, object> Dictionary(IDbCommand cmd)
+        {
+            if (null == cmd)
+            {
+                throw new ArgumentNullException("cmd");
+            }
+
+            var reader = cmd.ExecuteReader();
+
+            return reader.Read() ? reader.Dictionary() : new Dictionary<string, object>(0);
+        }
+        #endregion
+
         #region IDataReader
         /// <summary>
         /// Generate Dictionaries from Data Reader
