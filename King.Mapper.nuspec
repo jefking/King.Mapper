@@ -23,6 +23,7 @@
         <copyright>Jef King</copyright>
         <tags>King.Mapper Data Mapping ORM performance dynamic dictionary fast transformation object model Data-Reader Data-Table Data-Set reader table set SQL SQL-Server dal data-access-layer</tags>
         <frameworkAssemblies>
+            <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="net451" />
             <frameworkAssembly assemblyName="System" targetFramework="net451" />
             <frameworkAssembly assemblyName="System.Data" targetFramework="net451" />
             <frameworkAssembly assemblyName="System.Xml" targetFramework="net451" />
