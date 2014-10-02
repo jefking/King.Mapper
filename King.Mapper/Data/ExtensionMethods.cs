@@ -85,9 +85,8 @@
         }
 
         /// <summary>
-        /// Load Object from Data Set
+        /// Load Dictionary from Data Set
         /// </summary>
-        /// <typeparam name="T">T</typeparam>
         /// <param name="ds">Data Set</param>
         /// <param name="action">Action</param>
         /// <returns>Dictionary</returns>
@@ -98,11 +97,11 @@
                 throw new ArgumentNullException("ds");
             }
 
-            return ds.Tables.Count > 0 ? ds.Tables[0].Dictionary() : new Dictionary<string, object>(0);
+            return ds.Dynamic() as IDictionary<string, object>;
         }
 
         /// <summary>
-        /// Load Ditionaries from Data Set
+        /// Load Dictionaries from Data Set
         /// </summary>
         /// <param name="ds">Data Set</param>
         /// <returns>Dictionaries</returns>
@@ -113,7 +112,38 @@
                 throw new ArgumentNullException("ds");
             }
 
-            return null != ds.Tables[0] ? ds.Tables[0].Dictionaries() : new List<IDictionary<string, object>>(0);
+            return ds.Dynamics() as IEnumerable<IDictionary<string, object>>;
+        }
+
+        /// <summary>
+        /// Load Dynamic from Data Set
+        /// </summary>
+        /// <param name="ds">Data Set</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dynamic</returns>
+        public static dynamic Dynamic(this DataSet ds)
+        {
+            if (null == ds)
+            {
+                throw new ArgumentNullException("ds");
+            }
+
+            return ds.Tables.Count > 0 ? ds.Tables[0].Dynamic() : new ExpandoObject();
+        }
+
+        /// <summary>
+        /// Load Dynamics from Data Set
+        /// </summary>
+        /// <param name="ds">Data Set</param>
+        /// <returns>Dynamics</returns>
+        public static IEnumerable<dynamic> Dynamics(this DataSet ds)
+        {
+            if (null == ds)
+            {
+                throw new ArgumentNullException("ds");
+            }
+
+            return null != ds.Tables[0] ? ds.Tables[0].Dynamics() : new List<ExpandoObject>(0);
         }
         #endregion
 
