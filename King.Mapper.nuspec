@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>King.Mapper</id>
-        <version>1.7.8</version>
+        <version>1.7.9</version>
         <title>King.Mapper</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
@@ -19,7 +19,7 @@
         <summary>integrating with data models from various sources.
 
       Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.</summary>
-        <releaseNotes>Consume models as dynamic objects or Dictionaries.</releaseNotes>
+        <releaseNotes>Consume data sources as dynamic objects or Dictionaries.</releaseNotes>
         <copyright>Jef King</copyright>
         <tags>King.Mapper Data Mapping ORM performance dynamic dictionary fast transformation object model Data-Reader Data-Table Data-Set reader table set SQL SQL-Server dal data-access-layer</tags>
         <frameworkAssemblies>
