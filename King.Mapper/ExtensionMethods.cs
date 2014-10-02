@@ -148,13 +148,13 @@
                                 && !propertyDictionary.ContainsKey(a.Name)
                             select a;
 
-                Parallel.ForEach(names, actionName =>
+                foreach (var actionName in names)
                 {
                     propertyDictionary.Add(actionName.Name, property);
-                });
+                }
             }
 
-            Parallel.For(0, columns.Count(), i =>
+            for (ushort i = 0; i < columns.Count(); i++)
             {
                 if (propertyDictionary.ContainsKey(columns.ElementAt(i)))
                 {
@@ -164,7 +164,7 @@
                         property.Set(value, values.ElementAt(i));
                     }
                 }
-            });
+            }
         }
 
         /// <summary>
