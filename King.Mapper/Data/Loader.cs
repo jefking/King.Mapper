@@ -25,7 +25,6 @@
             }
 
             var reader = cmd.ExecuteReader();
-
             return reader.Models<T>(action);
         }
 

@@ -56,7 +56,6 @@
             }
 
             var reader = cmd.ExecuteReader();
-
             return reader.Dynamics();
         }
 
@@ -73,7 +72,6 @@
             }
 
             var reader = cmd.ExecuteReader();
-
             return reader.Read() ? reader.Dynamic() : new ExpandoObject();
         }
         #endregion

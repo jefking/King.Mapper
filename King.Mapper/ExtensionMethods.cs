@@ -26,8 +26,8 @@
                 throw new ArgumentNullException("value");
             }
 
-            var t = value.GetType();
-            return t.GetProperties();
+            var type = value.GetType();
+            return type.GetProperties();
         }
 
         /// <summary>
