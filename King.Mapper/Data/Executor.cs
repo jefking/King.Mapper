@@ -8,6 +8,7 @@
     /// <summary>
     /// Stored Procedure Executor
     /// </summary>
+    /// <remarks>Dispose of passed in connection in your code.</remarks>
     public class Executor : IExecutor
     {
         #region Members

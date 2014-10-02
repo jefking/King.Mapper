@@ -219,8 +219,8 @@
                 throw new ArgumentNullException("value");
             }
 
-            var t = value.GetType();
-            var attributes = t.GetCustomAttributes(false);
+            var type = value.GetType();
+            var attributes = type.GetCustomAttributes(false);
             return attributes.GetAttribute<T>();
         }
         #endregion
