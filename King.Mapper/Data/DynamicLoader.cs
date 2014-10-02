@@ -40,9 +40,7 @@
                 throw new ArgumentNullException("cmd");
             }
 
-            var reader = cmd.ExecuteReader();
-
-            return reader.Read() ? reader.Dictionary() : new Dictionary<string, object>(0);
+            return this.Dynamic(cmd) as IDictionary<string, object>;
         }
 
         /// <summary>
