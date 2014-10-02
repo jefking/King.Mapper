@@ -174,14 +174,14 @@
         /// <summary>
         /// Execute Sproc for mocking
         /// </summary>
-        /// <param name="sproc"></param>
+        /// <param name="sproc">Stored Procedure</param>
         /// <returns></returns>
         Task<DataSet> Query(IStoredProcedure sproc);
 
         /// <summary>
         /// Non Query sproc for mocking
         /// </summary>
-        /// <param name="sproc"></param>
+        /// <param name="sproc">Stored Procedure</param>
         /// <returns></returns>
         Task<int> NonQuery(IStoredProcedure sproc);
 
