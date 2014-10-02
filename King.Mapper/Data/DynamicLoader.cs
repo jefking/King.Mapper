@@ -80,7 +80,6 @@
         /// Generate Dictionaries from Data Reader
         /// </summary>
         /// <param name="reader">Data Reader</param>
-        /// <param name="action">Action</param>
         /// <returns>Dictionaries</returns>
         public virtual IEnumerable<IDictionary<string, object>> Dictionaries(IDataReader reader)
         {
@@ -96,7 +95,6 @@
         /// Generate Dictionary from Data Reader
         /// </summary>
         /// <param name="reader">Data Reader</param>
-        /// <param name="action">Action</param>
         /// <returns>Dictionary</returns>
         public virtual IDictionary<string, object> Dictionary(IDataReader reader)
         {
@@ -112,7 +110,6 @@
         /// Generate Dynamics from Data Reader
         /// </summary>
         /// <param name="reader">Data Reader</param>
-        /// <param name="action">Action</param>
         /// <returns>Dynamics</returns>
         public virtual IEnumerable<dynamic> Dynamics(IDataReader reader)
         {
@@ -128,7 +125,6 @@
         /// Generate Dynamic from Data Reader
         /// </summary>
         /// <param name="reader">Data Reader</param>
-        /// <param name="action">Action</param>
         /// <returns>Dynamic</returns>
         public virtual dynamic Dynamic(IDataReader reader)
         {
