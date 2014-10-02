@@ -39,5 +39,21 @@
             DataTable table = null;
             table.Dictionaries();
         }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicTableNull()
+        {
+            DataTable table = null;
+            table.Dynamic();
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicsTableNull()
+        {
+            DataTable table = null;
+            table.Dynamics();
+        }
     }
 }

@@ -111,6 +111,36 @@
 
             return data.Dictionaries();
         }
+
+        /// <summary>
+        /// Generate Dynamic from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <returns>Dynamic</returns>
+        public virtual dynamic Dynamic(DataTable data)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.Dynamic();
+        }
+
+        /// <summary>
+        /// Generate Dynamics from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <returns>Dynamics</returns>
+        public virtual IEnumerable<dynamic> Dynamics(DataTable data)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.Dynamics();
+        }
         #endregion
 
         #region DataSet

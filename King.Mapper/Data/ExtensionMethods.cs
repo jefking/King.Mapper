@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Dynamic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -190,35 +191,6 @@
         }
 
         /// <summary>
-        /// Load Dictionaries from Data Table
-        /// </summary>
-        /// <param name="table">Data Table</param>
-        /// <returns>Dictionaries</returns>
-        public static IEnumerable<IDictionary<string, object>> Dictionaries(this DataTable table)
-        {
-            if (null == table)
-            {
-                throw new ArgumentNullException("table");
-            }
-
-            var columns = table.Columns.ToArray();
-            var list = new List<Dictionary<string, object>>(table.Rows.Count);
-            foreach (DataRow row in table.Rows)
-            {
-                var dic = new Dictionary<string, object>(columns.Count());
-
-                foreach (var col in columns)
-                {
-                    dic.Add(col, row[col]);
-                }
-
-                list.Add(dic);
-            }
-
-            return list;
-        }
-
-        /// <summary>
         /// Load Dictionary from Data Table
         /// </summary>
         /// <param name="table">Data Table</param>
@@ -230,16 +202,74 @@
                 throw new ArgumentNullException("table");
             }
 
-            var columns = table.Columns.ToArray();
-            var dic = new Dictionary<string, object>(columns.Count());
-            
+            return table.Dynamic() as IDictionary<string, object>;
+        }
+
+        /// <summary>
+        /// Load Dictionaries from Data Table
+        /// </summary>
+        /// <param name="table">Data Table</param>
+        /// <returns>Dictionaries</returns>
+        public static IEnumerable<IDictionary<string, object>> Dictionaries(this DataTable table)
+        {
+            if (null == table)
+            {
+                throw new ArgumentNullException("table");
+            }
+
+            return table.Dynamics() as IEnumerable<IDictionary<string, object>>;
+        }
+
+        /// <summary>
+        /// Load Dynamic from Data Table
+        /// </summary>
+        /// <param name="table">Data Table</param>
+        /// <returns>Dynamic</returns>
+        public static IDictionary<string, object> Dynamic(this DataTable table)
+        {
+            if (null == table)
+            {
+                throw new ArgumentNullException("table");
+            }
+
+            var dic = new ExpandoObject() as IDictionary<string, object>;
+
             var row = table.Rows[0];
-            foreach (var col in columns)
+            foreach (var col in table.Columns.ToArray())
             {
                 dic.Add(col, row[col]);
             }
-            
+
             return dic;
+        }
+
+        /// <summary>
+        /// Load Dictionaries from Data Table
+        /// </summary>
+        /// <param name="table">Data Table</param>
+        /// <returns>Dictionaries</returns>
+        public static IEnumerable<dynamic> Dynamics(this DataTable table)
+        {
+            if (null == table)
+            {
+                throw new ArgumentNullException("table");
+            }
+
+            var columns = table.Columns.ToArray();
+            var list = new List<IDictionary<string, object>>(table.Rows.Count);
+            foreach (DataRow row in table.Rows)
+            {
+                var dic = new ExpandoObject() as IDictionary<string, object>;
+
+                foreach (var col in columns)
+                {
+                    dic.Add(col, row[col]);
+                }
+
+                list.Add(dic);
+            }
+
+            return list;
         }
         #endregion
 

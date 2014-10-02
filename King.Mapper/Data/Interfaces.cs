@@ -86,9 +86,9 @@
     }
     #endregion
 
-    #region ILoader
+    #region IDynamicLoader
     /// <summary>
-    /// Loader interface to enable mocking frameworks for unit testing
+    /// Dynamic Loader interface to enable mocking frameworks for unit testing
     /// </summary>
     public interface IDynamicLoader
     {
@@ -142,6 +142,20 @@
         /// <param name="data">Data Table</param>
         /// <returns>Dictionaries</returns>
         IEnumerable<IDictionary<string, object>> Dictionaries(DataTable data);
+
+        /// <summary>
+        /// Generate Dynamic from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <returns>Dynamic</returns>
+        dynamic Dynamic(DataTable data);
+
+        /// <summary>
+        /// Generate Dynamics from Data Table
+        /// </summary>
+        /// <param name="data">Data Table</param>
+        /// <returns>Dynamics</returns>
+        IEnumerable<dynamic> Dynamics(DataTable data);
         #endregion
 
         #region DataSet
