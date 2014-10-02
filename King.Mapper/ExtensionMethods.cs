@@ -324,7 +324,14 @@
         #endregion
 
         #region System.Collections.Generic
-        public static T Map<T>(this IDictionary<string, object> dictionary, ActionFlags flag = ActionFlags.Load)
+        /// <summary>
+        /// Map type from Dictionary
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="dictionary">Dictionary</param>
+        /// <param name="action">Action</param>
+        /// <returns>Type</returns>
+        public static T Map<T>(this IDictionary<string, object> dictionary, ActionFlags action = ActionFlags.Load)
         {
             if (null == dictionary)
             {
@@ -332,7 +339,7 @@
             }
 
             var obj = Activator.CreateInstance<T>();
-            obj.Fill(dictionary.Keys.ToArray(), dictionary.Values.ToArray(), flag);
+            obj.Fill(dictionary.Keys.ToArray(), dictionary.Values.ToArray(), action);
             return obj;
         }
         #endregion
