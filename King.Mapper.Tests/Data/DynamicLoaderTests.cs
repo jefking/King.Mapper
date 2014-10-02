@@ -32,6 +32,22 @@
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicsIDbCommandNull()
+        {
+            var l = new DynamicLoader();
+            l.Dynamics((IDbCommand)null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicIDbCommandNull()
+        {
+            var l = new DynamicLoader();
+            l.Dynamic((IDbCommand)null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionaryDataTableNull()
         {
             var l = new DynamicLoader();
