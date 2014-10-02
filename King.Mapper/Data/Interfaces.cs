@@ -93,9 +93,39 @@
     public interface IDynamicLoader
     {
         #region IDbCommand
+        /// <summary>
+        /// Generate Dictionaries from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dictionaries</returns>
+        IEnumerable<IDictionary<string, object>> Dictionaries(IDbCommand cmd);
+
+        /// <summary>
+        /// Generate Dictionary from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dictionary</returns>
+        IDictionary<string, object> Dictionary(IDbCommand cmd);
         #endregion
 
         #region IDataReader
+        /// <summary>
+        /// Generate Dictionaries from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dictionaries</returns>
+        IEnumerable<IDictionary<string, object>> Dictionaries(IDataReader reader);
+
+        /// <summary>
+        /// Generate Dictionary from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dictionary</returns>
+        IDictionary<string, object> Dictionary(IDataReader reader);
         #endregion
 
         #region DataTable
