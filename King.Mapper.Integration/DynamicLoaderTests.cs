@@ -205,5 +205,61 @@
                 }
             }
         }
+
+        [Test]
+        public async Task IDbCommandDictionary()
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                var sproc = SimulatedSelectStatement.Create();
+
+                var cmd = sproc.Build(con);
+
+                var loader = new DynamicLoader();
+                await con.OpenAsync();
+                var obj = loader.Dictionary(cmd);
+
+                Assert.IsNotNull(obj);
+                Assert.AreEqual(sproc.TestInt, obj["Identifier"]);
+                Assert.AreEqual(sproc.TestBigInt, obj["BigInt"]);
+                Assert.AreEqual(sproc.TestBit, obj["Bit"]);
+                Assert.AreEqual(sproc.TestDate.Value.Date, ((DateTime)obj["Date"]).Date);
+                Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj["DateTime"]).Date);
+                Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj["DateTime2"]).Date);
+                Assert.AreEqual(sproc.TestDecimal, obj["Decimal"]);
+                Assert.AreEqual(sproc.TestFloat, obj["Float"]);
+                Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj["Money"]);
+                Assert.AreEqual(sproc.TestNChar, ((string)obj["NChar"])[0]);
+                Assert.AreEqual(sproc.TestNText, obj["NText"]);
+                Assert.AreEqual(sproc.TestText, obj["Text"]);
+                CollectionAssert.AreEqual(sproc.TestBinary, obj["Binary"] as byte[]);
+                CollectionAssert.AreEqual(sproc.TestImage, obj["Image"] as byte[]);
+                Assert.AreEqual(sproc.TestGuid, obj["Unique"]);
+            }
+        }
+
+        [Test]
+        public async Task IDbCommandDictionaries()
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                var sproc = new dboSelectMultipleStatement();
+
+                var cmd = sproc.Build(con);
+
+                var loader = new DynamicLoader();
+                await con.OpenAsync();
+                var objs = loader.Dictionaries(cmd);
+
+                Assert.IsNotNull(objs);
+
+                var i = 0;
+                foreach (var obj in objs)
+                {
+                    Assert.AreEqual(i, obj["Identifier"]);
+                    i++;
+                }
+            }
+        }
     }
 }
