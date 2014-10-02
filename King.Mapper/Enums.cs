@@ -4,10 +4,10 @@
 
     #region Action
     /// <summary>
-    /// Action
+    /// Action Flags
     /// </summary>
     [Flags]
-    public enum ActionFlags
+    public enum ActionFlags : byte
     {
         Execute = 0,
         Load = 1
