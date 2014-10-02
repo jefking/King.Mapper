@@ -338,7 +338,14 @@
         #endregion
 
         #region System.Collections.Specialized.NameValueCollection
-        public static T Map<T>(this NameValueCollection dictionary, ActionFlags flag = ActionFlags.Load)
+        /// <summary>
+        /// Map object to Name Value Collection
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="dictionary">Dictionary</param>
+        /// <param name="action">Action</param>
+        /// <returns>Type</returns>
+        public static T Map<T>(this NameValueCollection dictionary, ActionFlags action = ActionFlags.Load)
         {
             if (null == dictionary)
             {
@@ -351,7 +358,7 @@
                 var values = from d in dictionary.AllKeys
                            select dictionary[d];
 
-                obj.Fill(dictionary.AllKeys, values, flag);
+                obj.Fill(dictionary.AllKeys, values, action);
             }
 
             return obj;
