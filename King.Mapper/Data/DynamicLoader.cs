@@ -145,11 +145,11 @@
 
         #region DataSet
         /// <summary>
-        /// Generate Models from Data Set
+        /// Generate Dictionaries from Data Set
         /// </summary>
         /// <param name="data">Data Set</param>
         /// <param name="action">Action</param>
-        /// <returns>Models</returns>
+        /// <returns>Dictionaries</returns>
         public virtual IEnumerable<IDictionary<string, object>> Dictionaries(DataSet data)
         {
             if (null == data)
@@ -161,7 +161,7 @@
         }
 
         /// <summary>
-        /// Generate Model from Data Set
+        /// Generate Dictionary from Data Set
         /// </summary>
         /// <param name="data">Data Set</param>
         /// <param name="action">Action</param>
@@ -174,6 +174,38 @@
             }
 
             return data.Dictionary();
+        }
+
+        /// <summary>
+        /// Generate Dynamics from Data Set
+        /// </summary>
+        /// <param name="data">Data Set</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dynamics</returns>
+        public virtual IEnumerable<dynamic> Dynamics(DataSet data)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.Dynamics();
+        }
+
+        /// <summary>
+        /// Generate Dynamic from Data Set
+        /// </summary>
+        /// <param name="data">Data Set</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dynamic</returns>
+        public virtual dynamic Dynamic(DataSet data)
+        {
+            if (null == data)
+            {
+                throw new ArgumentNullException("data");
+            }
+
+            return data.Dynamic();
         }
         #endregion
     }

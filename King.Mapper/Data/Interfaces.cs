@@ -160,20 +160,36 @@
 
         #region DataSet
         /// <summary>
-        /// Generate Models from Data Set
+        /// Generate Dictionaries from Data Set
         /// </summary>
         /// <param name="data">Data Set</param>
         /// <param name="action">Action</param>
-        /// <returns>Models</returns>
+        /// <returns>Dictionaries</returns>
         IEnumerable<IDictionary<string, object>> Dictionaries(DataSet data);
 
         /// <summary>
-        /// Generate Model from Data Set
+        /// Generate Dictionary from Data Set
         /// </summary>
         /// <param name="data">Data Set</param>
         /// <param name="action">Action</param>
         /// <returns>Dictionary</returns>
         IDictionary<string, object> Dictionary(DataSet data);
+
+        /// <summary>
+        /// Generate Dynamics from Data Set
+        /// </summary>
+        /// <param name="data">Data Set</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dynamics</returns>
+        IEnumerable<dynamic> Dynamics(DataSet data);
+
+        /// <summary>
+        /// Generate Dynamic from Data Set
+        /// </summary>
+        /// <param name="data">Data Set</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dynamic</returns>
+        dynamic Dynamic(DataSet data);
         #endregion
     }
     #endregion
