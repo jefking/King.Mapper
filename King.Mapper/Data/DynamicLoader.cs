@@ -79,6 +79,38 @@
 
             return reader.Dictionary();
         }
+
+        /// <summary>
+        /// Generate Dynamics from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dynamics</returns>
+        public virtual IEnumerable<dynamic> Dynamics(IDataReader reader)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            return reader.Dynamics();
+        }
+
+        /// <summary>
+        /// Generate Dynamic from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dynamic</returns>
+        public virtual dynamic Dynamic(IDataReader reader)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            return reader.Dynamic();
+        }
         #endregion
 
         #region DataTable

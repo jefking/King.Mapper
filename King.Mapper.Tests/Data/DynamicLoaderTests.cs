@@ -93,5 +93,21 @@
             var l = new DynamicLoader();
             l.Dynamics((DataSet)null);
         }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicIDataReaderNull()
+        {
+            var l = new DynamicLoader();
+            l.Dynamic((IDataReader)null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicsIDataReaderNull()
+        {
+            var l = new DynamicLoader();
+            l.Dynamics((IDataReader)null);
+        }
     }
 }
