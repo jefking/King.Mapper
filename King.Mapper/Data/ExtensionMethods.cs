@@ -255,7 +255,7 @@
         /// </summary>
         /// <param name="table">Data Table</param>
         /// <returns>Dynamic</returns>
-        public static IDictionary<string, object> Dynamic(this DataTable table)
+        public static dynamic Dynamic(this DataTable table)
         {
             if (null == table)
             {

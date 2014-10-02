@@ -94,6 +94,48 @@
             }
         }
 
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicNull()
+        {
+            DataSet table = null;
+            table.Dynamic();
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicsNull()
+        {
+            DataSet table = null;
+            table.Dynamics();
+        }
+
+        [Test]
+        public void DynamicFromDataSet()
+        {
+            var dataset = LoadDataSet();
+            var filled = dataset.Dynamic();
+            Assert.AreEqual(1, filled.Id);
+            Assert.AreEqual("Breaking Benjamin", filled.Band);
+            Assert.AreNotEqual(Guid.Empty, filled.Song);
+        }
+
+        [Test]
+        public void DynamicsFromDataSet()
+        {
+            var dataset = LoadDataSet();
+            var filled = dataset.Dynamics();
+            foreach (var item in filled)
+            {
+                var exists = (from DataRow d in dataset.Tables[0].Rows
+                              where (int)d["Id"] == (int)item.Id
+                              && (string)d["Band"] == (string)item.Band
+                              && (Guid)d["Song"] == (Guid)item.Song
+                              select d).FirstOrDefault();
+                Assert.IsNotNull(exists);
+            }
+        }
+
         public DataSet LoadDataSet()
         {
             var SongDS = new DataSet();
