@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Dynamic;
 
     /// <summary>
     /// Dynamic Loader
@@ -14,8 +15,7 @@
         /// Generate Dictionaries from Database Command
         /// </summary>
         /// <param name="cmd">Command</param>
-        /// <param name="action">Action</param>
-        /// <returns>Models</returns>
+        /// <returns>Dictionaries</returns>
         public virtual IEnumerable<IDictionary<string, object>> Dictionaries(IDbCommand cmd)
         {
             if (null == cmd)
@@ -32,8 +32,7 @@
         /// Generate Dictionary from Database Command
         /// </summary>
         /// <param name="cmd">Command</param>
-        /// <param name="action">Action</param>
-        /// <returns>Model</returns>
+        /// <returns>Dictionary</returns>
         public virtual IDictionary<string, object> Dictionary(IDbCommand cmd)
         {
             if (null == cmd)
@@ -44,6 +43,40 @@
             var reader = cmd.ExecuteReader();
 
             return reader.Read() ? reader.Dictionary() : new Dictionary<string, object>(0);
+        }
+
+        /// <summary>
+        /// Generate Dynamics from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <returns>Dynamics</returns>
+        public virtual IEnumerable<dynamic> Dynamics(IDbCommand cmd)
+        {
+            if (null == cmd)
+            {
+                throw new ArgumentNullException("cmd");
+            }
+
+            var reader = cmd.ExecuteReader();
+
+            return reader.Dynamics();
+        }
+
+        /// <summary>
+        /// Generate Dynamic from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <returns>Dynamic</returns>
+        public virtual dynamic Dynamic(IDbCommand cmd)
+        {
+            if (null == cmd)
+            {
+                throw new ArgumentNullException("cmd");
+            }
+
+            var reader = cmd.ExecuteReader();
+
+            return reader.Read() ? reader.Dynamic() : new ExpandoObject();
         }
         #endregion
 

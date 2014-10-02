@@ -97,7 +97,6 @@
         /// Generate Dictionaries from Database Command
         /// </summary>
         /// <param name="cmd">Command</param>
-        /// <param name="action">Action</param>
         /// <returns>Dictionaries</returns>
         IEnumerable<IDictionary<string, object>> Dictionaries(IDbCommand cmd);
 
@@ -105,9 +104,22 @@
         /// Generate Dictionary from Database Command
         /// </summary>
         /// <param name="cmd">Command</param>
-        /// <param name="action">Action</param>
         /// <returns>Dictionary</returns>
         IDictionary<string, object> Dictionary(IDbCommand cmd);
+
+        /// <summary>
+        /// Generate Dynamics from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <returns>Dynamics</returns>
+        IEnumerable<dynamic> Dynamics(IDbCommand cmd);
+
+        /// <summary>
+        /// Generate Dynamic from Database Command
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <returns>Dynamic</returns>
+        dynamic Dynamic(IDbCommand cmd);
         #endregion
 
         #region IDataReader
