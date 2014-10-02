@@ -9,6 +9,9 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// King.Mapper.Data Extension methods
+    /// </summary>
     public static class ExtensionMethods
     {
         #region System.Object
@@ -162,7 +165,7 @@
             {
                 throw new ArgumentNullException("table");
             }
-
+            
             var type = typeof(T);
             T value = Activator.CreateInstance<T>();
             Type createType;
