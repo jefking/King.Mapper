@@ -45,6 +45,22 @@
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicReaderNull()
+        {
+            IDataReader reader = null;
+            reader.Dynamic();
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DynamicsReaderNull()
+        {
+            IDataReader reader = null;
+            reader.Dynamics();
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldNamesReaderNull()
         {
             IDataReader reader = null;

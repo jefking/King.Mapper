@@ -352,7 +352,7 @@
         }
 
         /// <summary>
-        /// Load Model from IData Reader
+        /// Load Model from IDataReader
         /// </summary>
         /// <typeparam name="T">Type to Load</typeparam>
         /// <param name="reader">Data Reader</param>
@@ -365,19 +365,18 @@
                 throw new ArgumentNullException("reader");
             }
 
-            var obj = Activator.CreateInstance<T>();
-
             var columns = reader.GetFieldNames();
             var values = new object[columns.Count()];
             reader.GetValues(values);
 
+            var obj = Activator.CreateInstance<T>();
             obj.Fill(columns, values, action);
 
             return obj;
         }
 
         /// <summary>
-        /// Load Models from IData Reader
+        /// Load Models from IDataReader
         /// </summary>
         /// <typeparam name="T">Type to Load</typeparam>
         /// <param name="reader">Data Reader</param>
@@ -401,7 +400,7 @@
         }
 
         /// <summary>
-        /// Load Dictionary from IData Reader
+        /// Load Dictionary from IDataReader
         /// </summary>
         /// <param name="reader">Data Reader</param>
         /// <returns>Dictionary</returns>
@@ -412,8 +411,44 @@
                 throw new ArgumentNullException("reader");
             }
 
+            return reader.Dynamic() as IDictionary<string, object>;
+        }
+
+        /// <summary>
+        /// Load Dictionaries from IDataReader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <returns>Ditionaries</returns>
+        public static IEnumerable<IDictionary<string, object>> Dictionaries(this IDataReader reader)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
+            var values = new List<IDictionary<string, object>>();
+            while (reader.Read())
+            {
+                values.Add(reader.Dictionary());
+            }
+
+            return values;
+        }
+
+        /// <summary>
+        /// Load Dynamic from IDataReader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <returns>Dynamic</returns>
+        public static dynamic Dynamic(this IDataReader reader)
+        {
+            if (null == reader)
+            {
+                throw new ArgumentNullException("reader");
+            }
+
             var columns = reader.GetFieldNames();
-            var dic = new Dictionary<string, object>(columns.Count());
+            var dic = new ExpandoObject() as IDictionary<string, object>;
             foreach (var col in columns)
             {
                 dic.Add(col, reader[col]);
@@ -423,18 +458,18 @@
         }
 
         /// <summary>
-        /// Load Dictionaries from IData Reader
+        /// Load Dynamics from IDataReader
         /// </summary>
         /// <param name="reader">Data Reader</param>
-        /// <param name="action">Load Action</param>
-        public static IEnumerable<IDictionary<string, object>> Dictionaries(this IDataReader reader)
+        /// <returns>Dynamics</returns>
+        public static IEnumerable<dynamic> Dynamics(this IDataReader reader)
         {
             if (null == reader)
             {
                 throw new ArgumentNullException("reader");
             }
 
-            var values = new List<IDictionary<string, object>>();
+            var values = new List<dynamic>();
             while (reader.Read())
             {
                 values.Add(reader.Dictionary());
