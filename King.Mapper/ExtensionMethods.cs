@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.Specialized;
+    using System.Dynamic;
     using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
@@ -323,7 +324,7 @@
         }
         #endregion
 
-        #region System.Collections.Generic
+        #region System.Collections.IDictionary
         /// <summary>
         /// Map type from Dictionary
         /// </summary>
@@ -340,6 +341,29 @@
 
             var obj = Activator.CreateInstance<T>();
             obj.Fill(dictionary.Keys.ToArray(), dictionary.Values.ToArray(), action);
+            return obj;
+        }
+
+        /// <summary>
+        /// Map type from Dictionary
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="dictionary">Dictionary</param>
+        /// <returns>Type</returns>
+        public static dynamic Map(this IDictionary<string, object> dictionary)
+        {
+            if (null == dictionary)
+            {
+                throw new ArgumentNullException("dictionary");
+            }
+
+            var obj = new ExpandoObject() as IDictionary<string, object>;
+
+            foreach (var key in dictionary.Keys)
+            {
+                obj.Add(key, dictionary[key]);
+            }
+
             return obj;
         }
         #endregion

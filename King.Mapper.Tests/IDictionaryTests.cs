@@ -55,5 +55,30 @@
             Assert.AreEqual(expected.NullableEnum, returned.NullableEnum);
             Assert.AreEqual(expected.TheGuid, returned.TheGuid);
         }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void MapNull()
+        {
+            IDictionary<string, object> dic = null;
+            var d = dic.Map();
+        }
+
+        [Test]
+        public void Map()
+        {
+            var random = new Random();
+            var expected = new Dictionary<string, object>();
+            expected.Add("Id", random.Next());
+            expected.Add("Stringy", Guid.NewGuid().ToString());
+            expected.Add("Wee", Guid.NewGuid());
+
+            var returned = expected.Map();
+
+            Assert.IsNotNull(returned);
+            Assert.AreEqual(expected["Id"], returned.Id);
+            Assert.AreEqual(expected["Stringy"], returned.Stringy);
+            Assert.AreEqual(expected["Wee"], returned.Wee);
+        }
     }
 }
