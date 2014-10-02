@@ -120,6 +120,22 @@
         /// <param name="cmd">Command</param>
         /// <returns>Dynamic</returns>
         dynamic Dynamic(IDbCommand cmd);
+
+        /// <summary>
+        /// Generate Dynamics from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dynamics</returns>
+        IEnumerable<dynamic> Dynamics(IDataReader reader);
+
+        /// <summary>
+        /// Generate Dynamic from Data Reader
+        /// </summary>
+        /// <param name="reader">Data Reader</param>
+        /// <param name="action">Action</param>
+        /// <returns>Dynamic</returns>
+        dynamic Dynamic(IDataReader reader);
         #endregion
 
         #region IDataReader
