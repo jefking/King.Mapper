@@ -24,7 +24,6 @@
             }
 
             var reader = cmd.ExecuteReader();
-
             return reader.Dictionaries();
         }
 
