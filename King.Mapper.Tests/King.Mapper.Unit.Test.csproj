@@ -61,6 +61,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Data\DynamicLoaderTests.cs" />
+    <Compile Include="Models\MappingObjectTester.cs" />
+    <Compile Include="Models\MappingStringTester.cs" />
     <Compile Include="NameValueCollectionTests.cs" />
     <Compile Include="Data\DataMapperAttributeTest.cs" />
     <Compile Include="Data\ObjectTests.cs" />

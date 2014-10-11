@@ -60,6 +60,70 @@
             Assert.IsNotNull(data);
             Assert.AreEqual(item.Temp, data.Temp);
         }
+
+        [Test]
+        public void MapString()
+        {
+            var item = new MappingStringTester()
+            {
+                Temp = Guid.NewGuid().ToString(),
+            };
+
+            var data = item.Map<MappingStringTester>();
+
+            Assert.IsNotNull(data);
+            Assert.AreEqual(item.Temp, data.Temp);
+        }
+
+        [Test]
+        public void MapObject()
+        {
+            var item = new MappingObjectTester()
+            {
+                Temp = this,
+            };
+
+            var data = item.Map<MappingObjectTester>();
+
+            Assert.IsNotNull(data);
+            Assert.AreEqual(item.Temp, data.Temp);
+        }
+
+        [Test]
+        public void MapStringToObject()
+        {
+            var item = new MappingStringTester()
+            {
+                Temp = Guid.NewGuid().ToString(),
+            };
+
+            var data = item.Map<MappingObjectTester>();
+
+            Assert.IsNotNull(data);
+            Assert.AreEqual(item.Temp, data.Temp);
+        }
+
+        [Test]
+        public void MapNullObjectToString()
+        {
+            var item = new MappingObjectTester();
+
+            var data = item.Map<MappingStringTester>();
+
+            Assert.IsNotNull(data);
+            Assert.AreEqual(item.Temp, data.Temp);
+        }
+
+        [Test]
+        public void MapNullStringToObject()
+        {
+            var item = new MappingStringTester();
+
+            var data = item.Map<MappingObjectTester>();
+
+            Assert.IsNotNull(data);
+            Assert.AreEqual(item.Temp, data.Temp);
+        }
         #endregion
     }
 }
