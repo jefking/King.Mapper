@@ -100,5 +100,24 @@
                 Assert.AreEqual(sproc.TestGuid, obj.Unique);
             }
         }
+
+        [Test]
+        public async Task PreOpenedConnection()
+        {
+            var random = new Random();
+            var sproc = new dboSimulatedInsertStatement()
+            {
+                TestInt = random.Next(),
+            };
+
+            using (var con = new SqlConnection(connectionString))
+            {
+                await con.OpenAsync();
+                var executor = new Executor(con);
+                var results = await executor.NonQuery(sproc);
+
+                Assert.AreEqual(1, results);
+            }
+        }
     }
 }

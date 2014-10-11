@@ -71,7 +71,10 @@
             IDataReader reader;
             using (var command = sproc.Build(this.connection))
             {
-                await this.connection.OpenAsync();
+                if (this.connection.State != ConnectionState.Open)
+                {
+                    await this.connection.OpenAsync();
+                }
 
                 reader = await command.ExecuteReaderAsync();
             }
@@ -94,7 +97,10 @@
             var ds = new DataSet();
             using (var adapter = new SqlDataAdapter(command))
             {
-                await this.connection.OpenAsync();
+                if (this.connection.State != ConnectionState.Open)
+                {
+                    await this.connection.OpenAsync();
+                }
 
                 adapter.Fill(ds);
 
@@ -137,7 +143,10 @@
                 throw new ArgumentNullException("command");
             }
 
-            await this.connection.OpenAsync();
+            if (this.connection.State != ConnectionState.Open)
+            {
+                await this.connection.OpenAsync();
+            }
 
             var rowsAffected = await command.ExecuteNonQueryAsync();
 
