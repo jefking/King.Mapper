@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Data;
+    using System.Data.SqlClient;
     using System.Threading.Tasks;
 
     #region ILoader
@@ -242,6 +243,19 @@
         /// <param name="sproc">Stored Procedure</param>
         /// <returns></returns>
         Task<int> NonQuery(IStoredProcedure sproc);
+
+        /// <summary>
+        /// Non-Query
+        /// </summary>
+        /// <param name="command">Command To Execute</param>
+        /// <returns>rows affected</returns>
+        Task<int> NonQuery(SqlCommand command);
+        /// <summary>
+        /// Non-Query
+        /// </summary>
+        /// <param name="statement">Statement To Execute</param>
+        /// <returns>rows affected</returns>
+        public virtual async Task<int> NonQuery(string statement)
 
         /// <summary>
         /// Query for Reader with IStoredProcecure
