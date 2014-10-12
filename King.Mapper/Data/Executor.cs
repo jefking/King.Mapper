@@ -57,32 +57,6 @@
         }
 
         /// <summary>
-        /// Query for Reader with IStoredProcecure
-        /// </summary>
-        /// <param name="sproc">Stored Procedure</param>
-        /// <returns>Data Reader</returns>
-        public virtual async Task<IDataReader> DataReader(IStoredProcedure sproc)
-        {
-            if (null == sproc)
-            {
-                throw new ArgumentNullException("sproc");
-            }
-
-            IDataReader reader;
-            using (var command = sproc.Build(this.connection))
-            {
-                if (this.connection.State != ConnectionState.Open)
-                {
-                    await this.connection.OpenAsync();
-                }
-
-                reader = await command.ExecuteReaderAsync();
-            }
-
-            return reader;
-        }
-
-        /// <summary>
         /// Query Database with command object
         /// </summary>
         /// <param name="command">Sql Command</param>
@@ -108,6 +82,54 @@
             }
 
             return ds;
+        }
+
+        /// <summary>
+        /// Query Database with SQL Statement
+        /// </summary>
+        /// <param name="statement">Sql Statement</param>
+        /// <returns>Data Set</returns>
+        public virtual async Task<DataSet> Query(string statement)
+        {
+            if (null == statement)
+            {
+                throw new ArgumentException("statement");
+            }
+
+            DataSet ds = null;
+            using (var command = this.connection.CreateCommand())
+            {
+                command.CommandText = statement;
+                ds = await this.Query(command);
+            }
+
+            return ds;
+        }
+
+        /// <summary>
+        /// Query for Reader with IStoredProcecure
+        /// </summary>
+        /// <param name="sproc">Stored Procedure</param>
+        /// <returns>Data Reader</returns>
+        public virtual async Task<IDataReader> DataReader(IStoredProcedure sproc)
+        {
+            if (null == sproc)
+            {
+                throw new ArgumentNullException("sproc");
+            }
+
+            IDataReader reader;
+            using (var command = sproc.Build(this.connection))
+            {
+                if (this.connection.State != ConnectionState.Open)
+                {
+                    await this.connection.OpenAsync();
+                }
+
+                reader = await command.ExecuteReaderAsync();
+            }
+
+            return reader;
         }
 
         /// <summary>

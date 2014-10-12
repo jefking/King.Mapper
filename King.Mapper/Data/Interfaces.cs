@@ -238,6 +238,13 @@
         Task<DataSet> Query(IStoredProcedure sproc);
 
         /// <summary>
+        /// Query Database with SQL Statement
+        /// </summary>
+        /// <param name="statement">Sql Statement</param>
+        /// <returns>Data Set</returns>
+        Task<DataSet> Query(string statement);
+
+        /// <summary>
         /// Non Query sproc for mocking
         /// </summary>
         /// <param name="sproc">Stored Procedure</param>

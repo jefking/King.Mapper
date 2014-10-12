@@ -100,6 +100,28 @@
         }
 
         [Test]
+        public async Task SelectStatement()
+        {
+            var random = new Random();
+            var id = random.Next();
+            var unique = Guid.NewGuid();
+            var statement = string.Format("SELECT {0} AS [Identifier];", id, unique);
+
+            using (var con = new SqlConnection(connectionString))
+            {
+                var executor = new Executor(con);
+                var data = await executor.Query(statement);
+
+                Assert.IsNotNull(data);
+
+                var obj = data.Model<SelectData>();
+
+                Assert.IsNotNull(obj);
+                Assert.AreEqual(id, obj.Identifier);
+            }
+        }
+
+        [Test]
         public async Task DataReader()
         {
             var sproc = SimulatedSelectStatement.Create();

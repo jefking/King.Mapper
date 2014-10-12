@@ -61,7 +61,7 @@
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
-        public async Task ExecuteSprocNull()
+        public async Task QuerySprocNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
@@ -70,11 +70,20 @@
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
-        public async Task ExecuteCommandNull()
+        public async Task QueryCommandNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
             await e.Query((SqlCommand)null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentException))]
+        public async Task QueryStatementNull()
+        {
+            var connection = new SqlConnection();
+            var e = new Executor(connection);
+            await e.Query((string)null);
         }
 
         [Test]
