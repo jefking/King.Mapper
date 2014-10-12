@@ -134,6 +134,28 @@
         /// <summary>
         /// Non-Query
         /// </summary>
+        /// <param name="statement">Statement To Execute</param>
+        /// <returns>rows affected</returns>
+        public virtual async Task<int> NonQuery(string statement)
+        {
+            if (string.IsNullOrWhiteSpace(statement))
+            {
+                throw new ArgumentException("command");
+            }
+
+            var rowsAffected = 0;
+            using (var command = this.connection.CreateCommand())
+            {
+                command.CommandText = statement;
+                rowsAffected = await this.NonQuery(command);
+            }
+
+            return rowsAffected;
+        }
+
+        /// <summary>
+        /// Non-Query
+        /// </summary>
         /// <param name="command">Command To Execute</param>
         /// <returns>rows affected</returns>
         public virtual async Task<int> NonQuery(SqlCommand command)

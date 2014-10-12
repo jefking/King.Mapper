@@ -250,12 +250,13 @@
         /// <param name="command">Command To Execute</param>
         /// <returns>rows affected</returns>
         Task<int> NonQuery(SqlCommand command);
+
         /// <summary>
         /// Non-Query
         /// </summary>
         /// <param name="statement">Statement To Execute</param>
         /// <returns>rows affected</returns>
-        public virtual async Task<int> NonQuery(string statement)
+        Task<int> NonQuery(string statement);
 
         /// <summary>
         /// Query for Reader with IStoredProcecure

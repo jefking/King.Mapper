@@ -35,6 +35,38 @@
         }
 
         [Test]
+        public async Task InsertCommand()
+        {
+            var random = new Random();
+            var sproc = new dboSimulatedInsertStatement()
+            {
+                TestInt = random.Next(),
+            };
+
+            using (var con = new SqlConnection(connectionString))
+            {
+                var executor = new Executor(con);
+                var results = await executor.NonQuery(sproc.Build(con));
+
+                Assert.AreEqual(1, results);
+            }
+        }
+
+        [Test]
+        public async Task InsertStatement()
+        {
+            var random = new Random();
+            var statement = string.Format("EXECUTE [dbo].[SimulatedInsertStatement] @TestInt={0};", random.Next());
+            using (var con = new SqlConnection(connectionString))
+            {
+                var executor = new Executor(con);
+                var results = await executor.NonQuery(statement);
+
+                Assert.AreEqual(1, results);
+            }
+        }
+
+        [Test]
         public async Task Select()
         {
             var sproc = SimulatedSelectStatement.Create();

@@ -51,6 +51,15 @@
         }
 
         [Test]
+        [ExpectedException(typeof(ArgumentException))]
+        public async Task NonQueryStatementNull()
+        {
+            var connection = new SqlConnection();
+            var e = new Executor(connection);
+            await e.NonQuery((string)null);
+        }
+
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task ExecuteSprocNull()
         {
