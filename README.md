@@ -1,8 +1,9 @@
 High performance C# model mapping!
 + Map between Models with similar properties.
-+ Map from Data Readers, Data Tables and Data Sets to Models.
++ Map from Data Readers, Data Tables and Data Sets to models.
 + Execute Stored Procedures as objects.
-+ Everything mock able for proper unit testing.
++ Everything mock-able for proper unit testing.
++ Extensible
 + Prefer Async calls where available.
 
 ## [NuGet](https://www.nuget.org/packages/King.Mapper)
