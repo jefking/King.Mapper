@@ -5,8 +5,7 @@ High performance C# model mapping!
 + Everything mock able for proper unit testing.
 + Prefer Async calls where available.
 
-## NuGet
-[Add via NuGet](https://www.nuget.org/packages/King.Mapper)
+## [NuGet](https://www.nuget.org/packages/King.Mapper)
 ```
 PM> Install-Package King.Mapper
 ```
