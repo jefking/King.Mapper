@@ -38,7 +38,7 @@
                 Assert.AreEqual(sproc.TestDecimal, reader.Get<decimal>("Decimal"));
                 Assert.AreEqual(sproc.TestFloat, reader.Get<float>("Float"));
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), reader.Get<decimal>("Money"));
-                Assert.AreEqual(sproc.TestNChar, reader.Get<char>("NChar"));
+                Assert.AreEqual(sproc.TestNChar, reader.Get<string>("NChar"));
                 Assert.AreEqual(sproc.TestNText, reader.Get<string>("NText"));
                 Assert.AreEqual(sproc.TestText, reader.Get<string>("Text"));
                 Assert.AreEqual(sproc.TestGuid, reader.Get<Guid>("Unique"));

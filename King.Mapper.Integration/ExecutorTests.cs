@@ -90,7 +90,7 @@
                 Assert.AreEqual(Math.Round(sproc.TestDecimal.Value, 4), Math.Round(obj.Decimal, 4));
                 Assert.AreEqual(sproc.TestFloat, obj.Float);
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
-                Assert.AreEqual(sproc.TestNChar, obj.NChar);
+                Assert.AreEqual(sproc.TestNChar, obj.NChar.ToString());
                 Assert.AreEqual(sproc.TestNText, obj.NText);
                 Assert.AreEqual(sproc.TestText, obj.Text);
                 CollectionAssert.AreEqual(sproc.TestBinary, obj.Binary);
@@ -146,7 +146,7 @@
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
                 Assert.AreEqual(sproc.TestFloat, obj.Float);
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
-                Assert.AreEqual(sproc.TestNChar, obj.NChar);
+                Assert.AreEqual(sproc.TestNChar, obj.NChar.ToString());
                 Assert.AreEqual(sproc.TestNText, obj.NText);
                 Assert.AreEqual(sproc.TestText, obj.Text);
                 CollectionAssert.AreEqual(sproc.TestBinary, obj.Binary);

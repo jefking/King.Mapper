@@ -78,6 +78,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="King.Mapper.Generator\King.Data.Sql.Reflection.dll" />
     <Content Include="King.Mapper.Generator\King.Mapper.dll" />
     <Content Include="King.Mapper.Generator\King.Mapper.Generator.Core.dll" />
     <Content Include="King.Mapper.Generator\King.Mapper.Generator.exe" />
