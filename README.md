@@ -1,4 +1,4 @@
-High performance C# model mapping!
+### High performance C# model mapping!
 + Map between Models with similar properties.
 + Map from Data Readers, Data Tables and Data Sets to models.
 + Execute Stored Procedures as objects.
@@ -6,7 +6,7 @@ High performance C# model mapping!
 + Extensible
 + Prefer Async calls where available.
 
-## [NuGet](https://www.nuget.org/packages/King.Mapper)
+### [NuGet](https://www.nuget.org/packages/King.Mapper)
 ```
 PM> Install-Package King.Mapper
 ```
