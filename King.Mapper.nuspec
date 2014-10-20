@@ -10,15 +10,8 @@
         <projectUrl>https://github.com/jefking/King.Mapper</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>High performance C# model mapping!
-      Map between Models with similar properties.
-      Map from Data Readers, Data Tables and Data Sets to Models.
-      Execute Stored Procedures as objects.
-      Everything mockable for proper unit testing.
-      Prefer Async calls where available.</description>
-        <summary>integrating with data models from various sources.
-
-      Map from data to objects easily. Integrate with standard .NET data libraries for maximum flexibility.</summary>
+        <description>High performance C# model mapping!</description>
+        <summary>High performance C# model mapping!</summary>
         <releaseNotes>Handles connections that are already open; more options for execution of SQL Statements.</releaseNotes>
         <copyright>Jef King</copyright>
         <tags>King.Mapper Data Mapping ORM performance dynamic dictionary fast transformation object model Data-Reader Data-Table Data-Set reader table set SQL SQL-Server dal data-access-layer</tags>
