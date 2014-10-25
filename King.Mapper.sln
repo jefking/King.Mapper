@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.Unit.Test", "King.Mapper.Tests\King.Mapper.Unit.Test.csproj", "{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}"
 EndProject
@@ -19,6 +19,12 @@ EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "King.Mapper.Data", "King.Mapper.Data\King.Mapper.Data.sqlproj", "{AAFBD3BC-0D7E-4733-9048-AC6F6F7202AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.Integration.Test", "King.Mapper.Integration\King.Mapper.Integration.Test.csproj", "{D8ED545B-882D-4059-B5C3-35A7571D1533}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{BF40DC3F-B2D3-4206-A989-17723E53AE4D}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "King.Mapper.MVC.Data", "King.Mapper.MVC.Data\King.Mapper.MVC.Data.sqlproj", "{2265E2A6-B411-4795-8D0C-A0FC88A67C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.MVC", "King.Mapper.MVC\King.Mapper.MVC.csproj", "{62E226D6-2426-4C99-83D0-B751D4F31B32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +50,16 @@ Global
 		{D8ED545B-882D-4059-B5C3-35A7571D1533}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8ED545B-882D-4059-B5C3-35A7571D1533}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8ED545B-882D-4059-B5C3-35A7571D1533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2265E2A6-B411-4795-8D0C-A0FC88A67C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2265E2A6-B411-4795-8D0C-A0FC88A67C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2265E2A6-B411-4795-8D0C-A0FC88A67C46}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2265E2A6-B411-4795-8D0C-A0FC88A67C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2265E2A6-B411-4795-8D0C-A0FC88A67C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2265E2A6-B411-4795-8D0C-A0FC88A67C46}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{62E226D6-2426-4C99-83D0-B751D4F31B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62E226D6-2426-4C99-83D0-B751D4F31B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62E226D6-2426-4C99-83D0-B751D4F31B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62E226D6-2426-4C99-83D0-B751D4F31B32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,5 +68,7 @@ Global
 		{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9} = {A6AEB1CB-70F3-4EF6-A113-96B8D79931CB}
 		{AAFBD3BC-0D7E-4733-9048-AC6F6F7202AC} = {A6AEB1CB-70F3-4EF6-A113-96B8D79931CB}
 		{D8ED545B-882D-4059-B5C3-35A7571D1533} = {A6AEB1CB-70F3-4EF6-A113-96B8D79931CB}
+		{2265E2A6-B411-4795-8D0C-A0FC88A67C46} = {BF40DC3F-B2D3-4206-A989-17723E53AE4D}
+		{62E226D6-2426-4C99-83D0-B751D4F31B32} = {BF40DC3F-B2D3-4206-A989-17723E53AE4D}
 	EndGlobalSection
 EndGlobal
