@@ -4,7 +4,6 @@
     using King.Mapper.Generated.Sql;
     using King.Mapper.MVC.Models;
     using System.Collections.Generic;
-    using System.Collections.Specialized;
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
