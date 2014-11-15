@@ -9,7 +9,13 @@
     [Flags]
     public enum ActionFlags : byte
     {
+        /// <summary>
+        /// During Execution
+        /// </summary>
         Execute = 0,
+        /// <summary>
+        /// During Load
+        /// </summary>
         Load = 1
     }
     #endregion

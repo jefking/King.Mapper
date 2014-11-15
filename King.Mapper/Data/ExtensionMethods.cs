@@ -53,7 +53,7 @@
         /// <summary>
         /// Load Model from Data Set
         /// </summary>
-        /// <typeparam name="T">T</typeparam>
+        /// <typeparam name="T">Type</typeparam>
         /// <param name="ds">Data Set</param>
         /// <param name="action">Action</param>
         /// <returns>Model</returns>
@@ -71,7 +71,7 @@
         /// <summary>
         /// Load Models from Data Set
         /// </summary>
-        /// <typeparam name="T">T</typeparam>
+        /// <typeparam name="T">Type</typeparam>
         /// <param name="ds">Data Set</param>
         /// <param name="action">Action</param>
         /// <returns>Models</returns>
@@ -153,7 +153,7 @@
         /// <summary>
         /// Load Object from Data Table
         /// </summary>
-        /// <typeparam name="T">T</typeparam>
+        /// <typeparam name="T">Type</typeparam>
         /// <param name="table">Data Table</param>
         /// <param name="action">Action</param>
         /// <returns>Object</returns>
@@ -207,7 +207,7 @@
         /// <summary>
         /// Load Object from Data Table
         /// </summary>
-        /// <typeparam name="T">T</typeparam>
+        /// <typeparam name="T">Type</typeparam>
         /// <param name="table">Data Table</param>
         /// <param name="action">Action</param>
         /// <returns>Object</returns>
