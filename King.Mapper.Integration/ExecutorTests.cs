@@ -57,14 +57,14 @@
         public async Task InsertConnectitonHandedOff()
         {
             var random = new Random();
-            var sproc = new dboSimulatedInsertStatement()
-            {
-                TestInt = random.Next(),
-            };
 
             var executor = new Executor(new SqlConnection(connectionString));
-            for (var i = 0; i < random.Next(750, 2000); i++)
+            for (var i = 0; i < random.Next(1000, 2000); i++)
             {
+                var sproc = new dboSimulatedInsertStatement()
+                {
+                    TestInt = random.Next(),
+                };
                 var results = await executor.NonQuery(sproc);
 
                 Assert.AreEqual(1, results);
