@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("King.Mapper")]
-[assembly: AssemblyDescription("King Mapper, hella fast object mapping.")]
+[assembly: AssemblyDescription("High performance model mapping.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("King.Mapper")]
@@ -11,5 +11,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: Guid("98617c1d-b53c-4e62-bac4-17d6001219bb")]
-[assembly: AssemblyVersion("1.3.1.3")]
-[assembly: AssemblyFileVersion("1.3.1.3")]
+[assembly: AssemblyVersion("1.3.1.4")]
+[assembly: AssemblyFileVersion("1.3.1.4")]

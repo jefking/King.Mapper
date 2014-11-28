@@ -1,4 +1,4 @@
-### High performance C# model mapping!
+### High performance model mapping
 + Map between Models with similar properties.
 + Map from Data Readers, Data Tables and Data Sets to models.
 + Execute Stored Procedures as objects.
