@@ -4,7 +4,6 @@
 + Execute Stored Procedures as objects.
 + Everything mock-able for proper unit testing.
 + Extensible
-+ Prefer Async calls where available.
 
 ### [NuGet](https://www.nuget.org/packages/King.Mapper)
 ```
