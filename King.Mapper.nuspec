@@ -10,8 +10,8 @@
         <projectUrl>https://github.com/jefking/King.Mapper</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>High performance C# model mapping!</description>
-        <summary>High performance C# model mapping!</summary>
+        <description>High performance model mapping.</description>
+        <summary>High performance model mapping</summary>
         <releaseNotes>Performance tweaks.</releaseNotes>
         <copyright>Jef King</copyright>
         <tags>King.Mapper Data Mapping ORM performance dynamic dictionary fast transformation object model Data-Reader Data-Table Data-Set reader table set SQL SQL-Server dal data-access-layer</tags>
