@@ -136,13 +136,7 @@
             {
                 propertyDictionary.Add(property.Name, property);
 
-                var names = from a in property.GetAttributes<ActionNameAttribute>()
-                            where null != a
-                                && a.Action == action
-                                && !propertyDictionary.ContainsKey(a.Name)
-                            select a;
-
-                foreach (var actionName in names)
+                foreach (var actionName in property.GetAttributes<ActionNameAttribute>().Where(a => null != a && a.Action == action  && !propertyDictionary.ContainsKey(a.Name)))
                 {
                     propertyDictionary.Add(actionName.Name, property);
                 }
@@ -255,9 +249,7 @@
                 throw new ArgumentNullException("property");
             }
 
-            return from p in property.GetCustomAttributes(false)
-                   where p.GetType() == typeof(T)
-                   select (T)p;
+            return property.GetCustomAttributes(false).Where(p => p.GetType() == typeof(T)).Select(p => (T)p);
         }
 
         /// <summary>
