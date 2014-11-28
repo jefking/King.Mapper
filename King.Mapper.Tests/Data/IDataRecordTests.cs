@@ -37,7 +37,7 @@
 
             Assert.AreEqual(data, returned);
 
-            var x = item.Received(2)[column];
+            var x = item.Received(3)[column];
         }
 
         [Test]

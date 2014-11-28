@@ -13,18 +13,6 @@
     /// </summary>
     public static class ExtensionMethods
     {
-        #region System.Object
-        /// <summary>
-        /// Is the object a valid one
-        /// </summary>
-        /// <param name="obj">the object to validate</param>
-        /// <returns>true if valid, false otherwise</returns>
-        public static bool IsNotNull(this object obj)
-        {
-            return obj != null && obj != DBNull.Value;
-        }
-        #endregion
-
         #region System.Data.IDataRecord
         /// <summary>
         /// Get Value
@@ -45,7 +33,7 @@
                 throw new ArgumentException("column");
             }
 
-            return record[column].IsNotNull() ? (T)Convert.ChangeType(record[column], typeof(T)) : value;
+            return record[column] != null && record[column] != DBNull.Value ? (T)Convert.ChangeType(record[column], typeof(T)) : value;
         }
         #endregion
 

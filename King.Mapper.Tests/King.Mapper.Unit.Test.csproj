@@ -66,7 +66,6 @@
     <Compile Include="Models\MappingStringTester.cs" />
     <Compile Include="NameValueCollectionTests.cs" />
     <Compile Include="Data\DataMapperAttributeTest.cs" />
-    <Compile Include="Data\ObjectTests.cs" />
     <Compile Include="Data\IDataReaderTests.cs" />
     <Compile Include="Data\DataColumnCollectionTests.cs" />
     <Compile Include="Data\DataTableTests.cs" />
