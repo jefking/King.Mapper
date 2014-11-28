@@ -35,6 +35,43 @@
         }
 
         [Test]
+        public async Task InsertWithClosedConnection()
+        {
+            var random = new Random();
+            var sproc = new dboSimulatedInsertStatement()
+            {
+                TestInt = random.Next(),
+            };
+
+            using (var con = new SqlConnection(connectionString))
+            {
+                var executor = new Executor(con);
+                con.Close();
+                var results = await executor.NonQuery(sproc);
+
+                Assert.AreEqual(1, results);
+            }
+        }
+
+        [Test]
+        public async Task InsertConnectitonHandedOff()
+        {
+            var random = new Random();
+            var sproc = new dboSimulatedInsertStatement()
+            {
+                TestInt = random.Next(),
+            };
+
+            var executor = new Executor(new SqlConnection(connectionString));
+            for (var i = 0; i < random.Next(750, 2000); i++)
+            {
+                var results = await executor.NonQuery(sproc);
+
+                Assert.AreEqual(1, results);
+            }
+        }
+
+        [Test]
         public async Task InsertCommand()
         {
             var random = new Random();
