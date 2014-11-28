@@ -21,7 +21,6 @@
         /// <returns>Models</returns>
         IEnumerable<T> Models(IDbCommand cmd, ActionFlags action = ActionFlags.Load);
 
-
         /// <summary>
         /// Generate Model from Database Command
         /// </summary>

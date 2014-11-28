@@ -57,9 +57,7 @@
                 throw new ArgumentNullException("value");
             }
 
-            return from property in value.GetProperties()
-                   where property.CanWrite
-                   select property.Name;
+            return value.GetProperties().Where(p => p.CanWrite).Select(p => p.Name);
         }
 
         /// <summary>
@@ -83,13 +81,9 @@
             var row = new Dictionary<string, object>(parameters.Count());
             var columnHash = new HashSet<string>(parameters);
 
-            Parallel.ForEach(value.GetProperties(), property =>
+            foreach (var property in value.GetProperties().Where(p => p != null))
             {
-                var actions = from p in property.GetAttributes<ActionNameAttribute>()
-                              where p.Action == action && p != null
-                              select p;
-                
-                foreach (var actionName in actions)
+                foreach (var actionName in property.GetAttributes<ActionNameAttribute>().Where(p => p.Action == action))
                 {
                     var name = actionName.Name.Replace("@", string.Empty);
                     if (!columnHash.Contains(name) && !row.ContainsKey(name))
@@ -102,7 +96,7 @@
                 {
                     row.Add(property.Name, property.GetValue(value, null));
                 }
-            });
+            }
 
             return row;
         }

@@ -352,14 +352,7 @@
                 throw new ArgumentNullException("reader");
             }
 
-            var columns = reader.GetFieldNames();
-            var values = new object[columns.Count()];
-            reader.GetValues(values);
-
-            var obj = Activator.CreateInstance<T>();
-            obj.Fill(columns, values, action);
-
-            return obj;
+            return reader.Dictionary().Map<T>();
         }
 
         /// <summary>
@@ -377,13 +370,8 @@
                 throw new ArgumentNullException("reader");
             }
 
-            var values = new List<T>();
-            while (reader.Read())
-            {
-                values.Add(reader.Model<T>(action));
-            }
-
-            return values;
+            var dics = reader.Dictionaries();
+            return dics.Select(d => d.Map<T>());
         }
 
         /// <summary>
