@@ -8,7 +8,7 @@
     /// Loader
     /// </summary>
     public class Loader<T> : ILoader<T>
-            where T : new()
+        where T : new()
     {
         #region IDbCommand
         /// <summary>

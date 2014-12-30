@@ -8,7 +8,7 @@
     /// <summary>
     /// Stored Procedure Executor
     /// </summary>
-    /// <remarks>Dispose of passed in connection in your code.</remarks>
+    /// <remarks>Caller should dispose of connection.</remarks>
     public class Executor : IExecutor
     {
         #region Members
@@ -47,7 +47,7 @@
                 throw new ArgumentNullException("sproc");
             }
 
-            var ds = new DataSet();
+            DataSet ds = null;
             using (var command = sproc.Build(this.connection))
             {
                 ds = await this.Query(command);
