@@ -33,8 +33,8 @@
                 throw new ArgumentException("name parameter is invalid");
             }
 
-            this.action = action;
             this.name = name;
+            this.action = action;
         }
         #endregion
 
