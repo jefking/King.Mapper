@@ -370,8 +370,7 @@
                 throw new ArgumentNullException("reader");
             }
 
-            var dics = reader.Dictionaries();
-            return dics.Select(d => d.Map<T>());
+            return reader.Dictionaries().Select(d => d.Map<T>());
         }
 
         /// <summary>

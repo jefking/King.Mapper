@@ -372,9 +372,7 @@
             var obj = Activator.CreateInstance<T>();
             if (dictionary.HasKeys())
             {
-                var values = from d in dictionary.AllKeys
-                           select dictionary[d];
-
+                var values = dictionary.AllKeys.Select(d => dictionary[d]);
                 obj.Fill(dictionary.AllKeys, values, action);
             }
 
