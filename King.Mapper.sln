@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.Unit.Test", "King.Mapper.Tests\King.Mapper.Unit.Test.csproj", "{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}"
 EndProject
@@ -25,6 +25,12 @@ EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "King.Mapper.MVC.Data", "King.Mapper.MVC.Data\King.Mapper.MVC.Data.sqlproj", "{2265E2A6-B411-4795-8D0C-A0FC88A67C46}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.MVC", "King.Mapper.MVC\King.Mapper.MVC.csproj", "{62E226D6-2426-4C99-83D0-B751D4F31B32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5BE3F126-67E2-43B7-82E8-A373E72EC547}"
+	ProjectSection(SolutionItems) = preProject
+		King.Mapper.nuspec = King.Mapper.nuspec
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
