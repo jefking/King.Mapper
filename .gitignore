@@ -124,8 +124,6 @@ publish/
 
 # NuGet Packages Directory
 packages/
-## TODO: If the tool you use requires repositories.config uncomment the next line
-#!packages/repositories.config
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 # This line needs to be after the ignore of the build folder (and the packages folder if the line above has been uncommented)
@@ -139,6 +137,7 @@ csx/
 AppPackages/
 
 # Others
+sql/
 *.Cache
 ClientBin/
 [Ss]tyle[Cc]op.*
@@ -157,6 +156,7 @@ Generated_Code/
 # Visual Studio version. Backup files are not needed, because we have git ;-)
 _UpgradeReport_Files/
 Backup*/
+*.ide/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
