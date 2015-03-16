@@ -12,7 +12,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>High performance model mapping.</description>
         <summary>High performance model mapping</summary>
-        <releaseNotes>Performance tweaks.</releaseNotes>
+        <releaseNotes>Support for .NET 4.5 and 4.6</releaseNotes>
         <copyright>Jef King</copyright>
         <tags>King.Mapper Data Mapping ORM performance dynamic dictionary fast transformation object model Data-Reader Data-Table Data-Set reader table set SQL SQL-Server dal data-access-layer</tags>
         <frameworkAssemblies>
