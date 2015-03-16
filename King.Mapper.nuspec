@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>King.Mapper</id>
-        <version>1.7.14</version>
+        <version>1.7.15</version>
         <title>King.Mapper</title>
         <authors>Jef King</authors>
         <owners>Jef King</owners>
@@ -23,6 +23,7 @@
         </frameworkAssemblies>
     </metadata>
     <files>
-        <file src="King.Mapper\bin\Release\King.Mapper.dll" target="lib\net45\King.Mapper.dll" />
+      <file src="King.Mapper.45\bin\Release\King.Mapper.dll" target="lib\net45\King.Mapper.dll" />
+      <file src="King.Mapper.46\bin\Release\King.Mapper.dll" target="lib\net46\King.Mapper.dll" />
     </files>
 </package>
