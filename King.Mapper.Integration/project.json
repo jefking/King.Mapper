@@ -1,10 +1,12 @@
 ﻿{
   "version": "2.0.0-*",
   "description": "King.Mapper.Integration Console Application",
-  "authors": [ "jefkin" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+  "authors": [ "Jef King" ],
+  "owners": [ "Jef King" ],
+  "copyright": "Jef King",
+  "projectUrl": "https://github.com/jefking/King.Mapper",
+  "licenseUrl": "https://github.com/jefking/King.Mapper/blob/master/LICENSE",
+  "iconUrl": "https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png",
 
   "compilationOptions": {
     "emitEntryPoint": true
