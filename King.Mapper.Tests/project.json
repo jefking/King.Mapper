@@ -20,13 +20,25 @@
   "commands": {
     "King.Mapper.Tests": "King.Mapper.Tests"
   },
-
+  
   "frameworks": {
-    "net451": {
+    "net461": {
       "frameworkAssemblies": {
         "System.Data": { },
         "System.Xml": { }
       }
+    },
+      "net451": {
+        "frameworkAssemblies": {
+          "System.Data": { },
+          "System.Xml": { }
+        }
+      },
+      "net45": {
+        "frameworkAssemblies": {
+          "System.Data": { },
+          "System.Xml": { }
+        }
+      }
     }
-  }
 }

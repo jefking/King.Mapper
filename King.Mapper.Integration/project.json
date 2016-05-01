@@ -21,13 +21,25 @@
   "commands": {
     "King.Mapper.Integration": "King.Mapper.Integration"
   },
-
+  
   "frameworks": {
-    "net451": {
+    "net461": {
       "frameworkAssemblies": {
         "System.Data": { },
         "System.Xml": { }
       }
+    },
+      "net451": {
+        "frameworkAssemblies": {
+          "System.Data": { },
+          "System.Xml": { }
+        }
+      },
+      "net45": {
+        "frameworkAssemblies": {
+          "System.Data": { },
+          "System.Xml": { }
+        }
+      }
     }
-  }
 }

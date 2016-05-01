@@ -12,23 +12,23 @@
   "iconUrl": "https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png",
 
   "frameworks": {
-    "net461": {
-      "frameworkAssemblies": {
-        "System.Data": { },
-        "System.Xml": { }
-      }
-    },
-    "net451": {
-      "frameworkAssemblies": {
-        "System.Data": { },
-        "System.Xml": { }
-      }
-    },
-    "net45": {
-      "frameworkAssemblies": {
-        "System.Data": { },
-        "System.Xml": { }
+      "net461": {
+        "frameworkAssemblies": {
+          "System.Data": { },
+          "System.Xml": { }
+        }
+      },
+      "net451": {
+        "frameworkAssemblies": {
+          "System.Data": { },
+          "System.Xml": { }
+        }
+      },
+      "net45": {
+        "frameworkAssemblies": {
+          "System.Data": { },
+          "System.Xml": { }
+        }
       }
     }
-  }
 }
