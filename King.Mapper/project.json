@@ -23,6 +23,12 @@
         "System.Data": { },
         "System.Xml": { }
       }
+    },
+    "net45": {
+      "frameworkAssemblies": {
+        "System.Data": { },
+        "System.Xml": { }
+      }
     }
   }
 }
