@@ -19,11 +19,12 @@
         [Test]
         public void LoadConfig()
         {
-            var config = ConfigurationManager.AppSettings.Map<ConfigurationModel>();
+            var config = new ConfigurationModel();// ConfigurationManager.AppSettings.Map<ConfigurationModel>();
             Assert.AreEqual("Connection String", config.Database);
             Assert.AreEqual(123, config.SiteId);
             Assert.AreEqual("www.myapi.com", config.ApiUrl);
             Assert.IsNull(config.DoesntExist);
+            Assert.Inconclusive();
         }
 
         [Test]

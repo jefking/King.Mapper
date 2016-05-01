@@ -15,7 +15,7 @@
     public class LoaderTests
     {
         #region Members
-        private readonly string connectionString = ConfigurationManager.AppSettings["database"];
+        private readonly string connectionString = "";//ConfigurationManager.AppSettings["database"];
         #endregion
 
         [Test]

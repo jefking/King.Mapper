@@ -14,7 +14,7 @@
     public class DynamicLoaderTests
     {
         #region Members
-        private readonly string connectionString = ConfigurationManager.AppSettings["database"];
+        private readonly string connectionString = "";// ConfigurationManager.AppSettings["database"];
         #endregion
 
         [Test]
