@@ -5,7 +5,7 @@
   "description": "High performance model mapping.",
   "authors": [ "Jef King" ],
   "owners": [ "Jef King" ],
-  "copyright": "Jef KIng",
+  "copyright": "Jef King",
   "tags": [ "King.Mapper Data Mapping ORM performance dynamic dictionary fast transformation object model Data-Reader Data-Table Data-Set reader table set SQL SQL-Server dal data-access-layer" ],
   "projectUrl": "https://github.com/jefking/King.Mapper",
   "licenseUrl": "https://github.com/jefking/King.Mapper/blob/master/LICENSE",
