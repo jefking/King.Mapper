@@ -13,7 +13,7 @@
   "dependencies": {
     "King.Mapper": "2.0.0-preview",
     "King.Mapper.Generator": "1.2.5",
-    "NUnit": "3.2.0"
+    "NUnitLite": "3.2.1"
   },
 
   "commands": {
