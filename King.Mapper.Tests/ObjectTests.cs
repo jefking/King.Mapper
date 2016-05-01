@@ -10,35 +10,31 @@
     public class ObjectTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void FillObjectNull()
         {
             object obj = null;
-            obj.Fill(new string[0], new object[0]);
+            Assert.That(() => obj.Fill(new string[0], new object[0]), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void FillColumnsNull()
         {
             var obj = new object();
-            obj.Fill(null, new object[0]);
+            Assert.That(() => obj.Fill(null, new object[0]), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void FillValuesNull()
         {
             var obj = new object();
-            obj.Fill(new string[0], null);
+            Assert.That(() => obj.Fill(new string[0], null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void FillDifferentSizes()
         {
             var obj = new object();
-            obj.Fill(new string[0], new object[10]);
+            Assert.That(() => obj.Fill(new string[0], new object[10]), Throws.TypeOf<ArgumentException>());
         }
 
         [Test]
@@ -55,11 +51,10 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ToDictionaryObjectNull()
         {
             object obj = null;
-            obj.ToDictionary();
+            Assert.That(() => obj.ToDictionary(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
@@ -89,35 +84,31 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ValueMappingObjectNull()
         {
             object obj = null;
-            obj.ValueMapping(new string[0]);
+            Assert.That(() => obj.ValueMapping(new string[0]), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ValueMappingParametersNull()
         {
             var obj = new object();
-            obj.ValueMapping(null);
+            Assert.That(() => obj.ValueMapping(null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void GetPropertiesObjectNull()
         {
             object obj = null;
-            obj.GetProperties();
+            Assert.That(() => obj.GetProperties(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ParametersObjectNull()
         {
             object obj = null;
-            obj.Parameters();
+            Assert.That(() => obj.Parameters(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
@@ -273,27 +264,24 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromToFromNull()
         {
             object obj = null;
-            obj.Map<object>(new Object());
+            Assert.That(() => obj.Map<object>(new Object()), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromToToNull()
         {
             var obj = new object();
-            obj.Map<object>(null);
+            Assert.That(() => obj.Map<object>(null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromFromNull()
         {
             object obj = null;
-            obj.Map<object>();
+            Assert.That(() => obj.Map<object>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
@@ -331,11 +319,10 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void GetAttributeObjectNull()
         {
             object test = null;
-            test.GetAttribute<ActionNameAttribute>();
+            Assert.That(() => test.GetAttribute<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }

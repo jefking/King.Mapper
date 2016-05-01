@@ -11,19 +11,17 @@
     public class DataTableTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsTableNull()
         {
             DataTable table = null;
-            table.Models<object>();
+            Assert.That(() => table.Models<object>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelTableNull()
         {
             DataTable table = null;
-            table.Model<object>();
+            Assert.That(() => table.Model<object>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
@@ -53,19 +51,17 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionaryTableNull()
         {
             DataTable table = null;
-            table.Dictionary();
+            Assert.That(() => table.Dictionary(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionariesTableNull()
         {
             DataTable table = null;
-            table.Dictionaries();
+            Assert.That(() => table.Dictionaries(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
@@ -95,19 +91,17 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicTableNull()
         {
             DataTable table = null;
-            table.Dynamic();
+            Assert.That(() => table.Dynamic(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicsTableNull()
         {
             DataTable table = null;
-            table.Dynamics();
+            Assert.That(() => table.Dynamics(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]

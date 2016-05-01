@@ -8,14 +8,11 @@
     [TestFixture]
     public class DataMapperAttributeTest
     {
-        #region Valid Cases
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ConstructorInvalidParameterName()
         {
-            new DataMapperAttribute(null, DbType.Binary);
+            Assert.That(() => new DataMapperAttribute(null, DbType.Binary), Throws.TypeOf<ArgumentException>());
         }
-        #endregion
 
         #region Valid Cases
         [Test]
