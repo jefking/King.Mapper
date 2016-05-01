@@ -1,0 +1,31 @@
+﻿{
+  "version": "2.0.0-*",
+  "description": "King.Mapper.Integration Console Application",
+  "authors": [ "jefkin" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "King.Mapper": "2.0.0-preview",
+    "King.Mapper.Generator": "1.2.5",
+    "NUnit": "3.2.0"
+  },
+
+  "commands": {
+    "King.Mapper.Integration": "King.Mapper.Integration"
+  },
+
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Data": { },
+        "System.Xml": { }
+      }
+    }
+  }
+}

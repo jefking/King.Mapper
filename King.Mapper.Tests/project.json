@@ -1,0 +1,30 @@
+﻿{
+  "version": "21.0.0-*",
+  "description": "King.Mapper.Tests Console Application",
+  "authors": [ "jefkin" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "King.Mapper": "2.0.0-preview",
+    "NUnit": "3.2.0"
+  },
+
+  "commands": {
+    "King.Mapper.Tests": "King.Mapper.Tests"
+  },
+
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Data": { },
+        "System.Xml": { }
+      }
+    }
+  }
+}
