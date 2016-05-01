@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.25123.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.Unit.Test", "King.Mapper.Tests\King.Mapper.Unit.Test.csproj", "{A7EEF96F-D00E-4855-9EB2-D4A9E5DAF6A9}"
 EndProject
@@ -19,7 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.MVC", "King.Map
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5BE3F126-67E2-43B7-82E8-A373E72EC547}"
 	ProjectSection(SolutionItems) = preProject
-		King.Mapper\global.json = King.Mapper\global.json
 		README.md = README.md
 	EndProjectSection
 EndProject
