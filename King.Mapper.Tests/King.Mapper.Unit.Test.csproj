@@ -90,12 +90,6 @@
     <Compile Include="ActionNameAttributeTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\King.Mapper.45\King.Mapper.45.csproj">
-      <Project>{eae14e94-31ea-49cc-96a8-8321748d8f59}</Project>
-      <Name>King.Mapper.45</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
