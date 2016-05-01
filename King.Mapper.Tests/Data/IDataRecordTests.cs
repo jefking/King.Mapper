@@ -10,19 +10,17 @@
     public class IDataRecordTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void GetNull()
         {
             IDataRecord item = null;
-            item.Get<object>("yippy");
+            Assert.That(() => item.Get<object>("yippy"), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void GetColumnIvalid()
         {
             var item = Substitute.For<IDataRecord>();
-            item.Get<object>(null);
+            Assert.That(() => item.Get<object>(null), Throws.TypeOf<ArgumentException>());
         }
 
         [Test]

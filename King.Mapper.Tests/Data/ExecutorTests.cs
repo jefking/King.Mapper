@@ -25,74 +25,66 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ConstructorConnectionNull()
         {
             var sproc = Substitute.For<IStoredProcedure>();
-            new Executor(null);
+            Assert.That(() => new Executor(null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public async Task NonQuerySprocNull()
+        public void NonQuerySprocNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            await e.NonQuery((IStoredProcedure)null);
+            Assert.That(async () => await e.NonQuery((IStoredProcedure)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public async Task NonQueryCommandNull()
+        public void NonQueryCommandNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            await e.NonQuery((SqlCommand)null);
+            Assert.That(async () => await e.NonQuery((SqlCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
-        public async Task NonQueryStatementNull()
+        public void NonQueryStatementNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            await e.NonQuery((string)null);
+            Assert.That(async () => await e.NonQuery((string)null), Throws.TypeOf<ArgumentException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public async Task QuerySprocNull()
+        public void QuerySprocNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            await e.Query((IStoredProcedure)null);
+            Assert.That(async () => await e.Query((IStoredProcedure)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public async Task QueryCommandNull()
+        public void QueryCommandNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            await e.Query((SqlCommand)null);
+            Assert.That(async () => await e.Query((SqlCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
-        public async Task QueryStatementNull()
+        public void QueryStatementNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            await e.Query((string)null);
+            Assert.That(async () => await e.Query((string)null), Throws.TypeOf<ArgumentException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public async Task DataReader()
+        public void DataReader()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            await e.DataReader(null);
+            Assert.That(async () => await e.DataReader(null), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }

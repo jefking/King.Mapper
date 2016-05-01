@@ -7,33 +7,27 @@
     [TestFixture]
     public class ObjectMapTests
     {
-        #region Error Cases
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromToFromNull()
         {
             object obj = null;
-            obj.Map<object>(new Object());
+            Assert.That(() => obj.Map<object>(new Object()), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromToToNull()
         {
             var obj = new object();
-            obj.Map<object>(null);
+            Assert.That(() => obj.Map<object>(null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void MapFromFromNull()
         {
             object obj = null;
-            obj.Map<object>();
+            Assert.That(() => obj.Map<object>(), Throws.TypeOf<ArgumentNullException>());
         }
-        #endregion
 
-        #region Valid Cases
         [Test]
         public void MapFromTo()
         {
@@ -124,6 +118,5 @@
             Assert.IsNotNull(data);
             Assert.AreEqual(item.Temp, data.Temp);
         }
-        #endregion
     }
 }

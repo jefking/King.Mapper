@@ -9,11 +9,10 @@
     public class DataColumnCollectionTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ToArrayCollectionNull()
         {
             DataColumnCollection col = null;
-            col.ToArray();
+            Assert.That(() => col.ToArray(), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }

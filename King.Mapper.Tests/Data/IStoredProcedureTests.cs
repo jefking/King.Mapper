@@ -10,20 +10,18 @@
     public class IStoredProcedureTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void BuildSprocNull()
         {
             IStoredProcedure sproc = null;
             var connection = new SqlConnection();
-            sproc.Build(connection);
+            Assert.That(() => sproc.Build(connection), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void BuildConnectionNull()
         {
             var sproc = Substitute.For<IStoredProcedure>();
-            sproc.Build(null);
+            Assert.That(() => sproc.Build(null), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }

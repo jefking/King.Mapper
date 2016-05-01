@@ -10,19 +10,17 @@
     public class PropertyInfoTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void GetAttributesPropertyNull()
         {
             PropertyInfo info = null;
-            info.GetAttributes<ActionNameAttribute>();
+            Assert.That(() => info.GetAttributes<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void GetAttributePropertyNull()
         {
             PropertyInfo info = null;
-            info.GetAttribute<ActionNameAttribute>();
+            Assert.That(() => info.GetAttribute<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
@@ -64,27 +62,24 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void GetAttributesNull()
         {
             PropertyInfo info = null;
-            info.GetAttribute<ActionNameAttribute>();
+            Assert.That(() => info.GetAttribute<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void SetPropertyNull()
         {
             PropertyInfo info = null;
-            info.Set(new object());
+            Assert.That(() => info.Set(new object()), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void SetOwnerNull()
         {
             var info = typeof(FillObject).GetProperties()[0];
-            info.Set(null);
+            Assert.That(() => info.Set(null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]

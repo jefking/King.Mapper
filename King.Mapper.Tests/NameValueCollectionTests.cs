@@ -10,11 +10,10 @@
     public class NameValueCollectionTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void MapDictionaryNull()
         {
             NameValueCollection dic = null;
-            dic.Map<object>();
+            Assert.That(() => dic.Map<object>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]

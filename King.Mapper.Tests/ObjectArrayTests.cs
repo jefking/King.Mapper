@@ -7,11 +7,10 @@
     public class ObjectArrayTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void GetAttributeAttributesNull()
         {
             object[] attrs = null;
-            attrs.GetAttribute<ActionNameAttribute>();
+            Assert.That(() => attrs.GetAttribute<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]

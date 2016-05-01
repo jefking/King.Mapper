@@ -8,16 +8,12 @@
     [TestFixture]
     public class ActionNameAttributeTests
     {
-        #region Error Cases
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ConstructorInvalidName()
         {
-            new ActionNameAttribute(null);
+            Assert.That(() => new ActionNameAttribute(null), Throws.TypeOf<ArgumentException>());
         }
-        #endregion
 
-        #region Valid Cases
         [Test]
         public void Constructor()
         {
@@ -66,6 +62,5 @@
             Assert.AreEqual(getValues.Song, (Guid)mappings["Song"]);
             Assert.AreEqual(getValues.Song, (Guid)mappings["GuidGuid"]);
         }
-        #endregion
     }
 }

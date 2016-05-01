@@ -10,11 +10,10 @@
     public class IDictionaryTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void MapDictionaryNull()
         {
             IDictionary<string, int> dic = null;
-            dic.Map<object>();
+            Assert.That(() => dic.Map<object>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
@@ -57,11 +56,10 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void MapNull()
         {
             IDictionary<string, object> dic = null;
-            var d = dic.Map();
+            Assert.That(() => dic.Map(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]

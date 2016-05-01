@@ -12,59 +12,52 @@
     public class IDataReaderTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelReaderNull()
         {
             IDataReader reader = null;
-            reader.Model<object>();
+            Assert.That(() => reader.Model<object>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsReaderNull()
         {
             IDataReader reader = null;
-            reader.Models<object>();
+            Assert.That(() => reader.Models<object>(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionaryReaderNull()
         {
             IDataReader reader = null;
-            reader.Dictionary();
+            Assert.That(() => reader.Dictionary(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionariesReaderNull()
         {
             IDataReader reader = null;
-            reader.Dictionaries();
+            Assert.That(() => reader.Dictionaries(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicReaderNull()
         {
             IDataReader reader = null;
-            reader.Dynamic();
+            Assert.That(() => reader.Dynamic(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicsReaderNull()
         {
             IDataReader reader = null;
-            reader.Dynamics();
+            Assert.That(() => reader.Dynamics(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldNamesReaderNull()
         {
             IDataReader reader = null;
-            reader.GetFieldNames();
+            Assert.That(() => reader.GetFieldNames(), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]

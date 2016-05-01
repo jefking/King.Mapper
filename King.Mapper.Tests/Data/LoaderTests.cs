@@ -21,67 +21,59 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsIDbCommandNull()
         {
             var l = new Loader<object>();
-            l.Models((IDbCommand)null);
+            Assert.That(() => l.Models((IDbCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelIDbCommandNull()
         {
             var l = new Loader<object>();
-            l.Model((IDbCommand)null);
+            Assert.That(() => l.Model((IDbCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsIDataReaderNull()
         {
             var l = new Loader<object>();
-            l.Models((IDataReader)null);
+            Assert.That(() => l.Models((IDataReader)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelIDataReaderNull()
         {
             var l = new Loader<object>();
-            l.Model((IDataReader)null);
+            Assert.That(() => l.Model((IDataReader)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelDataSetNull()
         {
             var l = new Loader<object>();
-            l.Model((DataSet)null);
+            Assert.That(() => l.Model((DataSet)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelDataTableNull()
         {
             var l = new Loader<object>();
-            l.Model((DataTable)null);
+            Assert.That(() => l.Model((DataTable)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsDataSetNull()
         {
             var l = new Loader<object>();
-            l.Models((DataSet)null);
+            Assert.That(() => l.Models((DataSet)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ModelsDataTableNull()
         {
             var l = new Loader<object>();
-            l.Models((DataTable)null);
+            Assert.That(() => l.Models((DataTable)null), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }

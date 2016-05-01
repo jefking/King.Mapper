@@ -15,115 +15,101 @@
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionariesIDbCommandNull()
         {
             var l = new DynamicLoader();
-            l.Dictionaries((IDbCommand)null);
+            Assert.That(() => l.Dictionaries((IDbCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionaryIDbCommandNull()
         {
             var l = new DynamicLoader();
-            l.Dictionary((IDbCommand)null);
+            Assert.That(() => l.Dictionary((IDbCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicsIDbCommandNull()
         {
             var l = new DynamicLoader();
-            l.Dynamics((IDbCommand)null);
+            Assert.That(() => l.Dynamics((IDbCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicIDbCommandNull()
         {
             var l = new DynamicLoader();
-            l.Dynamic((IDbCommand)null);
+            Assert.That(() => l.Dynamic((IDbCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionaryDataTableNull()
         {
             var l = new DynamicLoader();
-            l.Dictionary((DataTable)null);
+            Assert.That(() => l.Dictionary((DataTable)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionariesDataTableNull()
         {
             var l = new DynamicLoader();
-            l.Dictionaries((DataTable)null);
+            Assert.That(() => l.Dictionaries((DataTable)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionaryDataSetNull()
         {
             var l = new DynamicLoader();
-            l.Dictionary((DataSet)null);
+            Assert.That(() => l.Dictionary((DataSet)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionariesDataSetNull()
         {
             var l = new DynamicLoader();
-            l.Dictionaries((DataSet)null);
+            Assert.That(() => l.Dictionaries((DataSet)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionaryIDataReaderNull()
         {
             var l = new DynamicLoader();
-            l.Dictionary((IDataReader)null);
+            Assert.That(() => l.Dictionary((IDataReader)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DictionariesIDataReaderNull()
         {
             var l = new DynamicLoader();
-            l.Dictionaries((IDataReader)null);
+            Assert.That(() => l.Dictionaries((IDataReader)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicDataSetNull()
         {
             var l = new DynamicLoader();
-            l.Dynamic((DataSet)null);
+            Assert.That(() => l.Dynamic((DataSet)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicsDataSetNull()
         {
             var l = new DynamicLoader();
-            l.Dynamics((DataSet)null);
+            Assert.That(() => l.Dynamics((DataSet)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicIDataReaderNull()
         {
             var l = new DynamicLoader();
-            l.Dynamic((IDataReader)null);
+            Assert.That(() => l.Dynamic((IDataReader)null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void DynamicsIDataReaderNull()
         {
             var l = new DynamicLoader();
-            l.Dynamics((IDataReader)null);
+            Assert.That(() => l.Dynamics((IDataReader)null), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }
