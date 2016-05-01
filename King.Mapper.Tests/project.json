@@ -14,6 +14,8 @@
 
   "dependencies": {
     "King.Mapper": "2.0.0-preview",
+    "NUnit.Runners": "3.2.1",
+    "NUnit": "3.2.1",
     "NUnitLite": "3.2.1"
   },
 
