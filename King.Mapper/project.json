@@ -6,38 +6,28 @@
   "authors": [ "Jef King" ],
   "owners": [ "Jef King" ],
   "copyright": "Jef King",
-  "tags": [ "King.Mapper Data Mapping ORM performance dynamic dictionary fast transformation object model Data-Reader Data-Table Data-Set reader table set SQL SQL-Server dal data-access-layer" ],
+  "tags": [ "King.Mapper", "Data", "Mapping", "ORM", "performance", "dynamic", "dictionary", "fast", "transformation", "object", "model", "Data-Reader", "Data-Table", "Data-Set", "reader", "table", "set", "SQL", "SQL-Server", "dal", "data-access-layer" ],
   "projectUrl": "https://github.com/jefking/King.Mapper",
   "licenseUrl": "https://github.com/jefking/King.Mapper/blob/master/LICENSE",
   "iconUrl": "https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png",
   "language": "en-US",
 
+  "configurations": {
+    "Release": {
+      "compilationOptions": {
+        "optimize": true
+      }
+    }
+  },
+
   "frameworks": {
-    "net46": {
-      "frameworkAssemblies": {
-        "System.Data": { },
-        "System.Xml": { }
-      }
-    },
-    "net461": {
-      "frameworkAssemblies": {
-        "System.Data": { },
-        "System.Xml": { }
-      }
-    },
-    "net451": {
-      "frameworkAssemblies": {
-        "System.Data": { },
-        "System.Xml": { }
-      }
-    },
-    "net452": {
-      "frameworkAssemblies": {
-        "System.Data": { },
-        "System.Xml": { }
-      }
-    },
     "net45": {
+      "frameworkAssemblies": {
+        "System.Data": { },
+        "System.Xml": { }
+      }
+    },
+    "dnx451": {
       "frameworkAssemblies": {
         "System.Data": { },
         "System.Xml": { }

@@ -1,5 +1,5 @@
 ﻿{
-  "version": "21.0.0-*",
+  "version": "2.0.0-*",
   "description": "King.Mapper.Tests Console Application",
   "authors": [ "Jef King" ],
   "owners": [ "Jef King" ],
@@ -14,33 +14,25 @@
 
   "dependencies": {
     "King.Mapper": "2.0.0-preview",
-    "NUnit.Runners": "3.2.1",
-    "NUnit": "3.2.1",
     "NUnitLite": "3.2.1"
   },
 
   "commands": {
     "King.Mapper.Tests": "King.Mapper.Tests"
   },
-  
+
   "frameworks": {
-    "net461": {
+    "net45": {
       "frameworkAssemblies": {
         "System.Data": { },
         "System.Xml": { }
       }
     },
-      "net451": {
-        "frameworkAssemblies": {
-          "System.Data": { },
-          "System.Xml": { }
-        }
-      },
-      "net45": {
-        "frameworkAssemblies": {
-          "System.Data": { },
-          "System.Xml": { }
-        }
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System.Data": { },
+        "System.Xml": { }
       }
     }
+  }
 }

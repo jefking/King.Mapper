@@ -12,3 +12,7 @@ PM> Install-Package King.Mapper
 
 ### [Wiki](https://github.com/jefking/King.Mapper/wiki)
 View the wiki to learn how to use this.
+
+### Frameworks
++ .NET 4.5
++ DNX Core
