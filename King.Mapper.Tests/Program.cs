@@ -1,7 +1,6 @@
 ﻿namespace King.Mapper.Tests
 {
     using NUnit.Common;
-    using NUnit.Framework;
     using NUnitLite;
     using System;
     using System.Reflection;
@@ -10,8 +9,17 @@
     {
         public static int Main(string[] args)
         {
-            return new AutoRun(typeof(Program).GetTypeInfo().Assembly)
-                .Execute(args, new ExtendedTextWrapper(Console.Out), Console.In);
+            AutoRun ar;
+
+#if NET35
+            ar = new AutoRun();
+#else
+            ar = new AutoRun(typeof(Program).GetTypeInfo().Assembly);
+#endif
+            var writer = new ExtendedTextWrapper(Console.Out);
+            var reader = Console.In;
+
+            return ar.Execute(args, writer, reader);
         }
     }
 }

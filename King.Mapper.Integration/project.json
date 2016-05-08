@@ -15,33 +15,25 @@
   "dependencies": {
     "King.Mapper": "2.0.0-preview",
     "King.Mapper.Generator": "1.2.5",
-    "NUnit.Runners": "3.2.1",
-    "NUnit": "3.2.1",
-    "NUnitLite":  "3.2.1"
+    "NUnitLite": "3.2.1"
   },
 
   "commands": {
     "King.Mapper.Integration": "King.Mapper.Integration"
   },
-  
+
   "frameworks": {
-    "net461": {
+    "net45": {
       "frameworkAssemblies": {
         "System.Data": { },
         "System.Xml": { }
       }
     },
-      "net451": {
-        "frameworkAssemblies": {
-          "System.Data": { },
-          "System.Xml": { }
-        }
-      },
-      "net45": {
-        "frameworkAssemblies": {
-          "System.Data": { },
-          "System.Xml": { }
-        }
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System.Data": { },
+        "System.Xml": { }
       }
     }
+  }
 }
