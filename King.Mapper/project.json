@@ -32,6 +32,16 @@
         "System.Data": { },
         "System.Xml": { }
       }
+    },
+    "netcore50": {
+      "dependancies": {
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Data": "4.0.11-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Runtime.Extensions": "4.0.11-beta-23409",
+        "System.Runtime.InteropServices": "4.0.21-beta-23409",
+        "System.Xml": "4.0.11-beta-23516"
+      }
     }
   }
 }
