@@ -1,6 +1,6 @@
 ﻿{
   "version": "2.0.0-*",
-  "description": "King.Mapper.Integration Console Application",
+  "description": "King.Mapper.Integration Tests",
   "authors": [ "Jef King" ],
   "owners": [ "Jef King" ],
   "copyright": "Jef King",

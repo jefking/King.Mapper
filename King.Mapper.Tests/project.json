@@ -1,6 +1,6 @@
 ﻿{
   "version": "2.0.0-*",
-  "description": "King.Mapper.Tests Console Application",
+  "description": "King.Mapper.Tests Unit Tests",
   "authors": [ "Jef King" ],
   "owners": [ "Jef King" ],
   "copyright": "Jef King",
