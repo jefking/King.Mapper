@@ -460,7 +460,6 @@
         /// <param name="proc">Procedure</param>
         /// <param name="database">Database</param>
         /// <returns>Database Command</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities")]
         public static SqlCommand Build(this IStoredProcedure sproc, SqlConnection connection)
         {
             if (null == sproc)
