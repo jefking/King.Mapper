@@ -1,7 +1,7 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    //using NSubstitute;
+    using NSubstitute;
     using NUnit.Framework;
     using System;
     using System.Data.SqlClient;
@@ -27,9 +27,8 @@
         [Test]
         public void ConstructorConnectionNull()
         {
-            //var sproc = Substitute.For<IStoredProcedure>();
-            //Assert.That(() => new Executor(null), Throws.TypeOf<ArgumentNullException>());
-            Assert.Inconclusive();
+            var sproc = Substitute.For<IStoredProcedure>();
+            Assert.That(() => new Executor(null), Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]

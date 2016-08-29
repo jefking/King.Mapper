@@ -1,7 +1,7 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    //using NSubstitute;
+    using NSubstitute;
     using NUnit.Framework;
     using System;
     using System.Collections.Generic;
@@ -66,23 +66,22 @@
             var random = new Random();
             var columns = new List<string>();
             var total = random.Next(25) + 1;
-            //var reader = Substitute.For<IDataReader>();
-            //reader.FieldCount.Returns(total);
-            //for (var i = 0; i < total; i++)
-            //{
-            //    var column = Guid.NewGuid().ToString();
-            //    columns.Add(column);
-            //    reader.GetName(i).Returns(column);
-            //}
-            
-            //var fields = reader.GetFieldNames();
+            var reader = Substitute.For<IDataReader>();
+            reader.FieldCount.Returns(total);
+            for (var i = 0; i < total; i++)
+            {
+                var column = Guid.NewGuid().ToString();
+                columns.Add(column);
+                reader.GetName(i).Returns(column);
+            }
 
-            //for (var i = 0; i < total; i++)
-            //{
-            //    reader.Received().GetName(i);
-            //    Assert.AreEqual(columns[i], fields.ElementAt(i));
-            //}
-            Assert.Inconclusive();
+            var fields = reader.GetFieldNames();
+
+            for (var i = 0; i < total; i++)
+            {
+                reader.Received().GetName(i);
+                Assert.AreEqual(columns[i], fields.ElementAt(i));
+            }
         }
     }
 }

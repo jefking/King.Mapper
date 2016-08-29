@@ -2,7 +2,7 @@
 {
     using King.Mapper.Data;
     using NUnit.Framework;
-    //using NSubstitute;
+    using NSubstitute;
     using System;
     using System.Data.SqlClient;
 
@@ -20,9 +20,8 @@
         [Test]
         public void BuildConnectionNull()
         {
-            //var sproc = Substitute.For<IStoredProcedure>();
-            //Assert.That(() => sproc.Build(null), Throws.TypeOf<ArgumentNullException>());
-            Assert.Inconclusive();
+            var sproc = Substitute.For<IStoredProcedure>();
+            Assert.That(() => sproc.Build(null), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }

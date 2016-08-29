@@ -1,12 +1,12 @@
 ﻿{
-  "version": "2.0.1",
+  "version": "2.0.2",
   "title": "King.Mapper",
   "description": "High performance model mapping.",
   "authors": [ "Jef King" ],
   "language": "en-US",
   "packOptions": {
     "summary": "High performance model mapping.",
-    "releaseNotes": ".NET Standard 1.1",
+    "releaseNotes": ".NET versions.",
     "authors": [ "Jef King" ],
     "copyright": "Jef King",
     "owners": [ "Jef King" ],
@@ -23,14 +23,33 @@
       }
     }
   },
+
   "frameworks": {
-    "netstandard1.2": {
+    "net46": {
+      "frameworkAssemblies": {
+        "System.Data": {},
+        "System.Xml": {}
+      }
     },
+    "net461": {
+      "frameworkAssemblies": {
+        "System.Data": {},
+        "System.Xml": {}
+      }
+    },
+    "net462": {
+      "frameworkAssemblies": {
+        "System.Data": {},
+        "System.Xml": {}
+      }
+    }
   },
+
   "dependencies": {
-    "Microsoft.CSharp": "4.0.1",
+    "Microsoft.CSharp": "4.0.0",
+    "System.Runtime": "4.0.20",
     "System.Data.Common": "4.1.0",
     "System.Data.SqlClient": "4.1.0",
-    "System.Runtime.InteropServices": "4.1.0"
+    "System.Runtime.InteropServices": "4.0.20"
   }
 }

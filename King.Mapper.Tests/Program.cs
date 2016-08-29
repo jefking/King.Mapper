@@ -7,19 +7,13 @@
 
     public class Program
     {
-        public static int Main(string[] args)
+        public static void Main(string[] args)
         {
-            AutoRun ar;
+            var writter = new ExtendedTextWrapper(Console.Out);
+            new AutoRun(typeof(Program).GetTypeInfo().Assembly).Execute(args, writter, Console.In);
 
-#if NET35
-            ar = new AutoRun();
-#else
-            ar = new AutoRun(typeof(Program).GetTypeInfo().Assembly);
-#endif
-            var writer = new ExtendedTextWrapper(Console.Out);
-            var reader = Console.In;
-
-            return ar.Execute(args, writer, reader);
+            Console.WriteLine("Testing Completed.");
+            Console.Read();
         }
     }
 }
