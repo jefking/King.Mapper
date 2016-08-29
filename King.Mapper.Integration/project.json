@@ -1,39 +1,19 @@
 ﻿{
   "version": "2.0.0-*",
   "description": "King.Mapper.Integration Tests",
-  "authors": [ "Jef King" ],
-  "owners": [ "Jef King" ],
-  "copyright": "Jef King",
-  "projectUrl": "https://github.com/jefking/King.Mapper",
-  "licenseUrl": "https://github.com/jefking/King.Mapper/blob/master/LICENSE",
-  "iconUrl": "https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png",
 
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true
   },
 
-  "dependencies": {
-    "King.Mapper": "2.0.0-preview",
-    "King.Mapper.Generator": "1.2.5",
-    "NUnitLite": "3.2.1"
-  },
-
-  "commands": {
-    "King.Mapper.Integration": "King.Mapper.Integration"
-  },
-
   "frameworks": {
-    "net45": {
-      "frameworkAssemblies": {
-        "System.Data": { },
-        "System.Xml": { }
-      }
-    },
-    "dnx451": {
-      "frameworkAssemblies": {
-        "System.Data": { },
-        "System.Xml": { }
-      }
-    }
+    "net462": {}
+  },
+
+  "dependencies": {
+    "King.Mapper": "2.0.2",
+    "NUnitLite": "3.4.1",
+    "NSubstitute": "2.0.0-rc",
+    "System.Configuration.Abstractions": "2.0.2.3"
   }
 }
