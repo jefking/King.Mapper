@@ -1,12 +1,12 @@
 {
-  "version": "2.0.2",
+  "version": "2.0.3",
   "title": "King.Mapper",
   "description": "High performance model mapping.",
   "authors": [ "Jef King" ],
   "language": "en-US",
   "packOptions": {
     "summary": "High performance model mapping.",
-    "releaseNotes": ".NET versions.",
+    "releaseNotes": "Less dependancies",
     "authors": [ "Jef King" ],
     "copyright": "Jef King",
     "owners": [ "Jef King" ],
