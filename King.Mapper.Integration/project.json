@@ -13,7 +13,6 @@
   "dependencies": {
     "King.Mapper": "2.0.2",
     "NUnitLite": "3.4.1",
-    "NSubstitute": "2.0.0-rc",
-    "System.Configuration.Abstractions": "2.0.2.3"
+    "NSubstitute": "2.0.0-rc"
   }
 }

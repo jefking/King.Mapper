@@ -9,12 +9,13 @@
     using System.Data.SqlClient;
     using System.Linq;
     using System.Threading.Tasks;
+    using Test;
 
     [TestFixture]
     public class LoaderTests
     {
         #region Members
-        private readonly string connectionString = "";
+        private readonly string connectionString = Configuration.ConnectionString;
         #endregion
 
         [Test]

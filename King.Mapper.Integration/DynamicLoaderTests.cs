@@ -5,16 +5,16 @@
     using King.Mapper.Integration.Model;
     using NUnit.Framework;
     using System;
-    using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
+    using Test;
 
     [TestFixture]
     public class DynamicLoaderTests
     {
         #region Members
-        private readonly string connectionString = "";// ConfigurationManager.AppSettings["database"];
+        private readonly string connectionString = Configuration.ConnectionString;
         #endregion
 
         [Test]

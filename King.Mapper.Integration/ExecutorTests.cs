@@ -13,7 +13,7 @@
     public class ExecutorTests
     {
         #region Members
-        private readonly string connectionString = "";//ConfigurationManager.AppSettings["database"];
+        private readonly string connectionString = Configuration.ConnectionString;
         #endregion
 
         [Test]
