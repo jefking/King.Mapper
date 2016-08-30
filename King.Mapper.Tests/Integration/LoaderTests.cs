@@ -9,7 +9,7 @@
     using System.Data.SqlClient;
     using System.Linq;
     using System.Threading.Tasks;
-    using Test;
+    using Test.Integration;
 
     [TestFixture]
     public class LoaderTests

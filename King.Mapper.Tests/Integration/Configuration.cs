@@ -1,4 +1,4 @@
-﻿namespace King.Mapper.Test
+﻿namespace King.Mapper.Test.Integration
 {
     public class Configuration
     {

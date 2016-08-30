@@ -7,7 +7,7 @@
     using System;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
-    using Test;
+    using Test.Integration;
 
     [TestFixture]
     public class ExecutorTests
