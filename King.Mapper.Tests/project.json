@@ -1,6 +1,6 @@
 ﻿{
   "version": "2.0.0-*",
-  "description": "King.Mapper.Tests Unit Tests",
+  "description": "King.Mapper.Unit Tests",
 
   "buildOptions": {
     "emitEntryPoint": true
