@@ -5,7 +5,6 @@
     using King.Mapper.Integration.Model;
     using NUnit.Framework;
     using System;
-    using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
     using System.Linq;
@@ -15,7 +14,7 @@
     public class LoaderTests
     {
         #region Members
-        private readonly string connectionString = "";//ConfigurationManager.AppSettings["database"];
+        private readonly string connectionString = "";
         #endregion
 
         [Test]

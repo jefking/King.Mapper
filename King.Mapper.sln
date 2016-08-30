@@ -22,7 +22,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "King.Mapper", "King.Mapper\
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "King.Mapper.Integration", "King.Mapper.Integration\King.Mapper.Integration.xproj", "{4721D964-74FA-43D9-AEB3-630E285785AA}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "King.Mapper.Tests", "King.Mapper.Tests\King.Mapper.Tests.xproj", "{C1FAF2A8-F6D9-4CBF-AB61-C10FA345A25B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "King.Mapper.Test", "King.Mapper.Tests\King.Mapper.Test.xproj", "{C1FAF2A8-F6D9-4CBF-AB61-C10FA345A25B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
