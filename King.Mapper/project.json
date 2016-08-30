@@ -49,7 +49,6 @@
     "Microsoft.CSharp": "4.0.0",
     "System.Runtime": "4.0.20",
     "System.Data.Common": "4.1.0",
-    "System.Data.SqlClient": "4.1.0",
-    "System.Runtime.InteropServices": "4.0.20"
+    "System.Data.SqlClient": "4.1.0"
   }
 }
