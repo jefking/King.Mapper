@@ -14,6 +14,6 @@
     "King.Mapper": "2.0.2",
     "NSubstitute": "2.0.0-rc",
     "NUnitLite": "3.5.0",
-    "System.Configuration.Abstractions": "2.0.2.3"
+    "System.Configuration.Abstractions": "2.0.2.26"
   }
 }
