@@ -4,15 +4,15 @@
     using King.Mapper.Integration.Model;
     using NUnit.Framework;
     using System;
-    using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
+    using Test.Integration;
 
     [TestFixture]
     public class IDataRecordTests
     {
         #region Members
-        private readonly string connectionString = "";//ConfigurationManager.AppSettings["database"];
+        private readonly string connectionString = Configuration.ConnectionString;
         #endregion
 
         [Test]
