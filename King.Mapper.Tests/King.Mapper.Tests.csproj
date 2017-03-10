@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NSubstitute" Version="2.0.0-rc" />
-    <PackageReference Include="NUnitLite" Version="3.5.0" />
+    <PackageReference Include="NSubstitute" Version="2.0.2" />
+    <PackageReference Include="NUnitLite" Version="3.6.1" />
     <PackageReference Include="System.Configuration.Abstractions" Version="2.0.2.26" />
   </ItemGroup>
 
