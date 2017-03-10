@@ -178,3 +178,4 @@ FakesAssemblies/
 # New VS, New Projects
 *.lock.json
 .vs
+*.jfm
