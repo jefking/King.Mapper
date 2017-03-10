@@ -1,26 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{A6AEB1CB-70F3-4EF6-A113-96B8D79931CB}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "King.Mapper.Data", "King.Mapper.Data\King.Mapper.Data.sqlproj", "{AAFBD3BC-0D7E-4733-9048-AC6F6F7202AC}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{BF40DC3F-B2D3-4206-A989-17723E53AE4D}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "King.Mapper.MVC.Data", "King.Mapper.MVC.Data\King.Mapper.MVC.Data.sqlproj", "{2265E2A6-B411-4795-8D0C-A0FC88A67C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.MVC", "King.Mapper.MVC\King.Mapper.MVC.csproj", "{62E226D6-2426-4C99-83D0-B751D4F31B32}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5BE3F126-67E2-43B7-82E8-A373E72EC547}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "King.Mapper.Data", "King.Mapper.Data\King.Mapper.Data.sqlproj", "{AAFBD3BC-0D7E-4733-9048-AC6F6F7202AC}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "King.Mapper", "King.Mapper\King.Mapper.xproj", "{4067BD7B-ACCC-47E6-BEE7-0F5D6486E286}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "King.Mapper.MVC.Data", "King.Mapper.MVC.Data\King.Mapper.MVC.Data.sqlproj", "{2265E2A6-B411-4795-8D0C-A0FC88A67C46}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.Mapper.MVC", "King.Mapper.MVC\King.Mapper.MVC.csproj", "{62E226D6-2426-4C99-83D0-B751D4F31B32}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "King.Mapper", "King.Mapper\King.Mapper.csproj", "{4067BD7B-ACCC-47E6-BEE7-0F5D6486E286}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "King.Mapper.Tests", "King.Mapper.Tests\King.Mapper.Tests.csproj", "{C1FAF2A8-F6D9-4CBF-AB61-C10FA345A25B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "King.Mapper.Test", "King.Mapper.Tests\King.Mapper.Test.xproj", "{C1FAF2A8-F6D9-4CBF-AB61-C10FA345A25B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
