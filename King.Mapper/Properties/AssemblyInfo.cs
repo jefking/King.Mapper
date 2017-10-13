@@ -1,15 +1,15 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("King.Mapper.Test")]
-[assembly: AssemblyDescription("King Object Mapper Test")]
+[assembly: AssemblyTitle("King.Mapper")]
+[assembly: AssemblyDescription("High performance model mapping.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("King.Mapper.Test")]
+[assembly: AssemblyProduct("King.Mapper")]
 [assembly: AssemblyCopyright("Copyright © Jef King 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
-[assembly: Guid("7c1ef5cb-3311-481a-a641-b9781a749e08")]
-[assembly: AssemblyVersion("2.0.0.3")]
-[assembly: AssemblyFileVersion("2.0.0.3")]
+[assembly: Guid("900a2472-c826-4e99-aa69-60b56745f56a")]
+[assembly: AssemblyVersion("2.0.0.2")]
+[assembly: AssemblyFileVersion("2.0.0.2")]
