@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net46;net461;net462</TargetFrameworks>
     <Authors>Jef King</Authors>
     <Company />
     <Version>3.0.0-alpha</Version>
@@ -14,6 +14,7 @@
     <PackageReleaseNotes>packing for .net standard 2.0!</PackageReleaseNotes>
     <PackageTags>king.mapper,orm,data,mapping,mapper,performance,dynamic,dictionary,fast,transformation,configuration,sql,sql server,data-table,data,data-reader,t-sql,set,table,reader,object,model,linux,windows,mac,portable</PackageTags>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <PackageIconUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png</PackageIconUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
