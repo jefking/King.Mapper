@@ -1,7 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Jef King</Authors>
+    <Company />
+    <Version>3.0.0-alpha</Version>
+    <Description>Simple model mapping</Description>
+    <Copyright>Copyright © Jef King 2017</Copyright>
+    <PackageProjectUrl>https://github.com/jefking/King.Mapper/wiki</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jefking/King.Mapper</RepositoryUrl>
+    <AssemblyVersion>2.0.0.4</AssemblyVersion>
+    <FileVersion>2.0.0.4</FileVersion>
+    <PackageReleaseNotes>packing for .net standard 2.0!</PackageReleaseNotes>
+    <PackageTags>king.mapper,orm,data,mapping,mapper,performance,dynamic,dictionary,fast,transformation,configuration,sql,sql server,data-table,data,data-reader,t-sql,set,table,reader,object,model,linux,windows,mac,portable</PackageTags>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
 
 </Project>
