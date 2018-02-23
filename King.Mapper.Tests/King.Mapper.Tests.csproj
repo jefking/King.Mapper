@@ -28,7 +28,7 @@
   <ItemGroup>
     <PackageReference Include="NSubstitute" Version="3.1.0" />
     <PackageReference Include="NUnitLite" Version="3.9.0" />
-    <PackageReference Include="System.Configuration.Abstractions" Version="2.0.2.26" />
+    <PackageReference Include="System.Configuration.Abstractions" Version="2.0.2.37" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
