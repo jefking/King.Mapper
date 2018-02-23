@@ -4,9 +4,9 @@
     <TargetFrameworks>netstandard2.0;net46;net461;net462</TargetFrameworks>
     <Authors>Jef King</Authors>
     <Company />
-    <Version>3.0.0-alpha</Version>
+    <Version>3.0.1</Version>
     <Description>Simple model mapping</Description>
-    <Copyright>Copyright © Jef King 2017</Copyright>
+    <Copyright>Copyright © Jef King 2018</Copyright>
     <PackageProjectUrl>https://github.com/jefking/King.Mapper/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/jefking/King.Mapper</RepositoryUrl>
     <AssemblyVersion>2.0.0.4</AssemblyVersion>
