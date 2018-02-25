@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{20B7A7DA-EE19-4D0A-BD3F-481DAF880E1D}</ProjectGuid>
+    <ProjectGuid>dcb20ca0-c6e6-4a6f-ade4-651b358b3bac</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>King.Mapper.Tests</RootNamespace>
