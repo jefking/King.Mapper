@@ -108,7 +108,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj.DateTime).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj.DateTime2).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
-                Assert.AreEqual<float>(sproc.TestFloat.Value, (float)Math.Round(obj.Float, 7));
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round(obj.Float, 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
@@ -292,7 +292,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj["DateTime"]).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj["DateTime2"]).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj["Decimal"]);
-                Assert.AreEqual<float>(sproc.TestFloat.Value, (float)Math.Round((double)obj["Float"], 7));
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round((double)obj["Float"], 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj["Money"]);
                 Assert.AreEqual(sproc.TestNChar, obj["NChar"]);
                 Assert.AreEqual(sproc.TestNText, obj["NText"]);
@@ -414,7 +414,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj.DateTime).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj.DateTime2).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
-                Assert.AreEqual<float>(sproc.TestFloat.Value, (float)Math.Round(obj.Float, 7));
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round(obj.Float, 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
