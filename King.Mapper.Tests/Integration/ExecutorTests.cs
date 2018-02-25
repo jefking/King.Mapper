@@ -3,20 +3,20 @@
     using King.Mapper.Data;
     using King.Mapper.Generated.Sql;
     using King.Mapper.Integration.Model;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
     using Test.Integration;
 
-    [TestFixture]
+    [TestClass]
     public class ExecutorTests
     {
         #region Members
         private readonly string connectionString = Configuration.ConnectionString;
         #endregion
 
-        [Test]
+        [TestMethod]
         public async Task Insert()
         {
             var random = new Random();
@@ -34,7 +34,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task InsertWithClosedConnection()
         {
             var random = new Random();
@@ -53,7 +53,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task InsertConnectitonHandedOff()
         {
             var random = new Random();
@@ -71,7 +71,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task InsertCommand()
         {
             var random = new Random();
@@ -89,7 +89,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task InsertStatement()
         {
             var random = new Random();
@@ -103,7 +103,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task Select()
         {
             var sproc = SimulatedSelectStatement.Create();
@@ -136,7 +136,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task SelectStatement()
         {
             var random = new Random();
@@ -158,7 +158,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataReader()
         {
             var sproc = SimulatedSelectStatement.Create();
@@ -192,7 +192,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task PreOpenedConnection()
         {
             var random = new Random();

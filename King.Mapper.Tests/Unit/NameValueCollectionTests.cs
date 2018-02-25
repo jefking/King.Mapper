@@ -1,22 +1,22 @@
 ﻿namespace King.Mapper.Tests
 {
     using King.Mapper.Tests.Models;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Collections.Specialized;
     using System.Configuration;
 
-    [TestFixture]
+    [TestClass]
     public class NameValueCollectionTests
     {
-        [Test]
+        [TestMethod]
         public void MapDictionaryNull()
         {
             NameValueCollection dic = null;
-            Assert.That(() => dic.Map<object>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => dic.Map<object>());
         }
 
-        [Test]
+        [TestMethod]
         public void LoadConfig()
         {
             var config = ConfigurationManager.AppSettings.Map<ConfigurationModel>();
@@ -26,7 +26,7 @@
             Assert.IsNull(config.DoesntExist);
         }
 
-        [Test]
+        [TestMethod]
         public void Map()
         {
             var random = new Random();

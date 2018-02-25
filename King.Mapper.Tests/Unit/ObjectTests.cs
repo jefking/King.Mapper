@@ -1,43 +1,43 @@
 ﻿namespace King.Mapper.Tests
 {
     using King.Mapper.Tests.Models;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Linq;
     using System.Text;
 
-    [TestFixture]
+    [TestClass]
     public class ObjectTests
     {
-        [Test]
+        [TestMethod]
         public void FillObjectNull()
         {
             object obj = null;
-            Assert.That(() => obj.Fill(new string[0], new object[0]), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Fill(new string[0], new object[0]));
         }
 
-        [Test]
+        [TestMethod]
         public void FillColumnsNull()
         {
             var obj = new object();
-            Assert.That(() => obj.Fill(null, new object[0]), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Fill(null, new object[0]));
         }
 
-        [Test]
+        [TestMethod]
         public void FillValuesNull()
         {
             var obj = new object();
-            Assert.That(() => obj.Fill(new string[0], null), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Fill(new string[0], null));
         }
 
-        [Test]
+        [TestMethod]
         public void FillDifferentSizes()
         {
             var obj = new object();
-            Assert.That(() => obj.Fill(new string[0], new object[10]), Throws.TypeOf<ArgumentException>());
+            Assert.ThrowsException<ArgumentException>(() => obj.Fill(new string[0], new object[10]));
         }
 
-        [Test]
+        [TestMethod]
         public void Fill()
         {
             var random = new Random();
@@ -50,14 +50,14 @@
             Assert.AreEqual((Guid)values[1], obj.Song);
         }
 
-        [Test]
+        [TestMethod]
         public void ToDictionaryObjectNull()
         {
             object obj = null;
-            Assert.That(() => obj.ToDictionary(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.ToDictionary());
         }
 
-        [Test]
+        [TestMethod]
         public void ToDictionaryObject()
         {
             var random = new Random();
@@ -83,35 +83,35 @@
             Assert.AreEqual(obj.SuperEnum, dic["SuperEnum"]);
         }
 
-        [Test]
+        [TestMethod]
         public void ValueMappingObjectNull()
         {
             object obj = null;
-            Assert.That(() => obj.ValueMapping(new string[0]), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.ValueMapping(new string[0]));
         }
 
-        [Test]
+        [TestMethod]
         public void ValueMappingParametersNull()
         {
             var obj = new object();
-            Assert.That(() => obj.ValueMapping(null), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.ValueMapping(null));
         }
 
-        [Test]
+        [TestMethod]
         public void GetPropertiesObjectNull()
         {
             object obj = null;
-            Assert.That(() => obj.GetProperties(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.GetProperties());
         }
 
-        [Test]
+        [TestMethod]
         public void ParametersObjectNull()
         {
             object obj = null;
-            Assert.That(() => obj.Parameters(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Parameters());
         }
 
-        [Test]
+        [TestMethod]
         public void GetPropertiesCount()
         {
             var obj = new FillObject();
@@ -121,14 +121,14 @@
             Assert.AreEqual(properties.Count(), objProperties.Count());
         }
 
-        [Test]
+        [TestMethod]
         public void ObjectParameter()
         {
             var obj = new object();
             Assert.AreEqual(0, obj.Parameters().Count());
         }
 
-        [Test]
+        [TestMethod]
         public void ObjectParameters()
         {
             var obj = new TestActionNames();
@@ -148,7 +148,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public void ValueMapping()
         {
             var random = new Random();
@@ -165,7 +165,7 @@
             Assert.AreEqual(getValues.Song, (Guid)mappings["Song"]);
         }
 
-        [Test]
+        [TestMethod]
         public void ValueMappingTestActionNames()
         {
             var random = new Random();
@@ -185,7 +185,7 @@
             Assert.AreEqual(getValues.Song, (Guid)mappings["GuidGuid"]);
         }
 
-        [Test]
+        [TestMethod]
         public void GetProperties()
         {
             var obj = new TestingAttribute();
@@ -195,7 +195,7 @@
             Assert.AreEqual("TestMethod", prop.ElementAt(0).Name);
         }
 
-        [Test]
+        [TestMethod]
         public void Parameters()
         {
             var proc = new TestingAttribute();
@@ -205,7 +205,7 @@
             Assert.AreEqual("TestMethod", prop.ElementAt(0));
         }
 
-        [Test]
+        [TestMethod]
         public void SetPropertyInfo()
         {
             var random = new Random();
@@ -263,28 +263,28 @@
             Assert.AreEqual(e, fillobject.Ecode);
         }
 
-        [Test]
+        [TestMethod]
         public void MapFromToFromNull()
         {
             object obj = null;
-            Assert.That(() => obj.Map<object>(new Object()), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Map<object>(new Object()));
         }
 
-        [Test]
+        [TestMethod]
         public void MapFromToToNull()
         {
             var obj = new object();
-            Assert.That(() => obj.Map<object>(null), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Map<object>(null));
         }
 
-        [Test]
+        [TestMethod]
         public void MapFromFromNull()
         {
             object obj = null;
-            Assert.That(() => obj.Map<object>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Map<object>());
         }
 
-        [Test]
+        [TestMethod]
         public void MapFromTo()
         {
             var item = new MappingTester()
@@ -297,7 +297,7 @@
             Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [Test]
+        [TestMethod]
         public void MapFrom()
         {
             var item = new MappingTester()
@@ -310,19 +310,19 @@
             Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [Test]
+        [TestMethod]
         public void GetAttributeNull()
         {
-            var test = new TestAttribute();
+            var test = new TestMethodAttribute();
             var attribute = test.GetAttribute<ActionNameAttribute>();
             Assert.IsNull(attribute);
         }
 
-        [Test]
+        [TestMethod]
         public void GetAttributeObjectNull()
         {
             object test = null;
-            Assert.That(() => test.GetAttribute<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => test.GetAttribute<ActionNameAttribute>());
         }
     }
 }

@@ -1,27 +1,27 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Data;
 
-    [TestFixture]
+    [TestClass]
     public class DataMapperAttributeTest
     {
-        [Test]
+        [TestMethod]
         public void ConstructorInvalidParameterName()
         {
-            Assert.That(() => new DataMapperAttribute(null, DbType.Binary), Throws.TypeOf<ArgumentException>());
+            Assert.ThrowsException<ArgumentException>(() => new DataMapperAttribute(null, DbType.Binary));
         }
 
         #region Valid Cases
-        [Test]
+        [TestMethod]
         public void Constructor()
         {
             new DataMapperAttribute(Guid.NewGuid().ToString(), DbType.Currency);
         }
 
-        [Test]
+        [TestMethod]
         public void ParameterName()
         {
             var data = Guid.NewGuid().ToString();
@@ -29,7 +29,7 @@
             Assert.AreEqual(data, mapper.ParameterName);
         }
 
-        [Test]
+        [TestMethod]
         public void Type()
         {
             var data = DbType.Single;

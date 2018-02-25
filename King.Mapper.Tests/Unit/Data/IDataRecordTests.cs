@@ -1,29 +1,29 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NSubstitute;
     using System;
     using System.Data;
 
-    [TestFixture]
+    [TestClass]
     public class IDataRecordTests
     {
-        [Test]
+        [TestMethod]
         public void GetNull()
         {
             IDataRecord item = null;
-            Assert.That(() => item.Get<object>("yippy"), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => item.Get<object>("yippy"));
         }
 
-        [Test]
+        [TestMethod]
         public void GetColumnIvalid()
         {
             var item = Substitute.For<IDataRecord>();
-            Assert.That(() => item.Get<object>(null), Throws.TypeOf<ArgumentException>());
+            Assert.ThrowsException<ArgumentException>(() => item.Get<object>(null));
         }
 
-        [Test]
+        [TestMethod]
         public void GetGuid()
         {
             var column = "column";
@@ -38,7 +38,7 @@
             var x = item.Received(3)[column];
         }
 
-        [Test]
+        [TestMethod]
         public void GetGuidByDefault()
         {
             var column = "column";

@@ -3,7 +3,7 @@
     using King.Mapper.Data;
     using King.Mapper.Generated.Sql;
     using King.Mapper.Integration.Model;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Data;
     using System.Data.SqlClient;
@@ -11,14 +11,14 @@
     using System.Threading.Tasks;
     using Test.Integration;
 
-    [TestFixture]
+    [TestClass]
     public class LoaderTests
     {
         #region Members
         private readonly string connectionString = Configuration.ConnectionString;
         #endregion
 
-        [Test]
+        [TestMethod]
         public async Task ReaderModel()
         {
             using (var con = new SqlConnection(connectionString))
@@ -54,7 +54,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task ReaderModels()
         {
             using (var con = new SqlConnection(connectionString))
@@ -80,7 +80,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task IDbCommandModel()
         {
             using (var con = new SqlConnection(connectionString))
@@ -113,7 +113,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task IDbCommandLoadNothing()
         {
             var random = new Random();
@@ -135,7 +135,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task IDbCommandModels()
         {
             using (var con = new SqlConnection(connectionString))
@@ -160,7 +160,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataTableModel()
         {
             using (var con = new SqlConnection(connectionString))
@@ -197,7 +197,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataTableModels()
         {
             using (var con = new SqlConnection(connectionString))
@@ -226,7 +226,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataSetModel()
         {
             using (var con = new SqlConnection(connectionString))
@@ -262,7 +262,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataSetModels()
         {
             using (var con = new SqlConnection(connectionString))
@@ -290,7 +290,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataSetModelsMultipleDataTables()
         {
             using (var con = new SqlConnection(connectionString))

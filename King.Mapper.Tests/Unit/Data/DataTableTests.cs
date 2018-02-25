@@ -1,30 +1,30 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Linq;
     using System.Data;
     using King.Mapper.Tests.Models;
 
-    [TestFixture]
+    [TestClass]
     public class DataTableTests
     {
-        [Test]
+        [TestMethod]
         public void ModelsTableNull()
         {
             DataTable table = null;
-            Assert.That(() => table.Models<object>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => table.Models<object>());
         }
 
-        [Test]
+        [TestMethod]
         public void ModelTableNull()
         {
             DataTable table = null;
-            Assert.That(() => table.Model<object>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => table.Model<object>());
         }
 
-        [Test]
+        [TestMethod]
         public void Model()
         {
             var dataset = LoadData();
@@ -34,7 +34,7 @@
             Assert.AreNotEqual(Guid.Empty, filled.Song);
         }
 
-        [Test]
+        [TestMethod]
         public void Models()
         {
             var dataset = LoadData();
@@ -50,21 +50,21 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public void DictionaryTableNull()
         {
             DataTable table = null;
-            Assert.That(() => table.Dictionary(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => table.Dictionary());
         }
 
-        [Test]
+        [TestMethod]
         public void DictionariesTableNull()
         {
             DataTable table = null;
-            Assert.That(() => table.Dictionaries(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => table.Dictionaries());
         }
 
-        [Test]
+        [TestMethod]
         public void Dictionary()
         {
             var dataset = LoadData();
@@ -74,7 +74,7 @@
             Assert.AreNotEqual(Guid.Empty, filled["Song"]);
         }
 
-        [Test]
+        [TestMethod]
         public void Dictionaries()
         {
             var dataset = LoadData();
@@ -90,21 +90,21 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public void DynamicTableNull()
         {
             DataTable table = null;
-            Assert.That(() => table.Dynamic(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => table.Dynamic());
         }
 
-        [Test]
+        [TestMethod]
         public void DynamicsTableNull()
         {
             DataTable table = null;
-            Assert.That(() => table.Dynamics(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => table.Dynamics());
         }
 
-        [Test]
+        [TestMethod]
         public void Dynamic()
         {
             var dataset = LoadData();
@@ -114,7 +114,7 @@
             Assert.AreNotEqual(Guid.Empty, filled.Song);
         }
 
-        [Test]
+        [TestMethod]
         public void Dynamics()
         {
             var data = LoadData();

@@ -10,27 +10,27 @@
 namespace King.Mapper.Generated.Sql
 {
     using King.Mapper.Data;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Data;
     using System.Linq;
 
-	[TestFixture]
+	[TestClass]
 	public class DboMultipledatasetstatementTests
 	{
-		[Test]
+		[TestMethod]
 		public void Constructor()
 		{
 			new dboMultipleDataSetStatement();
 		}
 		
-		[Test]
+		[TestMethod]
 		public void IsIStoredProcedure()
 		{
 			Assert.IsNotNull(new dboMultipleDataSetStatement() as IStoredProcedure); 
 		}
 		
-		[Test]
+		[TestMethod]
 		public void FullyQualifiedName()
 		{
 			var item = new dboMultipleDataSetStatement();
@@ -41,22 +41,22 @@ namespace King.Mapper.Generated.Sql
 		#endregion
 	}
 
-	[TestFixture]
+	[TestClass]
 	public class DboSelectmultiplestatementTests
 	{
-		[Test]
+		[TestMethod]
 		public void Constructor()
 		{
 			new dboSelectMultipleStatement();
 		}
 		
-		[Test]
+		[TestMethod]
 		public void IsIStoredProcedure()
 		{
 			Assert.IsNotNull(new dboSelectMultipleStatement() as IStoredProcedure); 
 		}
 		
-		[Test]
+		[TestMethod]
 		public void FullyQualifiedName()
 		{
 			var item = new dboSelectMultipleStatement();
@@ -67,22 +67,22 @@ namespace King.Mapper.Generated.Sql
 		#endregion
 	}
 
-	[TestFixture]
+	[TestClass]
 	public class DboSimulatedinsertstatementTests
 	{
-		[Test]
+		[TestMethod]
 		public void Constructor()
 		{
 			new dboSimulatedInsertStatement();
 		}
 		
-		[Test]
+		[TestMethod]
 		public void IsIStoredProcedure()
 		{
 			Assert.IsNotNull(new dboSimulatedInsertStatement() as IStoredProcedure); 
 		}
 		
-		[Test]
+		[TestMethod]
 		public void FullyQualifiedName()
 		{
 			var item = new dboSimulatedInsertStatement();
@@ -90,7 +90,7 @@ namespace King.Mapper.Generated.Sql
 		}
 		
 		#region Property Tests
-		[Test]
+		[TestMethod]
 		public void TestintGetSet()
 		{
 			var item = new dboSimulatedInsertStatement();
@@ -99,7 +99,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestInt);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestintDataMapper()
 		{
 			var item = new dboSimulatedInsertStatement();
@@ -116,22 +116,22 @@ namespace King.Mapper.Generated.Sql
 		#endregion
 	}
 
-	[TestFixture]
+	[TestClass]
 	public class DboSimulatedselectstatementTests
 	{
-		[Test]
+		[TestMethod]
 		public void Constructor()
 		{
 			new dboSimulatedSelectStatement();
 		}
 		
-		[Test]
+		[TestMethod]
 		public void IsIStoredProcedure()
 		{
 			Assert.IsNotNull(new dboSimulatedSelectStatement() as IStoredProcedure); 
 		}
 		
-		[Test]
+		[TestMethod]
 		public void FullyQualifiedName()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -139,7 +139,7 @@ namespace King.Mapper.Generated.Sql
 		}
 		
 		#region Property Tests
-		[Test]
+		[TestMethod]
 		public void TestintGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -148,7 +148,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestInt);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestintDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -162,7 +162,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.Int32, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestbigintGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -171,7 +171,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestBigInt);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestbigintDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -185,7 +185,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.Int64, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestbitGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -194,7 +194,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestBit);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestbitDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -208,7 +208,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.Boolean, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestdecimalGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -217,7 +217,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestDecimal);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestdecimalDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -231,7 +231,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.Decimal, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestmoneyGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -240,7 +240,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestMoney);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestmoneyDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -254,7 +254,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.Currency, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestfloatGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -263,7 +263,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestFloat);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestfloatDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -277,7 +277,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.Single, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestdateGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -286,7 +286,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestDate);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestdateDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -300,7 +300,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.Date, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void Testdatetime2GetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -309,7 +309,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestDateTime2);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void Testdatetime2DataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -323,7 +323,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.DateTime2, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestdatetimeGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -332,7 +332,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestDateTime);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestdatetimeDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -346,7 +346,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.DateTime, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestcharGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -355,7 +355,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestChar);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestcharDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -369,7 +369,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.String, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TesttextGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -378,7 +378,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestText);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TesttextDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -392,7 +392,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.String, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestncharGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -401,7 +401,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestNChar);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestncharDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -415,7 +415,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.String, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestntextGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -424,7 +424,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestNText);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestntextDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -438,7 +438,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.String, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestbinaryGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -447,7 +447,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestBinary);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestbinaryDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -461,7 +461,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.Binary, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestimageGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -470,7 +470,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestImage);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestimageDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -484,7 +484,7 @@ namespace King.Mapper.Generated.Sql
             Assert.AreEqual(DbType.Binary, mapper.DatabaseType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestguidGetSet()
 		{
 			var item = new dboSimulatedSelectStatement();
@@ -493,7 +493,7 @@ namespace King.Mapper.Generated.Sql
 			Assert.AreEqual(expected, item.TestGuid);
 		}
 		
-		[Test]
+		[TestMethod]
 		public void TestguidDataMapper()
 		{
 			var item = new dboSimulatedSelectStatement();

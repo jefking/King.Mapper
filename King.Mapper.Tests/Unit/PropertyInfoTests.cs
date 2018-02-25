@@ -1,29 +1,29 @@
 ﻿namespace King.Mapper.Tests
 {
     using King.Mapper.Tests.Models;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Linq;
     using System.Reflection;
 
-    [TestFixture]
+    [TestClass]
     public class PropertyInfoTests
     {
-        [Test]
+        [TestMethod]
         public void GetAttributesPropertyNull()
         {
             PropertyInfo info = null;
-            Assert.That(() => info.GetAttributes<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => info.GetAttributes<ActionNameAttribute>());
         }
 
-        [Test]
+        [TestMethod]
         public void GetAttributePropertyNull()
         {
             PropertyInfo info = null;
-            Assert.That(() => info.GetAttribute<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => info.GetAttribute<ActionNameAttribute>());
         }
 
-        [Test]
+        [TestMethod]
         public void GetAttributes()
         {
             var info = (from p in typeof(TestActionNames).GetProperties()
@@ -46,7 +46,7 @@
             Assert.IsNotNull(action);
         }
 
-        [Test]
+        [TestMethod]
         public void GetAttribute()
         {
             var info = (from p in typeof(TestActionNames).GetProperties()
@@ -61,28 +61,28 @@
             Assert.AreEqual(ActionFlags.Execute, action.Action);
         }
 
-        [Test]
+        [TestMethod]
         public void GetAttributesNull()
         {
             PropertyInfo info = null;
-            Assert.That(() => info.GetAttribute<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => info.GetAttribute<ActionNameAttribute>());
         }
 
-        [Test]
+        [TestMethod]
         public void SetPropertyNull()
         {
             PropertyInfo info = null;
-            Assert.That(() => info.Set(new object()), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => info.Set(new object()));
         }
 
-        [Test]
+        [TestMethod]
         public void SetOwnerNull()
         {
             var info = typeof(FillObject).GetProperties()[0];
-            Assert.That(() => info.Set(null), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => info.Set(null));
         }
 
-        [Test]
+        [TestMethod]
         public void SetPropertyNullableGuid()
         {
             var data = new FillObject();
@@ -93,7 +93,7 @@
             Assert.IsNull(data.TheGuid);
         }
 
-        [Test]
+        [TestMethod]
         public void SetPropertyGuid()
         {
             var expected = Guid.NewGuid();
@@ -106,7 +106,7 @@
             Assert.AreEqual(expected, data.Song);
         }
 
-        [Test]
+        [TestMethod]
         public void SetPropertyNullableEnum()
         {
             var data = new FillObject();
@@ -117,7 +117,7 @@
             Assert.IsNull(data.NullableEnum);
         }
 
-        [Test]
+        [TestMethod]
         public void SetPropertyEnum()
         {
             var expected = HappyLand.MarioLand;

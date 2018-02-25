@@ -1,19 +1,19 @@
 ﻿namespace King.Mapper.Tests
 {
     using System;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    [TestFixture]
+    [TestClass]
     public class ObjectArrayTests
     {
-        [Test]
+        [TestMethod]
         public void GetAttributeAttributesNull()
         {
             object[] attrs = null;
-            Assert.That(() => attrs.GetAttribute<ActionNameAttribute>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => attrs.GetAttribute<ActionNameAttribute>());
         }
 
-        [Test]
+        [TestMethod]
         public void GetAttribute()
         {
             var attrs = new Attribute[] { new ActionNameAttribute("test", ActionFlags.Execute), new ActionNameAttribute("fail") };

@@ -1,27 +1,27 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NSubstitute;
     using System;
     using System.Data.SqlClient;
 
-    [TestFixture]
+    [TestClass]
     public class IStoredProcedureTests
     {
-        [Test]
+        [TestMethod]
         public void BuildSprocNull()
         {
             IStoredProcedure sproc = null;
             var connection = new SqlConnection();
-            Assert.That(() => sproc.Build(connection), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => sproc.Build(connection));
         }
 
-        [Test]
+        [TestMethod]
         public void BuildConnectionNull()
         {
             var sproc = Substitute.For<IStoredProcedure>();
-            Assert.That(() => sproc.Build(null), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => sproc.Build(null));
         }
     }
 }

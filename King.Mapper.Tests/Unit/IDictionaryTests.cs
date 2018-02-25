@@ -1,22 +1,22 @@
 ﻿namespace King.Mapper.Tests
 {
     using King.Mapper.Tests.Models;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Collections.Generic;
     using System.Text;
 
-    [TestFixture]
+    [TestClass]
     public class IDictionaryTests
     {
-        [Test]
+        [TestMethod]
         public void MapDictionaryNull()
         {
             IDictionary<string, int> dic = null;
-            Assert.That(() => dic.Map<object>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => dic.Map<object>());
         }
 
-        [Test]
+        [TestMethod]
         public void MapDictionary()
         {
             var random = new Random();
@@ -55,14 +55,14 @@
             Assert.AreEqual(expected.TheGuid, returned.TheGuid);
         }
 
-        [Test]
+        [TestMethod]
         public void MapNull()
         {
             IDictionary<string, object> dic = null;
-            Assert.That(() => dic.Map(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => dic.Map());
         }
 
-        [Test]
+        [TestMethod]
         public void Map()
         {
             var random = new Random();

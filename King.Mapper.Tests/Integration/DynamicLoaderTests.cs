@@ -3,21 +3,21 @@
     using King.Mapper.Data;
     using King.Mapper.Generated.Sql;
     using King.Mapper.Integration.Model;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Data;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
     using Test.Integration;
 
-    [TestFixture]
+    [TestClass]
     public class DynamicLoaderTests
     {
         #region Members
         private readonly string connectionString = Configuration.ConnectionString;
         #endregion
 
-        [Test]
+        [TestMethod]
         public async Task DataTableDictionary()
         {
             using (var con = new SqlConnection(connectionString))
@@ -43,7 +43,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj["DateTime"]).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj["DateTime2"]).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj["Decimal"]);
-                Assert.AreEqual(sproc.TestFloat, obj["Float"]);
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round((double)obj["Float"], 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj["Money"]);
                 Assert.AreEqual(sproc.TestNChar, obj["NChar"]);
                 Assert.AreEqual(sproc.TestNText, obj["NText"]);
@@ -54,7 +54,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataTableDictionaries()
         {
             using (var con = new SqlConnection(connectionString))
@@ -82,7 +82,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataTableDynamic()
         {
             using (var con = new SqlConnection(connectionString))
@@ -108,7 +108,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj.DateTime).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj.DateTime2).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
-                Assert.AreEqual(sproc.TestFloat, obj.Float);
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round(obj.Float, 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
@@ -119,7 +119,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataTableDynamics()
         {
             using (var con = new SqlConnection(connectionString))
@@ -147,7 +147,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataSetDictionary()
         {
             var loader = new DynamicLoader();
@@ -172,7 +172,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj["DateTime"]).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj["DateTime2"]).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj["Decimal"]);
-                Assert.AreEqual(sproc.TestFloat, obj["Float"]);
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round((double)obj["Float"], 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj["Money"]);
                 Assert.AreEqual(sproc.TestNChar, obj["NChar"]);
                 Assert.AreEqual(sproc.TestNText, obj["NText"]);
@@ -183,7 +183,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataSetDictionaries()
         {
             using (var con = new SqlConnection(connectionString))
@@ -211,7 +211,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataReaderDictionary()
         {
             using (var con = new SqlConnection(connectionString))
@@ -234,7 +234,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj["DateTime"]).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj["DateTime2"]).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj["Decimal"]);
-                Assert.AreEqual(sproc.TestFloat, obj["Float"]);
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round((double)obj["Float"], 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj["Money"]);
                 Assert.AreEqual(sproc.TestNChar, obj["NChar"]);
                 Assert.AreEqual(sproc.TestNText, obj["NText"]);
@@ -245,7 +245,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataReaderDictionaries()
         {
             using (var con = new SqlConnection(connectionString))
@@ -271,7 +271,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task IDbCommandDictionary()
         {
             using (var con = new SqlConnection(connectionString))
@@ -292,7 +292,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj["DateTime"]).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj["DateTime2"]).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj["Decimal"]);
-                Assert.AreEqual(sproc.TestFloat, obj["Float"]);
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round((double)obj["Float"], 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj["Money"]);
                 Assert.AreEqual(sproc.TestNChar, obj["NChar"]);
                 Assert.AreEqual(sproc.TestNText, obj["NText"]);
@@ -303,7 +303,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task IDbCommandDictionaries()
         {
             using (var con = new SqlConnection(connectionString))
@@ -327,7 +327,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataSetDynamic()
         {
             using (var con = new SqlConnection(connectionString))
@@ -352,7 +352,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj.DateTime).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj.DateTime2).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
-                Assert.AreEqual(sproc.TestFloat, obj.Float);
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round(obj.Float, 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
@@ -363,7 +363,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task DataSetDynamics()
         {
             using (var con = new SqlConnection(connectionString))
@@ -391,7 +391,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task IDataReaderDynamic()
         {
             var loader = new DynamicLoader();
@@ -414,7 +414,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj.DateTime).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj.DateTime2).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
-                Assert.AreEqual(sproc.TestFloat, obj.Float);
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round(obj.Float, 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
@@ -425,7 +425,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task IDataReaderDynamics()
         {
             var sproc = new dboSelectMultipleStatement();
@@ -450,7 +450,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task IDbCommandDynamic()
         {
             var loader = new DynamicLoader();
@@ -471,7 +471,7 @@
                 Assert.AreEqual(sproc.TestDateTime.Value.Date, ((DateTime)obj.DateTime).Date);
                 Assert.AreEqual(sproc.TestDateTime2.Value.Date, ((DateTime)obj.DateTime2).Date);
                 Assert.AreEqual(sproc.TestDecimal, obj.Decimal);
-                Assert.AreEqual(sproc.TestFloat, obj.Float);
+                Assert.AreEqual<float>(sproc.TestFloat.Value.GetHashCode(), ((float)Math.Round(obj.Float, 7)).GetHashCode());
                 Assert.AreEqual(Math.Round((decimal)sproc.TestMoney, 4), obj.Money);
                 Assert.AreEqual(sproc.TestNChar, obj.NChar);
                 Assert.AreEqual(sproc.TestNText, obj.NText);
@@ -482,7 +482,7 @@
             }
         }
 
-        [Test]
+        [TestMethod]
         public async Task IDbCommandDynamics()
         {
             var sproc = new dboSelectMultipleStatement();

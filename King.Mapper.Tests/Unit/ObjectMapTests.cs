@@ -1,34 +1,34 @@
 ﻿namespace King.Mapper.Tests
 {
     using King.Mapper.Tests.Models;
-    using NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
 
-    [TestFixture]
+    [TestClass]
     public class ObjectMapTests
     {
-        [Test]
+        [TestMethod]
         public void MapFromToFromNull()
         {
             object obj = null;
-            Assert.That(() => obj.Map<object>(new Object()), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Map<object>(new Object()));
         }
 
-        [Test]
+        [TestMethod]
         public void MapFromToToNull()
         {
             var obj = new object();
-            Assert.That(() => obj.Map<object>(null), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Map<object>(null));
         }
 
-        [Test]
+        [TestMethod]
         public void MapFromFromNull()
         {
             object obj = null;
-            Assert.That(() => obj.Map<object>(), Throws.TypeOf<ArgumentNullException>());
+            Assert.ThrowsException<ArgumentNullException>(() => obj.Map<object>());
         }
 
-        [Test]
+        [TestMethod]
         public void MapFromTo()
         {
             var item = new MappingTester()
@@ -41,7 +41,7 @@
             Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [Test]
+        [TestMethod]
         public void MapFrom()
         {
             var item = new MappingTester()
@@ -55,7 +55,7 @@
             Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [Test]
+        [TestMethod]
         public void MapString()
         {
             var item = new MappingStringTester()
@@ -69,7 +69,7 @@
             Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [Test]
+        [TestMethod]
         public void MapObject()
         {
             var item = new MappingObjectTester()
@@ -83,7 +83,7 @@
             Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [Test]
+        [TestMethod]
         public void MapStringToObject()
         {
             var item = new MappingStringTester()
@@ -97,7 +97,7 @@
             Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [Test]
+        [TestMethod]
         public void MapNullObjectToString()
         {
             var item = new MappingObjectTester();
@@ -108,7 +108,7 @@
             Assert.AreEqual(item.Temp, data.Temp);
         }
 
-        [Test]
+        [TestMethod]
         public void MapNullStringToObject()
         {
             var item = new MappingStringTester();
