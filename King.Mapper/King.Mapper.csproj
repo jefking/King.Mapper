@@ -4,8 +4,8 @@
     <TargetFrameworks>netstandard2.0;net46;net461;net462</TargetFrameworks>
     <Authors>Jef King</Authors>
     <Company />
-    <Version>3.0.2</Version>
-    <Description>Simple and performant model mapping</Description>
+    <Version>3.0.3</Version>
+    <Description>Simple &amp; performant model mapping</Description>
     <Copyright>Copyright © Jef King 2018</Copyright>
     <PackageProjectUrl>https://github.com/jefking/King.Mapper/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/jefking/King.Mapper</RepositoryUrl>
@@ -15,12 +15,18 @@
     <PackageTags>king.mapper,orm,data,mapping,mapper,performance,dynamic,dictionary,fast,transformation,configuration,sql,sql server,data-table,data,data-reader,t-sql,set,table,reader,object,model,linux,windows,mac,portable</PackageTags>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <PackageIconUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
