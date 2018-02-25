@@ -14,5 +14,7 @@ PM> Install-Package King.Mapper
 View the wiki to learn how to use this.
 
 ### Frameworks
-+ .NET 4.6+
-+ Net Standard 2.0
++ .NET 4.6
++ .NET 4.7
++ .Net Core
++ .Net Standard 2.0
