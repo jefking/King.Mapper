@@ -1,10 +1,9 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using NSubstitute;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NSubstitute;
     using System;
-    using System.Data;
     using System.Data.SqlClient;
 
     [TestClass]
