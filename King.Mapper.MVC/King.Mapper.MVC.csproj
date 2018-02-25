@@ -51,7 +51,7 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="King.Mapper">
-      <HintPath>..\packages\King.Mapper.2.0.3\lib\net462\King.Mapper.dll</HintPath>
+      <HintPath>..\packages\King.Mapper.3.0.1\lib\net462\King.Mapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
