@@ -12,8 +12,8 @@
     <Copyright>© Jef King 2019</Copyright>
     <PackageProjectUrl>https://github.com/jefking/King.Mapper</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png</PackageIconUrl>
-    <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/jefking/King.Mapper</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   

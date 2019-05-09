@@ -8,13 +8,13 @@
     <FileVersion>3.0.4</FileVersion>
     <Description>Simple &amp; performant model mapping</Description>
     <Copyright>© Jef King 2019</Copyright>
-    <PackageProjectUrl>https://github.com/jefking/King.Mapper/wiki</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/jefking/King.Mapper</RepositoryUrl>
     <PackageTags>king.mapper,orm,data,mapping,mapper,performance,dynamic,dictionary,fast,transformation,configuration,sql,sql server,data-table,data,data-reader,t-sql,set,table,reader,object,model,linux,windows,mac,portable</PackageTags>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <PackageProjectUrl>https://github.com/jefking/King.Mapper/wiki</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jefking/King.Mapper</RepositoryUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png</PackageIconUrl>
+    <licenseUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/LICENSE</licenseUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
