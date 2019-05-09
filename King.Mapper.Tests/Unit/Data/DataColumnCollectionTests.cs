@@ -1,18 +1,18 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
     using System.Data;
 
-    [TestClass]
+    [TestFixture]
     public class DataColumnCollectionTests
     {
-        [TestMethod]
+        [Test]
         public void ToArrayCollectionNull()
         {
             DataColumnCollection col = null;
-            Assert.ThrowsException<ArgumentNullException>(() => col.ToArray());
+            Assert.That(() => col.ToArray(), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }

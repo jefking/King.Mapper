@@ -1,17 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net46;net461;net462;net47;net471;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp2.1</TargetFrameworks>
     <Authors>Jef King</Authors>
-    <Company />
-    <Version>3.0.3</Version>
+    <Version>3.0.4</Version>
+    <AssemblyVersion>3.0.4</AssemblyVersion>
+    <FileVersion>3.0.4</FileVersion>
     <Description>Simple &amp; performant model mapping</Description>
-    <Copyright>Copyright © Jef King 2018</Copyright>
+    <Copyright>© Jef King 2019</Copyright>
     <PackageProjectUrl>https://github.com/jefking/King.Mapper/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/jefking/King.Mapper</RepositoryUrl>
-    <AssemblyVersion>2.1.0.0</AssemblyVersion>
-    <FileVersion>2.1.0.0</FileVersion>
-    <PackageReleaseNotes>.NET Standard release.</PackageReleaseNotes>
     <PackageTags>king.mapper,orm,data,mapping,mapper,performance,dynamic,dictionary,fast,transformation,configuration,sql,sql server,data-table,data,data-reader,t-sql,set,table,reader,object,model,linux,windows,mac,portable</PackageTags>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <PackageIconUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/icon.png</PackageIconUrl>
@@ -19,22 +17,7 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/jefking/King.Mapper/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsAsErrors />
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <Optimize>true</Optimize>
-  </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="System.Data.SqlClient" Version="4.4.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0-preview5.19224.8" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
 </Project>

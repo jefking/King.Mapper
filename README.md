@@ -13,8 +13,5 @@ PM> Install-Package King.Mapper
 ### [Wiki](https://github.com/jefking/King.Mapper/wiki)
 View the wiki to learn how to use this.
 
-### Frameworks
-+ .NET 4.6
-+ .NET 4.7
-+ .Net Core
-+ .Net Standard 2.0
+### CI
+[![Build status](https://dev.azure.com/jefkin/oss/_apis/build/status/King.Mapper)](https://dev.azure.com/jefkin/oss/_build/latest?definitionId=14)

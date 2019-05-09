@@ -2,25 +2,25 @@
 {
     using King.Mapper;
     using King.Mapper.Tests.Models;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
 
-    [TestClass]
+    [TestFixture]
     public class ActionNameAttributeTests
     {
-        [TestMethod]
+        [Test]
         public void ConstructorInvalidName()
         {
-            Assert.ThrowsException<ArgumentException>(() => new ActionNameAttribute(null));
+            Assert.That(() => new ActionNameAttribute(null), Throws.TypeOf<ArgumentException>());
         }
 
-        [TestMethod]
+        [Test]
         public void Constructor()
         {
             new ActionNameAttribute(Guid.NewGuid().ToString(), ActionFlags.Execute);
         }
 
-        [TestMethod]
+        [Test]
         public void Name()
         {
             var data = Guid.NewGuid().ToString();
@@ -28,7 +28,7 @@
             Assert.AreEqual(data, actionName.Name);
         }
 
-        [TestMethod]
+        [Test]
         public void Action()
         {
             var data = ActionFlags.Execute;
@@ -36,14 +36,14 @@
             Assert.AreEqual(data, actionName.Action);
         }
 
-        [TestMethod]
+        [Test]
         public void ActionDefault()
         {
             var actionName = new ActionNameAttribute(Guid.NewGuid().ToString());
             Assert.AreEqual(ActionFlags.Load, actionName.Action);
         }
 
-        [TestMethod]
+        [Test]
         public void ValueMappingTestActionNames()
         {
             var random = new Random();

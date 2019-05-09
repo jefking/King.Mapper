@@ -2,65 +2,65 @@
 {
     using King.Mapper.Data;
     using NSubstitute;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
 
-    [TestClass]
+    [TestFixture]
     public class IDataReaderTests
     {
-        [TestMethod]
+        [Test]
         public void ModelReaderNull()
         {
             IDataReader reader = null;
-            Assert.ThrowsException<ArgumentNullException>(() => reader.Model<object>());
+            Assert.That(() => reader.Model<object>(), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void ModelsReaderNull()
         {
             IDataReader reader = null;
-            Assert.ThrowsException<ArgumentNullException>(() => reader.Models<object>());
+            Assert.That(() => reader.Models<object>(), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void DictionaryReaderNull()
         {
             IDataReader reader = null;
-            Assert.ThrowsException<ArgumentNullException>(() => reader.Dictionary());
+            Assert.That(() => reader.Dictionary(), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void DictionariesReaderNull()
         {
             IDataReader reader = null;
-            Assert.ThrowsException<ArgumentNullException>(() => reader.Dictionaries());
+            Assert.That(() => reader.Dictionaries(), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void DynamicReaderNull()
         {
             IDataReader reader = null;
-            Assert.ThrowsException<ArgumentNullException>(() => reader.Dynamic());
+            Assert.That(() => reader.Dynamic(), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void DynamicsReaderNull()
         {
             IDataReader reader = null;
-            Assert.ThrowsException<ArgumentNullException>(() => reader.Dynamics());
+            Assert.That(() => reader.Dynamics(), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void GetFieldNamesReaderNull()
         {
             IDataReader reader = null;
-            Assert.ThrowsException<ArgumentNullException>(() => reader.GetFieldNames());
+            Assert.That(() => reader.GetFieldNames(), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void GetFieldNames()
         {
             var random = new Random();

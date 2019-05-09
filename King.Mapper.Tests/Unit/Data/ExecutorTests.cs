@@ -1,89 +1,89 @@
 ﻿namespace King.Mapper.Tests.Data
 {
     using King.Mapper.Data;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using NSubstitute;
     using System;
     using System.Data.SqlClient;
 
-    [TestClass]
+    [TestFixture]
     public class ExecutorTests
     {
-        [TestMethod]
+        [Test]
         public void Constructor()
         {
             var connection = new SqlConnection();
             new Executor(connection);
         }
 
-        [TestMethod]
+        [Test]
         public void IsIExecutor()
         {
             var connection = new SqlConnection();
             Assert.IsNotNull(new Executor(connection) as IExecutor);
         }
 
-        [TestMethod]
+        [Test]
         public void ConstructorConnectionNull()
         {
             var sproc = Substitute.For<IStoredProcedure>();
-            Assert.ThrowsException<ArgumentNullException>(() => new Executor(null));
+            Assert.That(() => new Executor(null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void NonQuerySprocNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await e.NonQuery((IStoredProcedure)null));
+            Assert.That(async () => await e.NonQuery((IStoredProcedure)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void NonQueryCommandNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await e.NonQuery((SqlCommand)null));
+            Assert.That(async () => await e.NonQuery((SqlCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void NonQueryStatementNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            Assert.ThrowsExceptionAsync<ArgumentException>(async () => await e.NonQuery((string)null));
+            Assert.That(async () => await e.NonQuery((string)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void QuerySprocNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await e.Query((IStoredProcedure)null));
+            Assert.That(async () => await e.Query((IStoredProcedure)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void QueryCommandNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await e.Query((SqlCommand)null));
+            Assert.That(async () => await e.Query((SqlCommand)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void QueryStatementNull()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            Assert.ThrowsExceptionAsync<ArgumentException>(async () => await e.Query((string)null));
+            Assert.That(async () => await e.Query((string)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [TestMethod]
+        [Test]
         public void DataReader()
         {
             var connection = new SqlConnection();
             var e = new Executor(connection);
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await e.DataReader(null));
+            Assert.That(async () => await e.DataReader(null), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }

@@ -2,20 +2,20 @@
 {
     using King.Mapper.Data;
     using King.Mapper.Integration.Model;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using System;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
     using Test.Integration;
 
-    [TestClass]
+    [TestFixture]
     public class IDataRecordTests
     {
         #region Members
         private readonly string connectionString = Configuration.ConnectionString;
         #endregion
 
-        [TestMethod]
+        [Test]
         public async Task Get()
         {
             using (var con = new SqlConnection(connectionString))
